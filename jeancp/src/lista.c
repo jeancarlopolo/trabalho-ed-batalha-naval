@@ -96,12 +96,14 @@ Posic insert(Lista L, Item info)
             ponteiroaux->prox = elemento;
             elemento->ant = ponteiroaux;
             elemento->info = info;
-            return elemento->posicao = (ponteiroaux->posicao) + 1;
+            elemento->posicao = (ponteiroaux->posicao) + 1;
+            return elemento;
         }
         else
         {
             ponteiroaux->info = info;
-            return ponteiroaux->posicao = 1;
+            ponteiroaux->posicao = 1;
+            return ponteiroaux;
         };
     };
 };
@@ -141,5 +143,95 @@ void remove(Lista L, Posic p)
         ponteiroaux->ant->prox = ponteiroaux->prox;
         ponteiroaux->prox->ant = ponteiroaux->ant;
         free(ponteiroaux);
+    };
+};
+
+Item get(Lista L, Posic p)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (!isEmpty(L))
+    {
+        while (ponteiroaux->posicao < p && ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        if (ponteiroaux->posicao < p)
+        {
+            return NULL;
+        }
+        else
+        {
+            return ponteiroaux->info;
+        };
+    };
+};
+
+Posic insertBefore(Lista L, Posic p, Item info)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (isFull(ponteiro))
+    {
+        return NIL;
+    }
+    else
+    {
+        while (ponteiroaux->posicao < p && ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        if (ponteiroaux->posicao < p)
+        {
+            return NIL;
+        };
+        struct listabase *elemento = malloc(sizeof(struct listabase));
+        elemento->info = info;
+        elemento->prox = ponteiroaux;
+        elemento->ant = ponteiroaux->ant;
+        ponteiroaux->ant->prox = elemento;
+        ponteiroaux->ant = elemento;
+        elemento->posicao = p;
+        while (ponteiroaux->prox != NULL)
+        {
+            ponteiroaux->posicao = ponteiroaux->posicao + 1;
+            ponteiroaux = ponteiroaux->prox;
+        };
+        return elemento;
+    };
+};
+
+Posic insertAfter(Lista L, Posic p, Item info)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (isFull(ponteiro))
+    {
+        return NIL;
+    }
+    else
+    {
+        while (ponteiroaux->posicao < p && ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        if (ponteiroaux->posicao < p)
+        {
+            return NIL;
+        };
+        struct listabase *elemento = malloc(sizeof(struct listabase));
+        elemento->info = info;
+        elemento->prox = ponteiroaux->prox;
+        elemento->ant = ponteiroaux;
+        ponteiroaux->prox->ant = elemento;
+        ponteiroaux->prox = elemento;
+        elemento->posicao = p + 1;
+        ponteiroaux = elemento->prox;
+        while (ponteiroaux->prox != NULL)
+        {
+            ponteiroaux->posicao = ponteiroaux->posicao + 1;
+            ponteiroaux = ponteiroaux->prox;
+        };
+        return elemento;
     };
 };
