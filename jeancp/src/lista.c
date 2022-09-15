@@ -5,4 +5,5 @@
 struct lista {
     int info;
     struct lista *prox;
+    struct lista *ant;
 };
