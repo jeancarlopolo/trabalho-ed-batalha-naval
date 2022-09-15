@@ -122,4 +122,24 @@ Item pop(Lista L)
         free(ponteiroaux);
         return elemento;
     }
-}
+};
+
+void remove(Lista L, Posic p)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (!isEmpty(L))
+    {
+        while (ponteiroaux->posicao < p && ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        if (ponteiroaux->posicao < p)
+        {
+            return;
+        };
+        ponteiroaux->ant->prox = ponteiroaux->prox;
+        ponteiroaux->prox->ant = ponteiroaux->ant;
+        free(ponteiroaux);
+    };
+};
