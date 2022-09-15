@@ -235,3 +235,100 @@ Posic insertAfter(Lista L, Posic p, Item info)
         return elemento;
     };
 };
+
+Posic getFirst(Lista L)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (!isEmpty(L))
+    {
+        while (ponteiroaux->ant != NULL)
+        {
+            ponteiroaux = ponteiroaux->ant;
+        };
+        return ponteiroaux;
+    }
+    else
+    {
+        return NIL;
+    };
+};
+
+Posic getNext(Lista L, Posic p)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (!isEmpty(L))
+    {
+        while (ponteiroaux->posicao < p && ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        if (ponteiroaux->posicao < p)
+        {
+            return NIL;
+        };
+        return ponteiroaux->prox;
+    }
+    else
+    {
+        return NIL;
+    };
+};
+
+Posic getLast(Lista L)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (!isEmpty(L))
+    {
+        while (ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        return ponteiroaux;
+    }
+    else
+    {
+        return NIL;
+    };
+};
+
+Posic getPrevious(Lista L, Posic p)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (!isEmpty(L))
+    {
+        while (ponteiroaux->posicao < p && ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        if (ponteiroaux->posicao < p)
+        {
+            return NIL;
+        };
+        return ponteiroaux->ant;
+    }
+    else
+    {
+        return NIL;
+    };
+};
+
+void killLista(Lista L)
+{
+    struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
+    while (ponteiroaux->prox != NULL)
+    {
+        ponteiroaux = ponteiroaux->prox;
+    };
+    while (ponteiroaux->ant != NULL)
+    {
+        ponteiroaux = ponteiroaux->ant;
+        free(ponteiroaux->prox);
+    };
+    free(ponteiroaux);
+    free(ponteiro);
+};
