@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "lista.h"
 
-struct lista
-{
-    /* data */
+struct lista {
+    int info;
+    struct lista *prox;
 };
