@@ -36,11 +36,12 @@ Lista createLista(int capacidade)
 int length(Lista L)
 {
     struct lista *ponteiro = L;
-    while (ponteiro->l->prox != NULL)
+    struct listabase *ponteiroaux = ponteiro->l;
+    while (ponteiroaux->prox != NULL)
     {
-        ponteiro = ponteiro->l->prox;
+        ponteiroaux = ponteiroaux->prox;
     };
-    return ponteiro->l->posicao;
+    return ponteiroaux->posicao;
 };
 
 int maxLength(Lista L)
@@ -79,22 +80,30 @@ Posic insert(Lista L, Item info)
 {
     struct lista *ponteiro = L;
     struct listabase *elemento = malloc(sizeof(struct listabase));
-    while (ponteiro->l->prox != NULL)
+    struct listabase *ponteiroaux = ponteiro->l;
+    if (isFull(ponteiro))
     {
-        ponteiro = ponteiro->l->prox;
-    };
-    ponteiro->l->prox = elemento;
-    elemento->ant = ponteiro->l;
-    elemento->info = info;
-    if (ponteiro->l->posic != NIL)
-    {
-        elemento->posicao = ponteiro->l->posic + 1;
+        return NIL;
     }
     else
     {
-        elemento->posicao = NIL;
-    }
-    return elemento->posicao;
+        while (ponteiroaux->prox != NULL)
+        {
+            ponteiroaux = ponteiroaux->prox;
+        };
+        ponteiroaux->prox = elemento;
+        elemento->ant = ponteiroaux;
+        elemento->info = info;
+        if (ponteiroaux->posicao != NIL)
+        {
+            elemento->posicao = (ponteiroaux->posicao) + 1;
+        }
+        else
+        {
+            elemento->posicao = 1;
+        }
+        return elemento->posicao;
+    };
 };
 
 Item pop(Lista L)
