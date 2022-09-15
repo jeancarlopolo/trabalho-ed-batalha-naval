@@ -17,7 +17,7 @@ typedef void *Lista;
 typedef void *Posic;
 typedef void *Item;
 
-#define NIL NULL;
+#define NIL NULL
 #define CAPAC_ILIMITADA -1
 
 /** Retorna uma lista vazia. A lista pode definir um limite maximo de 
