@@ -110,12 +110,16 @@ Item pop(Lista L)
 {
     Item elemento;
     struct lista *ponteiro = L;
+    struct listabase *ponteiroaux = ponteiro->l;
     if (!isEmpty(L))
     {
-        while (ponteiro->l->posicao > 1)
+        while (ponteiroaux->posicao > 1)
         {
-            ponteiro = ponteiro->l->ant;
+            ponteiroaux = ponteiroaux->ant;
         };
-        Item elemento = ponteiro->l->info;
+        Item elemento = ponteiroaux->info;
+        ponteiroaux->prox->ant = NIL;
+        free(ponteiroaux);
+        return elemento;
     }
 }
