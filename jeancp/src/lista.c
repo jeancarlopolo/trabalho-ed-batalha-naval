@@ -79,7 +79,6 @@ bool isFull(Lista L)
 Posic insert(Lista L, Item info)
 {
     struct lista *ponteiro = L;
-    struct listabase *elemento = malloc(sizeof(struct listabase));
     struct listabase *ponteiroaux = ponteiro->l;
     if (isFull(ponteiro))
     {
@@ -91,18 +90,19 @@ Posic insert(Lista L, Item info)
         {
             ponteiroaux = ponteiroaux->prox;
         };
-        ponteiroaux->prox = elemento;
-        elemento->ant = ponteiroaux;
-        elemento->info = info;
         if (ponteiroaux->posicao != NIL)
         {
-            elemento->posicao = (ponteiroaux->posicao) + 1;
+            struct listabase *elemento = malloc(sizeof(struct listabase));
+            ponteiroaux->prox = elemento;
+            elemento->ant = ponteiroaux;
+            elemento->info = info;
+            return elemento->posicao = (ponteiroaux->posicao) + 1;
         }
         else
         {
-            elemento->posicao = 1;
-        }
-        return elemento->posicao;
+            ponteiroaux->info = info;
+            return ponteiroaux->posicao = 1;
+        };
     };
 };
 
