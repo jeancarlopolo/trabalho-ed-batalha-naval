@@ -96,14 +96,12 @@ Posic insert(Lista L, Item info)
             ponteiroaux->prox = elemento;
             elemento->ant = ponteiroaux;
             elemento->info = info;
-            elemento->posicao = (ponteiroaux->posicao) + 1;
-            return elemento;
+            return elemento->posicao = (ponteiroaux->posicao) + 1;
         }
         else
         {
             ponteiroaux->info = info;
-            ponteiroaux->posicao = 1;
-            return ponteiroaux;
+            return ponteiroaux->posicao = 1;
         };
     };
 };
@@ -126,7 +124,7 @@ Item pop(Lista L)
     }
 };
 
-void remove(Lista L, Posic p)
+void remover(Lista L, Posic p)
 {
     struct lista *ponteiro = L;
     struct listabase *ponteiroaux = ponteiro->l;
@@ -197,7 +195,7 @@ Posic insertBefore(Lista L, Posic p, Item info)
             ponteiroaux->posicao = ponteiroaux->posicao + 1;
             ponteiroaux = ponteiroaux->prox;
         };
-        return elemento;
+        return elemento->posicao;
     };
 };
 
@@ -232,7 +230,7 @@ Posic insertAfter(Lista L, Posic p, Item info)
             ponteiroaux->posicao = ponteiroaux->posicao + 1;
             ponteiroaux = ponteiroaux->prox;
         };
-        return elemento;
+        return elemento->posicao;
     };
 };
 
