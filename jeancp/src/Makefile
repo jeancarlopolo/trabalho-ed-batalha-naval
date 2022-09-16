@@ -1,8 +1,8 @@
 PROJ_NAME=ted
 
-ALUNO=
+ALUNO=jeancp
 LIBS=
-OBJETOS=
+OBJETOS=lista.o main.o
 
 # compilador
 CC=gcc
@@ -36,6 +36,7 @@ $(PROJ_NAME): $(OBJETOS)
 #   -  se necessario: sudo apt install zip
 
 pack: $(PROJ_NAME)
+	sudo apt install zip
 	rm -f ../$(ALUNO).zip
 	echo $(ALUNO)
 	date >> .entrega

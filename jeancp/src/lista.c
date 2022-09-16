@@ -41,7 +41,7 @@ int length(Lista L)
     {
         ponteiroaux = ponteiroaux->prox;
     };
-    return ponteiroaux->posicao;
+    return (int) ponteiroaux->posicao;
 };
 
 int maxLength(Lista L)
@@ -96,12 +96,14 @@ Posic insert(Lista L, Item info)
             ponteiroaux->prox = elemento;
             elemento->ant = ponteiroaux;
             elemento->info = info;
-            return elemento->posicao = (ponteiroaux->posicao) + 1;
+            elemento->posicao = (ponteiroaux->posicao) + 1;
+            return elemento;
         }
         else
         {
             ponteiroaux->info = info;
-            return ponteiroaux->posicao = 1;
+            ponteiroaux->posicao = 1;
+            return ponteiroaux;
         };
     };
 };
@@ -128,13 +130,14 @@ void remover(Lista L, Posic p)
 {
     struct lista *ponteiro = L;
     struct listabase *ponteiroaux = ponteiro->l;
+    int posicao = (int) p;
     if (!isEmpty(L))
     {
-        while (ponteiroaux->posicao < p && ponteiroaux->prox != NULL)
+        while (ponteiroaux->posicao < posicao && ponteiroaux->prox != NULL)
         {
             ponteiroaux = ponteiroaux->prox;
         };
-        if (ponteiroaux->posicao < p)
+        if (ponteiroaux->posicao < posicao)
         {
             return;
         };
@@ -195,7 +198,7 @@ Posic insertBefore(Lista L, Posic p, Item info)
             ponteiroaux->posicao = ponteiroaux->posicao + 1;
             ponteiroaux = ponteiroaux->prox;
         };
-        return elemento->posicao;
+        return elemento;
     };
 };
 
