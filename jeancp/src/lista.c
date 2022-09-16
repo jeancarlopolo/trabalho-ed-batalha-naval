@@ -18,9 +18,10 @@ struct lista
 Lista createLista(int capacidade)
 {
 	struct lista *L = malloc(sizeof(struct lista));
-	L->l->ant = NIL;
-	L->l->prox = NIL;
-	L->l->info = NIL;
+	struct listabase *l = L->l = malloc(sizeof(struct listabase));
+	l->ant = NIL;
+	l->prox = NIL;
+	l->info = NIL;
 	if (capacidade < 0)
 	{
 		L->capacidade = CAPAC_ILIMITADA;
@@ -81,7 +82,7 @@ Posic insert(Lista L, Item info)
 {
 	struct lista *ponteiro = L;
 	struct listabase *ponteiroaux = ponteiro->l;
-	if (isFull(ponteiro))
+	if (isFull(L))
 	{
 		return NIL;
 	}
@@ -320,3 +321,31 @@ void killLista(Lista L)
 	free(ponteiroaux);
 	free(ponteiro);
 };
+
+// int main(int argc, char const *argv[])
+// {
+// 	Lista L = createLista(7);
+// 	Posic p = insert(L, (Item)1);
+// 	Posic p2 = insert(L, (Item)2);
+// 	Posic p3 = insert(L, (Item)3);
+// 	Posic p4 = insert(L, (Item)4);
+// 	Posic p5 = insert(L, (Item)5);
+// 	Posic p6 = insert(L, (Item)6);
+// 	Posic p7 = insert(L, (Item)7);
+// 	Posic p8 = insert(L, (Item)8);
+// 	bool teste = isEmpty(L);
+// 	bool teste2 = isFull(L);
+// 	int teste3 = length(L);
+// 	Posic teste4 = getFirst(L);
+// 	Posic teste5 = getLast(L);
+// 	Posic teste6 = getNext(L, p3);
+// 	Posic teste7 = getPrevious(L, p6);
+// 	Item teste8 = get(L, p2);
+// 	int teste9 = maxLength(L);
+// 	remover(L, p2);
+// 	Item teste10 = pop(L);
+// 	Posic teste11 = insertBefore(L, p3, (Item)9);
+// 	Posic teste12 = insertAfter(L, p3, (Item)10);
+// 	killLista(L);
+// 	return 0;
+// }
