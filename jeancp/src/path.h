@@ -12,7 +12,7 @@
    Um caminho completo (fullPath) compreende uma sequencia de subdiretorios(path),
    o nome do arquivo e sua extensao.
    O caminho (path) e� toda a subcadeia que esta' esquerda do ultimo separador �/�,
-   incluindo-o. A extensao � a subcadeia que esta' `a direita do ultimo 
+   incluindo-o. A extensao � a subcadeia que esta' `a direita do ultimo
    separador '.', incluindo-o. O nome do arquivo � a subcadeia que esta� entre
    estes dois �ltimos.
 
@@ -26,14 +26,14 @@
  */
 
 void splitPath(char *fullPath,
-	       char *path, int lenPath,
-	       char *nomeArq, int lenNomeArq,
-	       char *extArq, int lenExtArq);
+               char *path, int lenPath,
+               char *nomeArq, int lenNomeArq,
+               char *extArq, int lenExtArq);
 /*
     Dado um caminho (fullPath), copia cada um de seus componentes
     nos parametros path (caminho do arquivo), nomeArq (nome do arquivo, sem
     seu path e sem sua extensao) e extArq (extensao do arquivo).
-    Estes parametros sao vetores de tamanhos, respectivamente, lenPath, 
+    Estes parametros sao vetores de tamanhos, respectivamente, lenPath,
     lenNomeArq e lenExtArq. Exemplos:
 
     fullPath               path        nomeArqq   extArq
@@ -42,7 +42,7 @@ void splitPath(char *fullPath,
     "ccc.txt"         =>   ""          "ccc"      ".txt"
     ".txt"            =>   ""          ""         ".txt"
     "ccc.ddd.txt"     =>   ""          "ccc.ddd"  ".txt"
-    "ccc"             =>   ""          "ccc"      ""  
+    "ccc"             =>   ""          "ccc"      ""
  */
 
 void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath);
@@ -73,7 +73,7 @@ void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullP
 
 void getFileName(char *fullPath, char *fileName, char *lenFileName);
 /*
-    Dado um caminho completo (fullPath), copia em fileName o nome do arquivo 
+    Dado um caminho completo (fullPath), copia em fileName o nome do arquivo
     (possivelmente) com sua extensao. Exemplos:
 
     fullPath          => fileName
@@ -98,13 +98,13 @@ void getPath(char *fullPath, char *path, int lenPath);
 
 void normalizePath(char *path, char *normPath, int lenNormPath);
 /*
-   Dado um caminho (path), (supostamente) sem nome de arquivo, 
+   Dado um caminho (path), (supostamente) sem nome de arquivo,
    copia em normPath o caminho, sem o separador do final (se existir).
 
    path         => normPath
    ==========================
    "aa/bb/cc"   => "aa/bb/cc"
-   "aa/bb/cc/"  => "aa/bb/cc" 
+   "aa/bb/cc/"  => "aa/bb/cc"
  */
 
 #endif
