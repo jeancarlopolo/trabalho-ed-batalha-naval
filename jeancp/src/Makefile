@@ -17,6 +17,8 @@ $(PROJ_NAME): $(OBJETOS)
 %.o : %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
+lista.o: lista.c lista.h
+	$(CC) -c $(CFLAGS) lista.c -o lista.o
 #
 # COLOCAR DEPENDENCIAS DE CADA MODULO
 #
