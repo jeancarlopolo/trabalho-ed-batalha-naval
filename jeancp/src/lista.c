@@ -136,8 +136,11 @@ void remover(Lista L, Posic p)
 		if (p == getFirst(L))
 		{
 			ponteiroaux = ponteiroaux->prox;
-			ponteiroaux->ant = NIL;
-			ponteiro->l = ponteiroaux;
+			if (ponteiroaux != NIL)
+			{
+				ponteiroaux->ant = NIL;
+				ponteiro->l = ponteiroaux;
+			};
 			free(p);
 			return;
 		}
@@ -335,9 +338,46 @@ Posic getPrevious(Lista L, Posic p)
 
 void killLista(Lista L)
 {
-	while (pop(L) != NIL);
+	while (pop(L) != NIL)
+		;
 	{
 		pop(L);
 	};
 	free(L);
 };
+
+int main(int argc, char const *argv[])
+{
+	Lista L = createLista(5);
+	bool vazia = isEmpty(L);
+	Posic p = insert(L, (Item)1);
+	vazia = isEmpty(L);
+	bool cheia = isFull(L);
+	Posic p2 = insert(L, (Item)2);
+	Posic p3 = insert(L, (Item)3);
+	Posic p4 = insert(L, (Item)4);
+	Posic p5 = insert(L, (Item)5);
+	Posic p6 = insert(L, (Item)6);
+	Posic p7 = insert(L, (Item)7);
+	int tamanho = length(L);
+	int tamanhomax = maxLength(L);
+	cheia = isFull(L);
+	Item info = get(L, p3);
+	info = get(L, p7);
+	remover(L, p3);
+	info = get(L, p3);
+	info = pop(L);
+	info = pop(L);
+	Posic p8 = insertBefore(L, p2, (Item)8);
+	Posic p9 = insertAfter(L, p2, (Item)9);
+	info = getPrevious(L, p2);
+	info = getNext(L, p2);
+	info = getLast(L);
+	info = getFirst(L);
+	int *printarinfo = info;
+	printf("%d\n", *printarinfo);
+	killLista(L);
+	printf("%d\n", *printarinfo);
+	info = get(L, p2);
+	return 0;
+}
