@@ -18,17 +18,13 @@
 
    Nesta operacoes, um caminho vazio ou um componente vazio e� representado
    por uma string vazia.
-
   Os resultados das operacoes sao atribuidos a paramentros da funcao.
   Este parametros sao vetores de caracteres pre-alocados. A cada um destes
   parametros, existe um respectivo parametro que indica seu tamanho (em caracteres).
 
  */
 
-void splitPath(char *fullPath,
-               char *path, int lenPath,
-               char *nomeArq, int lenNomeArq,
-               char *extArq, int lenExtArq);
+void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNomeArq, char *extArq, int lenExtArq);
 /*
     Dado um caminho (fullPath), copia cada um de seus componentes
     nos parametros path (caminho do arquivo), nomeArq (nome do arquivo, sem
@@ -71,7 +67,7 @@ void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullP
    "aaa/bbb"  "ccc"     ""      => "aaa/bbb/ccc"
  */
 
-void getFileName(char *fullPath, char *fileName, char *lenFileName);
+void getFileName(char *fullPath, char *fileName, int lenFileName);
 /*
     Dado um caminho completo (fullPath), copia em fileName o nome do arquivo
     (possivelmente) com sua extensao. Exemplos:

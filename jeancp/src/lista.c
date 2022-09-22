@@ -26,7 +26,7 @@ Lista createLista(int capacidade)
 	else
 	{
 		L->capacidade = capacidade;
-	}
+	};
 	return L;
 };
 
