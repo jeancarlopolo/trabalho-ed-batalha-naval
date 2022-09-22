@@ -31,10 +31,12 @@ void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNo
 void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
 {
     char *aux = (char *)malloc(sizeof(char) * strlen(path));
-    char barra[] = "/";
     normalizePath(path, aux, strlen(aux));
     strcpy(fullPath, aux);
-    strcat(fullPath, barra);
+    if (fullPath[0] != '\0')
+    {
+        strcat(fullPath, '/');
+    }
     strcat(fullPath, fileName);
     lenFullPath = strlen(fullPath);
     free(aux);
