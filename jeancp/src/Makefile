@@ -1,43 +1,42 @@
-PROJ_NAME=ted
+# Name of the project
+objects = ted
 
-ALUNO=jeancp
-LIBS=
-OBJETOS=lista.o main.o
+# .c files
+C_SOURCE=$(wildcard *.c)
 
-# compilador
+# .h files
+H_SOURCE=$(wildcard *.h)
+
+# Object files
+OBJ=$(C_SOURCE:.c=.o)
+
+# Compiler
 CC=gcc
 
-# Flags
-CFLAGS= -ggdb -O0 -std=c99 -fstack-protector-all -Werror=implicit-function-declaration
-LDFLAGS=-O0
+# Flags for compiler
+CC_FLAGS=-W         \
+         -Wall      \
+         -ansi      \
+         -pedantic  \
+		 -std=c99   \
+		 -fstack-protector-all \
+		 -g
 
-$(PROJ_NAME): $(OBJETOS)
-	$(CC) -o $(PROJ_NAME)$(LDFLAGS)  $(OBJETOS) $(LIBS)
-
-%.o : %.c
-	$(CC) -c $(CFLAGS) $< -o $@
-
-#
-# COLOCAR DEPENDENCIAS DE CADA MODULO
-#
-
-# Exemplo: suponha que o arquivo a.c possua os seguintes includes:
-#
-#   #include "a.h"
-#   #include "b.h"
-#   #include "c.h"
-# 
-# a.o: a.h b.h c.h a.c
-
+LINKER_FLAGS = -lm
 
 #
-# EMPACOTAR PARA ENTREGA
+# Compilation and linking
 #
-#   -  se necessario: sudo apt install zip
+all: $(objects)
 
-pack: $(PROJ_NAME)
-	sudo apt install zip
-	rm -f ../$(ALUNO).zip
-	echo $(ALUNO)
-	date >> .entrega
-	cd ..; zip $(ALUNO).zip -r src/*.c src/*.h src/Makefile LEIA-ME.txt .entrega
+$(objects): $(OBJ)
+	$(CC) -o $@ $^ $(CC_FLAGS) $(LINKER_FLAGS)
+
+%.o: %.c %.h
+	$(CC) -o $@ $< -c $(CC_FLAGS) $(LINKER_FLAGS)
+
+main.o: main.c $(H_SOURCE)
+	$(CC) -o $@ $< -c $(CC_FLAGS)
+
+clean:
+	rm -rf *.o $(objects) *~
