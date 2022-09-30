@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #ifndef _LISTA_H
 #define _LISTA_H
 
