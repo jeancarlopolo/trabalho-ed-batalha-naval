@@ -3,4 +3,6 @@
 
 #include "lista.h"
 
+void read_geo(char *path, char *name, Lista l);
+
 #endif
