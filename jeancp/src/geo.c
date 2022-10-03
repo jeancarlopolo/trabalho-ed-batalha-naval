@@ -21,30 +21,42 @@ void readGeo(char *path, char *fileName, char *ext, Lista *lista)
     while (!feof(geo))
     {
         fscanf(geo, "%s", type);
-        if (strcmp(type, "c") == 0)
+        switch (type[0])
         {
-            fscanf(geo, "%d %f %f %f %s %s", &id, &r, &x, &y, corb, corp);
-            Circulo *circulo = criaCirculo(id, r, x, y, corb, corp);
-            insereLista(lista, circulo);
+        case 'c':
+        {
+            fscanf(geo, "%d %f %f %f %s %s", &id, &x, &y, &r, corb, corp);
+            Circulo *circulo = create_circulo(id, x, y, r, corb, corp);
+            insert(lista, circulo);
+            break;
         }
-        else if (strcmp(type, "r") == 0)
+        case 'r':
         {
-            fscanf(geo, "%d %f %f %f %f %s %s", &id, &w, &h, &x, &y, corb, corp);
-            Retangulo *retangulo = criaRetangulo(id, w, h, x, y, corb, corp);
-            insereLista(lista, retangulo);
+            fscanf(geo, "%d %f %f %f %f %s %s", &id, &x, &y, &w, &h, corb, corp);
+            Retangulo *retangulo = create_retangulo(id, x, y, w, h, corb, corp);
+            insert(lista, retangulo);
+            break;
         }
-        else if (strcmp(type, "t") == 0)
+        case 't':
         {
-            fscanf(geo, "%d %f %f %s %s", &id, &x, &y, ancora, corb);
+            fscanf(geo, "%d %f %f %s %s %c", &id, &x, &y, corb, corp, ancora);
             fgets(text, 200, geo);
-            Texto *texto = criaTexto(id, x, y, ancora, corb, text);
-            insereLista(lista, texto);
+            Texto *texto = create_texto(id, x, y, corb, corp, ancora, text);
+            insert(lista, texto);
+            break;
         }
-        else if (strcmp(type, "l") == 0)
+        case 'l':
         {
             fscanf(geo, "%d %f %f %f %f %s", &id, &x, &y, &w, &h, corb);
-            Linha *linha = criaLinha(id, x, y, w, h, corb);
-            insereLista(lista, linha);
+            Linha *linha = create_linha(id, x, y, w, h, corb);
+            insert(lista, linha);
+            break;
         };
+        default:
+            break;
+        }
     }
+    fclose(geo);
+    free(fullPath);
 }
+
