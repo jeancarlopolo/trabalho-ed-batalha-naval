@@ -1,8 +1,6 @@
 #ifndef PATH__
 #define PATH__
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 /*
    Este modulo prove funcoes para manipulacao de caminhos de arquivos.
    Basicamente, exitem 2 tipos de funcoes:

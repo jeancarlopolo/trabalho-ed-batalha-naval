@@ -3,7 +3,6 @@
 struct listanode
 {
 	Item info;
-	int type;
 	struct listanode *prox;
 };
 

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lista.h"
+#include "barco.h"
 
 /**
 TEXTO é um polígono que possui um ponto de origem no início, meio ou fim (âncora definida por x e y), 

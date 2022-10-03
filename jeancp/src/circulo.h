@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lista.h"
+#include "barco.h"
 
 /**
 CIRCULO é um polígono que possui um ponto de origem (âncora definida por x e y), raio, cor de borda e

@@ -1,4 +1,7 @@
 #include "lista.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNomeArq, char *extArq, int lenExtArq)
 {
@@ -28,15 +31,18 @@ void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNo
 void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
 {
     char *aux = (char *)malloc(sizeof(char) * strlen(path));
+    char *barra = (char *)malloc(sizeof(char) * 2);
+    barra[0] = '/';
     normalizePath(path, aux, strlen(aux));
     strcpy(fullPath, aux);
     if (fullPath[0] != '\0')
     {
-        strcat(fullPath, '/');
+        strcat(fullPath, barra);
     }
     strcat(fullPath, fileName);
     lenFullPath = strlen(fullPath);
     free(aux);
+    free(barra);
 };
 
 void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)

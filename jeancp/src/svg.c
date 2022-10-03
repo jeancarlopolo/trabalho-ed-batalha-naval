@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "path.h"
 #include "retangulo.h"
 #include "circulo.h"
 #include "lista.h"
 #include "linha.h"
 #include "texto.h"
+#include "barco.h"
 
 FILE *createSvg(char *fullPathSvg, Lista list)
 {
@@ -38,65 +40,52 @@ void endSvg(FILE *svg)
     fclose(svg);
 }
 
-void rect(FILE *svg, Retangulo retangulo)
+void rectSvg(FILE *svg, Retangulo retangulo)
 {
-    fprintf(svg, "\n\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" stroke=\"%s\"/>", get_rectangleX(retangulo), get_rectangleY(retangulo), get_rectangleW(retangulo), get_rectangleH(retangulo), get_rectangleCORP(retangulo), get_rectangleCORB(retangulo));
+    fprintf(svg, "\n\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" stroke=\"%s\"/>", retangulo_get_x(retangulo), retangulo_get_y(retangulo), retangulo_get_w(retangulo), retangulo_get_h(retangulo), retangulo_get_corp(retangulo), retangulo_get_corb(retangulo));
 }
 
-void circle(FILE *svg, Circulo circulo)
+void circleSvg(FILE *svg, Circulo circulo)
 {
-    fprintf(svg, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"%s\" stroke=\"%s\"/>", get_circuloX(circulo), get_circuloY(circulo), get_circuloR(circulo), get_circuloCORP(circulo), get_circuloCORB(circulo));
+    fprintf(svg, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"%s\" stroke=\"%s\"/>", circulo_get_x(circulo), circulo_get_y(circulo), circulo_get_r(circulo), circulo_get_corp(circulo), circulo_get_corb(circulo));
 }
 
-void line(FILE *svg, Line linha)
+void lineSvg(FILE *svg, Linha linha)
 {
-    fprintf(svg, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" stroke=\"%s\"/>", get_lineX1(linha), get_lineY1(linha), get_lineX2(linha), get_lineY2(linha), get_lineCOR(linha));
+    fprintf(svg, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" stroke=\"%s\"/>", linha_get_x1(linha), linha_get_y1(linha), linha_get_x2(linha), linha_get_y2(linha), linha_get_cor(linha));
 }
 
-void text(FILE *svg, Text texto)
+void textSvg(FILE *svg, Texto texto)
 {
-    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", get_textX(texto), get_textY(texto), get_textCORP(texto), get_textCORB(texto), get_textANCORA(texto), get_textTXT(texto));
+    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", texto_get_x(texto), texto_get_y(texto), texto_get_corp(texto), texto_get_corb(texto), texto_get_ancora(texto), texto_get_conteudo(texto));
 }
 
-void rec_sel(FILE *svg, Retangulo retangulo)
-{
-    fprintf(svg, "\n\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"none\" stroke=\"red\"/>", get_rectangleX(retangulo), get_rectangleY(retangulo), get_rectangleW(retangulo), get_rectangleH(retangulo));
-}
-
-void writeSvg(char *pathOut, char *nameArq, Lista list)
+void writeSvg(char *pathOut, char *fileName, Lista list)
 {
     char s[] = "svg";
-    char *nameSvg = s;
-    char *nameArqExtr = (char *)extractName(nameArq);
-    char *nameArqSvg = insertExtension(nameArqExtr, nameSvg);
-    char *fullPathSvg = catPath(pathOut, nameArqSvg);
-
+    char *fullPathSvg = (char *)malloc(sizeof(char) * 100);
+    joinAll(pathOut, fileName, s, fullPathSvg, 100);
     FILE *svg = createSvg(fullPathSvg, list);
-    Node aux = getListFirst(list);
-
+    Barco aux = getFirst(list);
     while (aux != NULL)
     {
-        switch (getTYPE(aux))
+        switch (getBarcoTipo(aux))
         {
-        case 1:
-            circle(svg, getListItem(aux));
+        case 'c':
+            circleSvg(svg, getListItem(aux));
             break;
-        case 2:
-            rect(svg, getListItem(aux));
+        case 'r':
+            rectSvg(svg, getListItem(aux));
             break;
-        case 3:
-            line(svg, getListItem(aux));
+        case 'l':
+            lineSvg(svg, getListItem(aux));
             break;
-        case 4:
-            text(svg, getListItem(aux));
+        case 't':
+            textSvg(svg, getListItem(aux));
             break;
         }
-        aux = getListNext(aux);
+        aux = getNext(list, aux);
     }
-
-    endSvg(svg);
-
-    free(nameArqExtr);
-    free(nameArqSvg);
     free(fullPathSvg);
+    endSvg(svg);
 }
