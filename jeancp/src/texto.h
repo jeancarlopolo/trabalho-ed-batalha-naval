@@ -1,81 +1,58 @@
-#ifndef _TEXTO_H
-#define _TEXTO_H
-
+#ifndef TEXTO_H
+#define TEXTO_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lista.h"
-#include "barco.h"
+typedef void *item;
+typedef void *Text;
 
-/**
-TEXTO é um polígono que possui um ponto de origem no início, meio ou fim (âncora definida por x e y), 
-conteúdo, cor de borda e cor de preenchimento. O TEXTO possui um nível de proteção de 5 e um HP de 1.
-A pontuação recebida pela sua inativação é 30 e pela sua destruição é 500.
-**/
+/*Cria um barco do tipo texto.
+Entrada: nenhuma
+Saida: um ponteiro do tipo struct texto*/
+Stext* createText();
 
-typedef char *string;
-typedef void *Texto ;
+/*Constroi o barco do tipo texto
+entrada: um ponteiro do tipo char contendo os comandos para a criação do barco do tipo texto e a struct do tipo texto que vai receber as informações
+saida: a struct do tipo texto inserida na entrada, porém com as informações organizadas de acordo com cada variavel*/
+item buildText(char *command, Text text);
 
-Texto create_texto(int id, float x, float y, string corb, string corp, string posicAncora, string conteudo);
+/*Pega a id de um barco do tipo texto
+Entrada: a struct do tipo texto que deseja coletar a informação
+Saida: um valor inteiro contendo a Id da struct*/
+int getIdText(Stext *texto);
 
-//CREATE_TEXTO retorna um TEXTO;
+/*Informa a coordenada X de um barco do tipo texto
+Entrada: uma struct do tipo barco
+saida: um valor do tipo double com a coordenada X do barco*/
+double getXText(Stext *texto);
 
-void texto_set_i(Texto text, int id);
+/*Informa a coordenada Y de um barco do tipo texto
+Entrada: uma struct do tipo barco
+saida: um valor do tipo double com a coordenada Y do barco*/
+double getYText(Stext *texto);
 
-//TEXTO_SET_I recebe um TEXTO e um inteiro e seta o ID do TEXTO
 
-void texto_set_ancora(Texto text, char ancora);
+/*Informa a cor da borda de um barco do tipo texto
+Entrada: uma struct do tipo barco
+saida: um valor do tipo char* com a cor da borda do barco*/
+char* getCorBText(Stext *texto);
 
-//TEXTO_SET_ANCOR recebe um TEXTO e um char e seta a posição da ancora do TEXTO
 
-void texto_set_x(Texto text, float x);
+/*Informa a cor do preenchimento de um barco do tipo texto
+Entrada: uma struct do tipo barco
+saida: um valor do tipo char* com a cor do preenchimnto do barco*/
+char* getCorPText(Stext *texto);
 
-//TEXTO_SET_X recebe um TEXTO e um float e seta o x da ancora do TEXTO
 
-void texto_set_y(Texto text, float y);
+/*Informa o texto de um barco do tipo texto
+Entrada: uma struct do tipo textu
+saida: um valor do tipo char* com o texto do barco*/
+char* getCorValueText(Stext *texto);
 
-//TEXTO_SET_Y recebe um TEXTO e um float e seta o y da ancora do TEXTO
 
-void texto_set_conteudo(Texto text, string conteudo);
-
-//TEXTO_SET_CONTEUDO recebe um TEXTO e uma string e seta o conteúdo do TEXTO
-
-void texto_set_corb(Texto text, string corb);
-
-//TEXTO_SET_CORB recebe um TEXTO e uma string e seta a cor de borda do TEXTO
-
-void texto_set_corp(Texto text, string corp);
-
-//TEXTO_SET_CORP recebe um TEXTO e uma string e seta a cor de preenchimento do TEXTO
-
-int texto_get_i(Texto text);
-
-//TEXTO_GET_I recebe um TEXTO e retorna o ID do TEXTO
-
-char texto_get_ancora(Texto text);
-
-//TEXTO_GET_ANCOR recebe um TEXTO e retorna a posição da ancora do TEXTO
-
-float texto_get_x(Texto text);
-
-//TEXTO_GET_X recebe um TEXTO e retorna o x da ancora do TEXTO
-
-float texto_get_y(Texto text);
-
-//TEXTO_GET_Y recebe um TEXTO e retorna o y da ancora do TEXTO
-
-string texto_get_conteudo(Texto text);
-
-//TEXTO_GET_CONTEUDO recebe um TEXTO e retorna o conteúdo do TEXTO
-
-string texto_get_corb(Texto text);
-
-//TEXTO_GET_CORB recebe um TEXTO e retorna a cor de borda do TEXTO
-
-string texto_get_corp(Texto text);
-
-//TEXTO_GET_CORP recebe um TEXTO e retorna a cor de preenchimento do TEXTO
-
-void texto_free(Texto text);
+/*Informa a ancora de um barco
+Entrada: uma struct do tipo texto
+saida: um valor do tipo char com a ancora do barco*/
+char getAnchorText(Stext texto);
 
 #endif
