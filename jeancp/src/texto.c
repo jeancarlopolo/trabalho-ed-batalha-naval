@@ -3,66 +3,117 @@
 #include <string.h>
 #include "texto.h"
 
+typedef void *Text;
+typedef char *string;
 typedef struct texto
 {
     int id;
-    double x;
-    double y;
+    float x;
+    float y;
     char *corb;
     char *corp;
     char *value;
     char anchor;
 }Stext;
 
-Stext* createText(){
-    Stext *text = calloc(1, sizeof(Stext));
+Text createText(int id, float x, float y, char *corb, char *corp, char *value, char anchor)
+{
+    Stext *text = (Stext*)malloc(sizeof(Stext));
+    text->id = id;
+    text->x = x;
+    text->y = y;
+    text->corb = corb;
+    text->corp = corp;
+    text->value = value;
+    text->anchor = anchor;
     return text;
 }
 
-item buildText(char *command, Text text){
-    Stext *texto = (Stext*) text;
-    char *ptr = strtok(command, " ");
-    char *ept;
-    texto->id = atoi(ptr);
-    ptr = strtok(NULL, " ");
-    texto->x = strtod(ptr, &ept);
-    ptr = strtok(NULL, " ");
-    texto->y = strtod(ptr, &ept);
-    ptr = strtok(NULL, " ");
-    strcpy(texto->corb, ptr);
-    ptr = strtok(NULL, " ");
-    strcpy(texto->corp, ptr);
-    ptr = strtok(NULL, " ");
-    texto->anchor = ptr[0];
-    ptr = strtok(NULL, " ");
-    strcpy(texto->value, ptr);
-    return texto;
+void setTextX(Text text, float x)
+{
+    Stext *t = (Stext*)text;
+    t->x = x;
 }
 
-int getIdText(Stext *texto){
-    return texto->id;
+void setTextY(Text text, float y)
+{
+    Stext *t = (Stext*)text;
+    t->y = y;
 }
 
-double getXText(Stext *texto){
-    return texto->x;
+void setTextCorb(Text text, char *corb)
+{
+    Stext *t = (Stext*)text;
+    t->corb = corb;
 }
 
-double getYText(Stext *texto){
-    return texto->y;
+void setTextCorp(Text text, char *corp)
+{
+    Stext *t = (Stext*)text;
+    t->corp = corp;
 }
 
-char* getCorBText(Stext *texto){
-    return texto->corb;
+void setTextValue(Text text, char *value)
+{
+    Stext *t = (Stext*)text;
+    t->value = value;
 }
 
-char* getCorPText(Stext *texto){
-    return texto->corp;
+void setTextAnchor(Text text, char anchor)
+{
+    Stext *t = (Stext*)text;
+    t->anchor = anchor;
 }
 
-char* getCorValueText(Stext *texto){
-    return texto->value;
+int getTextId(Text text)
+{
+    Stext *t = (Stext*)text;
+    return t->id;
 }
 
-char getAnchorText(Stext texto){
-    return texto.anchor;
+float getTextX(Text text)
+{
+    Stext *t = (Stext*)text;
+    return t->x;
 }
+
+float getTextY(Text text)
+{
+    Stext *t = (Stext*)text;
+    return t->y;
+}
+
+char *getTextCorb(Text text)
+{
+    Stext *t = (Stext*)text;
+    return t->corb;
+}
+
+char *getTextCorp(Text text)
+{
+    Stext *t = (Stext*)text;
+    return t->corp;
+}
+
+char *getTextValue(Text text)
+{
+    Stext *t = (Stext*)text;
+    return t->value;
+}
+
+char getTextAnchor(Text text)
+{
+    Stext *t = (Stext*)text;
+    return t->anchor;
+}
+
+void freeText(Text text)
+{
+    Stext *t = (Stext*)text;
+    free(t->corb);
+    free(t->corp);
+    free(t->value);
+    free(t);
+}
+
+// Language: c
