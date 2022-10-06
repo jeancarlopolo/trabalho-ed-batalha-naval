@@ -3,20 +3,23 @@
 #include <string.h>
 #include "texto.h"
 
-typedef void *Texto;
-typedef char *string;
+
 typedef struct texto
 {
     int id;
     float x;
     float y;
-    char *corb;
-    char *corp;
-    char *conteudo;
-    char ancora;
+    string corb;
+    string corp;
+    string conteudo;
+    string ancora;
+    float pi;
+    float pd;
+    int hp;
+    int np;
 }Stext;
 
-Texto create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char ancora)
+Texto create_texto(int id, float x, float y, string corb, string corp, string conteudo, char ancora)
 {
     Stext *text = malloc(sizeof(Stext));
     text->id = id;
@@ -26,6 +29,8 @@ Texto create_texto(int id, float x, float y, char *corb, char *corp, char *conte
     text->corp = corp;
     text->conteudo = conteudo;
     text->ancora = ancora;
+    text->hp = 3;
+    text->np = 60;
     return text;
 }
 
