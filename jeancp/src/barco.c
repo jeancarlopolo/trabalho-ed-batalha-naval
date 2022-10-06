@@ -9,7 +9,7 @@ struct Barco
 
 Barco createBarco(char id, Item info)
 {
-    struct barco *b = malloc(sizeof(struct barco));
+    struct Barco *b = malloc(sizeof(struct Barco));
     b->tipo = id;
     //id = char tipo? 
     b->info = info;
@@ -18,31 +18,30 @@ Barco createBarco(char id, Item info)
 
 Item getInfo(Barco b)
 {
-    struct barco *ponteiro = b;
+    struct Barco *ponteiro = b;
     //nessa função que eu retorno as informações do tipo de barco?
     return ponteiro->info;
 };
 
 char getTipo(Barco b)
 {
-    struct barco *ponteiro = b;
+    struct Barco *ponteiro = b;
     //nessa função que eu pego o tipo do barco 
     return ponteiro->tipo;
 };
 
 void setInfo(Barco b, Item info)
 {
-    struct barco *ponteiro = b;
+    struct Barco *ponteiro = b;
     ponteiro->info = info;
 
 };
 
 void freeBarco(Barco b)
 {
-    struct barco *ponteiro = b;
+    struct Barco *ponteiro = b;
     free(ponteiro);
 };
 
 
-    return 0;
-}
+

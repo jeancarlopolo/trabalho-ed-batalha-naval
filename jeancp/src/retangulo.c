@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-#include "_RETANGULO_H_"
+
+#include "retangulo.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -245,4 +245,5 @@ float retangulo_get_pontos_destruido(Retangulo ret){
 void retangulo_free(Retangulo ret){
     free(ret);
 }
->>>>>>> 28eb1a7ddb257e5f94b1121b3ba97e0fce538f48
+
+//geoson

@@ -90,3 +90,4 @@ Posic getPrevious(Lista L, Posic p);
 void killLista(Lista L);
 
 #endif
+

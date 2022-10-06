@@ -1,4 +1,4 @@
-#include "_LINHA_H"
+#include "linha.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,7 +17,7 @@ struct Linha
 
 Linha create_linha(int id, float x1, float y1, float x2, float y2, string cor)
 {
-    Linha = (Linha)malloc(sizeof(struct Linha));
+    Linha li = (Linha)malloc(sizeof(struct Linha));
     linha_set_i(li, id);
     linha_set_x1(li, x1);
     linha_set_y1(li, y1);
@@ -103,10 +103,4 @@ void linha_free(Linha li)
 {
     free(li);
 };
-
-void linha_print(Linha li)
-{
-    printf("Linha %d: (%f, %f) (%f, %f) %s
-};
-
 

@@ -101,3 +101,5 @@ void retangulo_free(Retangulo ret);
 //RETANGULO_FREE recebe um RETANGULO e libera a memória alocada para o mesmo
 
 #endif
+
+
