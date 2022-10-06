@@ -3,7 +3,7 @@
 #include <string.h>
 #include "texto.h"
 
-typedef void *Text;
+typedef void *Texto;
 typedef char *string;
 typedef struct texto
 {
@@ -12,11 +12,11 @@ typedef struct texto
     float y;
     char *corb;
     char *corp;
-    char *value;
-    char anchor;
+    char *conteudo;
+    char ancora;
 }Stext;
 
-Text createText(int id, float x, float y, char *corb, char *corp, char *value, char anchor)
+Texto create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char ancora)
 {
     Stext *text = (Stext*)malloc(sizeof(Stext));
     text->id = id;
@@ -24,95 +24,101 @@ Text createText(int id, float x, float y, char *corb, char *corp, char *value, c
     text->y = y;
     text->corb = corb;
     text->corp = corp;
-    text->value = value;
-    text->anchor = anchor;
+    text->conteudo = conteudo;
+    text->ancora = ancora;
     return text;
 }
 
-void setTextX(Text text, float x)
+void texto_set_id(Texto text, int id){
+    Stext *t = (Stext*)text;
+    t->id = id;
+
+}
+
+void texto_set_x(Texto text, float x)
 {
     Stext *t = (Stext*)text;
     t->x = x;
 }
 
-void setTextY(Text text, float y)
+void texto_set_y(Texto text, float y)
 {
     Stext *t = (Stext*)text;
     t->y = y;
 }
 
-void setTextCorb(Text text, char *corb)
+void texto_set_corb(Texto text, char *corb)
 {
     Stext *t = (Stext*)text;
     t->corb = corb;
 }
 
-void setTextCorp(Text text, char *corp)
+void texto_set_corp(Texto text, char *corp)
 {
     Stext *t = (Stext*)text;
     t->corp = corp;
 }
 
-void setTextValue(Text text, char *value)
+void texto_set_conteudo(Texto text, char *conteudo)
 {
     Stext *t = (Stext*)text;
-    t->value = value;
+    t->conteudo = conteudo;
 }
 
-void setTextAnchor(Text text, char anchor)
+void texto_set_ancora(Texto text, char ancora)
 {
     Stext *t = (Stext*)text;
-    t->anchor = anchor;
+    t->ancora = ancora;
 }
 
-int getTextId(Text text)
+int texto_get_id(Texto text)
 {
     Stext *t = (Stext*)text;
     return t->id;
 }
 
-float getTextX(Text text)
+float texto_get_x(Texto text)
 {
     Stext *t = (Stext*)text;
     return t->x;
 }
 
-float getTextY(Text text)
+float texto_get_y(Texto text)
 {
     Stext *t = (Stext*)text;
     return t->y;
 }
 
-char *getTextCorb(Text text)
+char *texto_get_corb(Texto text)
 {
     Stext *t = (Stext*)text;
     return t->corb;
 }
 
-char *getTextCorp(Text text)
+char *texto_get_corp(Texto text)
 {
     Stext *t = (Stext*)text;
     return t->corp;
 }
 
-char *getTextValue(Text text)
+char *texto_get_conteudo(Texto text)
 {
     Stext *t = (Stext*)text;
-    return t->value;
+    return t->conteudo;
 }
 
-char getTextAnchor(Text text)
+char texto_get_ancora(Texto text)
 {
     Stext *t = (Stext*)text;
-    return t->anchor;
+    return t->ancora;
 }
 
-void freeText(Text text)
+void texto_free=(Texto text)
 {
     Stext *t = (Stext*)text;
     free(t->corb);
     free(t->corp);
-    free(t->value);
+    free(t->conteudo);
     free(t);
 }
 
