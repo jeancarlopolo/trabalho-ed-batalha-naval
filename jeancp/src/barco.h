@@ -13,15 +13,15 @@ Barco createBarco(char id, Item info);
 
 //CREATE_BARCO recebe um caractere que representa o tipo de barco e um item que contém as informações do barco e retorna um barco
 
-char getBarcoTipo(Barco b);
+char getTipo(Barco b);
 
 //GET_BARCO_TIPO recebe um barco e retorna o caractere que representa o tipo de barco
 
-Item getBarcoInfo(Barco b);
+Item getInfo(Barco b);
 
 //GET_BARCO_INFO recebe um barco e retorna um item que contém as informações do barco
-
-void setBarcoInfo(Barco b, Item info);
+ 
+void setInfo(Barco b, Item info);
 
 //SET_BARCO_INFO recebe um barco e um item que contém as informações do barco e atualiza as informações do barco
 
