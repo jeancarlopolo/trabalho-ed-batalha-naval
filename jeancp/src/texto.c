@@ -113,7 +113,7 @@ char texto_get_ancora(Texto text)
     return t->ancora;
 }
 
-void texto_free=(Texto text)
+void texto_free(Texto text)
 {
     Stext *t = (Stext*)text;
     free(t->corb);
