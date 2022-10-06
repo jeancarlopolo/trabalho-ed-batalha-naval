@@ -14,13 +14,13 @@ A pontuação recebida pela sua inativação é 30 e pela sua destruição é 50
 **/
 
 typedef char *string;
-typedef void *Texto ;
+typedef void *Texto;
 
-Texto create_texto(int id, float x, float y, string corb, string corp, string posicAncora, string conteudo);
+Texto create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char ancora);
 
 //CREATE_TEXTO retorna um TEXTO;
 
-void texto_set_i(Texto text, int id);
+void texto_set_id(Texto text, int id);
 
 //TEXTO_SET_I recebe um TEXTO e um inteiro e seta o ID do TEXTO
 
