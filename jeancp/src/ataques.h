@@ -14,4 +14,4 @@ typedef void* Ataque2;
 
 /*Um ataque é uma estrutura que contém um tipo de ataque e suas informações */
 
-
+#endif
