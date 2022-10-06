@@ -34,6 +34,8 @@ Texto create_texto(int id, float x, float y, string corb, string corp, string co
     return text;
 }
 
+//^0^
+
 void texto_set_id(Texto text, int id){
     Stext *t = text;
     t->id = id;
