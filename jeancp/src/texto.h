@@ -16,7 +16,7 @@ A pontuação recebida pela sua inativação é 30 e pela sua destruição é 50
 typedef char *string;
 typedef void *Texto;
 
-Texto create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char ancora);
+Texto create_texto(int id, float x, float y, string corb, string corp, string conteudo, char ancora);
 
 //CREATE_TEXTO retorna um TEXTO;
 
