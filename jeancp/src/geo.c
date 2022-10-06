@@ -59,4 +59,4 @@ void readGeo(char *path, char *fileName, char *ext, Lista *lista)
     fclose(geo);
     free(fullPath);
 }
-
+ //ggg

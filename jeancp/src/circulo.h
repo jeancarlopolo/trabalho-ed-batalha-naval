@@ -90,6 +90,6 @@ float circulo_get_area(Circulo cir);
 
 void circulo_free(Circulo cir);
 
-//CIRCULO_FREE recebe um CIRCULO e libera a memória alocada para o mesmo
+//CIRCULO_FREE recebe um CIRCULO e libera a memória alocada para o mesmou
 
 #endif

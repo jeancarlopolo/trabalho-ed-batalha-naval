@@ -117,4 +117,4 @@ void circulo_free(Circulo cir)
     free(ponteiro);
 };
 
-//o resto depende de outros conceitos, como: nível de proteção, pontuação, etc.
+//o resto depende de outros conceitos, como: nível de proteção, pontuação, etc
