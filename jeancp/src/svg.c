@@ -32,22 +32,22 @@ void endSvg(FILE *svg)
     fclose(svg);
 }
 
-void rectSvg(FILE *svg, Retangulo retangulo)
+void rectSvg(FILE *svg, Barco retangulo)
 {
     fprintf(svg, "\n\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" stroke=\"%s\"/>", retangulo_get_x(retangulo), retangulo_get_y(retangulo), retangulo_get_w(retangulo), retangulo_get_h(retangulo), retangulo_get_corp(retangulo), retangulo_get_corb(retangulo));
 }
 
-void circleSvg(FILE *svg, Circulo circulo)
+void circleSvg(FILE *svg, Barco circulo)
 {
     fprintf(svg, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"%s\" stroke=\"%s\"/>", circulo_get_x(circulo), circulo_get_y(circulo), circulo_get_r(circulo), circulo_get_corp(circulo), circulo_get_corb(circulo));
 }
 
-void lineSvg(FILE *svg, Linha linha)
+void lineSvg(FILE *svg, Barco linha)
 {
     fprintf(svg, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" stroke=\"%s\"/>", linha_get_x1(linha), linha_get_y1(linha), linha_get_x2(linha), linha_get_y2(linha), linha_get_cor(linha));
 }
 
-void textSvg(FILE *svg, Texto texto)
+void textSvg(FILE *svg, Barco texto)
 {
     fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", texto_get_x(texto), texto_get_y(texto), texto_get_corp(texto), texto_get_corb(texto), texto_get_ancora(texto), texto_get_conteudo(texto));
 }
