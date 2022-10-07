@@ -1,8 +1,11 @@
 #ifndef _SVG_H
 #define _SVG_H
+
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
+#include "lista.h"
+#include "barco.h"
 #include "retangulo.h"
 #include "linha.h"
 #include "circulo.h"

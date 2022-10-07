@@ -1,13 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include "path.h"
-#include "retangulo.h"
-#include "circulo.h"
+#include "svg.h"
 #include "lista.h"
-#include "linha.h"
-#include "texto.h"
 #include "barco.h"
 
 FILE *createSvg(char *fullPathSvg, Lista list)
@@ -62,26 +54,26 @@ void textSvg(FILE *svg, Texto texto)
 
 void writeSvg(char *pathOut, char *fileName, Lista list)
 {
-    char s[] = "svg";
+    char s[] = ".svg";
     char *fullPathSvg = (char *)malloc(sizeof(char) * 100);
     joinAll(pathOut, fileName, s, fullPathSvg, 100);
     FILE *svg = createSvg(fullPathSvg, list);
     Barco aux = getFirst(list);
     while (aux != NULL)
     {
-        switch (getBarcoTipo(aux))
+        switch (getTipo(aux))
         {
         case 'c':
-            circleSvg(svg, getListItem(aux));
+            circleSvg(svg, aux);
             break;
         case 'r':
-            rectSvg(svg, getListItem(aux));
+            rectSvg(svg, aux);
             break;
         case 'l':
-            lineSvg(svg, getListItem(aux));
+            lineSvg(svg, aux);
             break;
         case 't':
-            textSvg(svg, getListItem(aux));
+            textSvg(svg, aux);
             break;
         }
         aux = getNext(list, aux);
