@@ -78,4 +78,5 @@ string texto_get_corp(Texto text);
 
 void texto_free(Texto text);
 
+//TEXTO_FREE recebe um TEXTO e libera a memória alocada para o TEXTO
 #endif
