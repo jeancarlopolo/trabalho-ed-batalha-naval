@@ -14,7 +14,6 @@ A pontuação recebida pela sua inativação é 30 e pela sua destruição é 50
 **/
 
 typedef char *string;
-typedef void *Barco;
 
 Barco create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char ancora);
 
@@ -87,4 +86,5 @@ int texto_get_pontos_destruido(Barco text);
 void texto_free(Barco text);
 
 //TEXTO_FREE recebe um TEXTO e libera a memória alocada para o TEXTO
+
 #endif
