@@ -8,7 +8,7 @@
 #include "path.h"
 #include "geo.h"
 
-void readGeo(char *path, char *fileName, char *ext, Lista *lista)
+void readGeo(char *path, char *fileName, Lista *lista)
 {
     char type[100];
     float x, y, w, h, r;
@@ -16,7 +16,7 @@ void readGeo(char *path, char *fileName, char *ext, Lista *lista)
     int id;
     char ancora[1];
     char *fullPath = (char *)malloc(sizeof(char) * 100);
-    joinAll(path, fileName, ext, fullPath, strlen(fullPath));
+    joinFilePath(path, fileName, fullPath, 100);
     FILE *geo = fopen(fullPath, "r");
     while (!feof(geo))
     {

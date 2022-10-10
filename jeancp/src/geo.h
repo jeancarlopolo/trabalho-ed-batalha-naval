@@ -3,7 +3,7 @@
 
 #include "lista.h"
 
-void read_geo(char *path, char *name, Lista l);
+void read_geo(char *path, char *fileName, Lista *lista);
 
 #endif
 //geoson
