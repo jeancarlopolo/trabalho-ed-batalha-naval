@@ -8,6 +8,6 @@
 #include "geo.h"
 #include "svg.h"
 #include "path.h"
-#include "qry.h"
+//#include "qry.h"
 
 #endif

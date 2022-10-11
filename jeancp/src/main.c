@@ -82,12 +82,12 @@ int main(int argc, char *argv[])
         }
     }
     Lista listabarcos = createLista(-1);
-    read_geo(path, arqGeo, listabarcos);
-    if (arqQry != NULL)
-    {
-        createTxt(dir);
-        read_qry(path, arqQry, listabarcos);
-    }
+    readGeo(path, arqGeo, listabarcos);
+    // if (arqQry != NULL)
+    // {
+    //     createTxt(dir);
+    //     read_qry(path, arqQry, listabarcos);
+    // }
     writeSvg(dir, arqGeo, listabarcos);
     free(arqQry);
     free(arqGeo);
