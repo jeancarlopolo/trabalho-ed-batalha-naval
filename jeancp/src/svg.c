@@ -1,6 +1,6 @@
 #include "svg.h"
 
-FILE *createSvg(char *fullPathSvg, Lista list)
+FILE *createSvg(char *fullPathSvg)
 {
 
     FILE *svg = fopen(fullPathSvg, "w");
@@ -55,7 +55,7 @@ void writeSvg(char *pathOut, char *fileName, Lista list)
     char s[] = ".svg";
     char *fullPathSvg = (char *)malloc(sizeof(char) * 100);
     joinAll(pathOut, fileName, s, fullPathSvg, 100);
-    FILE *svg = createSvg(fullPathSvg, list);
+    FILE *svg = createSvg(fullPathSvg);
     Barco aux = getFirst(list);
     while (aux != NULL)
     {

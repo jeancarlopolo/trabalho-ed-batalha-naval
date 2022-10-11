@@ -18,7 +18,7 @@ por tags que definem o que será desenhado e como será desenhado. É possível 
 e visualizar o que foi desenhado. Sua sintaxe é baseada em XML. 
 **/
 
-FILE* createSvg(char *fullPathSvg, Lista l);
+FILE* createSvg(char *fullPathSvg);
 
 //CREATE_SVG recebe uma string com o caminho completo do arquivo SVG e uma lista de formas e retorna um arquivo SVG
 

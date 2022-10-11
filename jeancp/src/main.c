@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
         createTxt(dir);
         read_qry(path, arqQry, listabarcos);
     }
-    createSvg(dir, listabarcos);
+    writeSvg(dir, arqGeo, listabarcos);
     free(arqQry);
     free(arqGeo);
     free(dir);
