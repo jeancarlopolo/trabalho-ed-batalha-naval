@@ -1,6 +1,4 @@
 #include "svg.h"
-#include "lista.h"
-#include "barco.h"
 
 FILE *createSvg(char *fullPathSvg, Lista list)
 {

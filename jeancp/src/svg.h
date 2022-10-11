@@ -26,19 +26,19 @@ void endSvg(FILE *svg);
 
 //END_SVG finaliza o arquivo SVG
 
-void rectSvg(FILE *svg, Retangulo r);
+void rectSvg(FILE *svg, Barco r);
 
 //RECT_SVG recebe um arquivo SVG e um retângulo e desenha o retângulo no arquivo SVG
 
-void lineSvg(FILE *svg, Linha l);
+void lineSvg(FILE *svg, Barco l);
 
 //LINE_SVG recebe um arquivo SVG e uma linha e desenha a linha no arquivo SVG
 
-void circleSvg(FILE *svg, Circulo c);
+void circleSvg(FILE *svg, Barco c);
 
 //CIRCLE_SVG recebe um arquivo SVG e um círculo e desenha o círculo no arquivo SVG
 
-void textSvg(FILE *svg, Texto t);
+void textSvg(FILE *svg, Barco t);
 
 //TEXT_SVG recebe um arquivo SVG e um texto e desenha o texto no arquivo SVG
 

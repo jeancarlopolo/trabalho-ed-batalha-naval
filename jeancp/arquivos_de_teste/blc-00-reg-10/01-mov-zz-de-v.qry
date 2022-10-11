@@ -1,0 +1,44 @@
+se 27
+se 23
+se 55
+sec 17 0
+se 51
+se 54
+se 15
+sec 34 1
+se 21
+se 14
+se 28
+sec 22 2
+se 31
+se 58
+se 24
+sec 53 3
+se 25
+se 29
+se 26
+sec 35 4
+se 59
+se 20
+se 30
+sec 12 5
+se 37
+se 19
+sec 36 6
+sec 52 7
+mvh 6 1 40.00
+mvh 6 -2 -40.00
+mvh 7 1 40.00
+mvh 7 -2 -40.00
+mvh 4 1 40.00
+mvh 4 -2 -40.00
+mvh 6 1 40.00
+mvh 6 -2 -40.00
+mvh 2 1 40.00
+mvh 2 -2 -40.00
+mvh 7 1 40.00
+mvh 7 -2 -40.00
+mvh 2 1 40.00
+mvh 2 -2 -40.00
+mvh 3 1 40.00
+mvh 3 -2 -40.00

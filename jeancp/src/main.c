@@ -85,9 +85,10 @@ int main(int argc, char const *argv[])
     read_geo(path, arqGeo, listabarcos);
     if (arqQry != NULL)
     {
+        create_txt(dir);
         read_qry(path, arqQry, listabarcos);
     }
-    createSvg(dir, listabarcos);
+    create_svg(dir, listabarcos);
     free(arqQry);
     free(arqGeo);
     free(dir);

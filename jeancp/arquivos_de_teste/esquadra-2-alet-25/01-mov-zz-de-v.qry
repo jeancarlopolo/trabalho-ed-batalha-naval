@@ -1,0 +1,62 @@
+se 50
+se 94
+se 49
+se 39
+se 98
+sec 62 0
+se 56
+se 74
+se 66
+se 72
+se 52
+sec 82 1
+se 79
+se 67
+se 53
+se 51
+se 84
+sec 46 2
+se 45
+se 30
+se 57
+se 27
+se 38
+sec 70 3
+se 26
+se 90
+se 88
+se 95
+se 32
+sec 81 4
+se 41
+se 92
+se 40
+se 33
+se 60
+sec 61 5
+se 44
+se 85
+se 100
+se 86
+se 35
+sec 36 6
+se 64
+se 42
+se 99
+sec 63 7
+mvh 0 2 40.00
+mvh 0 -3 -40.00
+mvh 5 2 40.00
+mvh 5 -3 -40.00
+mvh 0 2 40.00
+mvh 0 -3 -40.00
+mvh 4 2 40.00
+mvh 4 -3 -40.00
+mvh 0 2 40.00
+mvh 0 -3 -40.00
+mvh 6 2 40.00
+mvh 6 -3 -40.00
+mvh 3 2 40.00
+mvh 3 -3 -40.00
+mvh 6 2 40.00
+mvh 6 -3 -40.00
