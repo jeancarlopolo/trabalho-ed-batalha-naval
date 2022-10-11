@@ -26,8 +26,4 @@ void setInfo(Barco b, Item info);
 
 //SET_BARCO_INFO recebe um barco e um item que contém as informações do barco e atualiza as informações do barco
 
-void freeBarco(Barco b);
-
-//FREE_BARCO recebe um barco e libera a memória alocada para o barco
-
 #endif

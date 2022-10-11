@@ -68,7 +68,7 @@ void texto_set_conteudo(Barco text, char *conteudo)
     t->conteudo = conteudo;
 }
 
-void texto_set_ancora(Barco text, char ancora)
+void texto_set_ancora(Barco text, char *ancora)
 {
     Stext *t = (Stext *)text;
     t->ancora = ancora;
@@ -110,7 +110,7 @@ char *texto_get_conteudo(Barco text)
     return t->conteudo;
 }
 
-char texto_get_ancora(Barco text)
+char *texto_get_ancora(Barco text)
 {
     Stext *t = (Stext *)text;
     return t->ancora;

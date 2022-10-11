@@ -32,29 +32,3 @@ void setInfo(Barco b, Item info)
     ponteiro->info = info;
 
 }
-
-void freeBarco(Barco b)
-{
-    struct Barco *ponteiro = b;
-    switch (ponteiro->tipo)
-    {
-    case 'c':
-        circulo_free(ponteiro->info);
-        break;
-    case 'r':
-        retangulo_free(ponteiro->info);
-        break;
-    case 't':
-        texto_free(ponteiro->info);
-        break;
-    case 'l':
-        linha_free(ponteiro->info);
-        break;
-    default:
-        break;
-    }
-    free(ponteiro);
-}
-
-
-
