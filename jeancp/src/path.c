@@ -3,9 +3,46 @@
 #include <stdlib.h>
 #include <string.h>
 
+void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)
+{
+    joinFilePath(path, fileName, fullPath, lenFullPath);
+    strcat(fullPath, ext);
+}
+
+void getFileName(char *fullPath, char *fileName, int lenFileName)
+{
+    char *ponteirochar = strrchr(fullPath, '/');
+    if(*ponteirochar != '\0' && ponteirochar != NULL)
+    {
+        ponteirochar++;
+        strncpy(fileName, ponteirochar, lenFileName);
+        ponteirochar = '\0';
+    };
+}
+
+void getPath(char *fullPath, char *path, int lenPath)
+{
+    char *ponteirochar = strrchr(fullPath, '/');
+    if(*ponteirochar != '\0' && ponteirochar != NULL)
+    {
+        strncpy(path, fullPath, lenPath);
+        ponteirochar = '\0';
+    };
+}
+
+void normalizePath(char *path, char *normPath, int lenNormPath)
+{
+    if (path[strlen(path) - 1] == '/')
+    {
+        lenNormPath = strlen(path) - 1;
+    };
+    strncpy(normPath, path, lenNormPath);
+}
+
 void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNomeArq, char *extArq, int lenExtArq)
 {
-    extArq = strrchr(fullPath, '.');
+    char *ponteirochar = strrchr(fullPath, '.');
+    extArq = strncpy(extArq, ponteirochar, lenExtArq);
     if (extArq == NULL)
     {
         extArq = "";
@@ -28,40 +65,4 @@ void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
     strncat(fullPath, fileName, lenFullPath - strlen(fullPath));
     free(aux);
     free(barra);
-}
-
-void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)
-{
-    joinFilePath(path, fileName, fullPath, lenFullPath);
-    strcat(fullPath, ext);
-}
-
-void getFileName(char *fullPath, char *fileName, int lenFileName)
-{
-    char *ponteirochar = strrchr(fullPath, '/');
-    if(ponteirochar != '\0' && ponteirochar != NULL)
-    {
-        ponteirochar++;
-        strncpy(fileName, ponteirochar, lenFileName);
-        ponteirochar = '\0';
-    };
-}
-
-void getPath(char *fullPath, char *path, int lenPath)
-{
-    char *ponteirochar = strrchr(fullPath, '/');
-    if(ponteirochar != '\0' && ponteirochar != NULL)
-    {
-        strncpy(path, fullPath, lenPath);
-        ponteirochar = '\0';
-    };
-}
-
-void normalizePath(char *path, char *normPath, int lenNormPath)
-{
-    if (path[strlen(path) - 1] == '/')
-    {
-        lenNormPath = strlen(path) - 1;
-    };
-    strncpy(normPath, path, lenNormPath);
 }

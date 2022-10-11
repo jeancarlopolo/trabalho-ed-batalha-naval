@@ -6,6 +6,7 @@
 #include "lista.h"
 
 typedef void* Barco;
+typedef char* string;
 
 //Um barco é uma estrutura que contém um tipo de barco e suas informações
 

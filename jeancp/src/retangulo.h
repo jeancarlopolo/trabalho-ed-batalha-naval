@@ -7,7 +7,6 @@
 #include "lista.h"
 #include "barco.h"
 
-typedef char *string;
 typedef void *Retangulo;
 
 /**

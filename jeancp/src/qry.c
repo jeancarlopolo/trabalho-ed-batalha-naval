@@ -1,4 +1,5 @@
 #include "qry.h"
+#include "path.h"
 
 void read_qry(char *path, char *fileName, Lista *lista)
 {
