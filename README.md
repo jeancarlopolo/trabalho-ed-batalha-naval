@@ -11,7 +11,7 @@ Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre 
   - [ ] Círculo
   - [ ] Texto
   - [ ] Linha
-  - [ ] Barco
+  - [x] Barco
   - [ ] **Mina Flutuante**
 - [ ] Manipulação de arquivos
   - [ ] Leitura do .geo
@@ -29,8 +29,6 @@ Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre 
   - [ ] mvv (Mover verticalmente)
 - [ ] Execução do código
   - [x] Makefile
-    - [ ] make zip pra enviar
-    - [ ] make ted (executável)
   - [ ] Funções de manipulação de path
   - [ ] Leitura de argv no main.c
   - [ ] Mudar comentários e variáveis pro Evandro não perceber que foi em grupo o trabalho 😳😳
