@@ -21,7 +21,7 @@ void texto_set_id(Barco text, int id);
 
 //TEXTO_SET_I recebe um TEXTO e um inteiro e seta o ID do TEXTO
 
-void texto_set_ancora(Barco text, char ancora);
+void texto_set_ancora(Barco text, char* ancora);
 
 //TEXTO_SET_ANCOR recebe um TEXTO e um char e seta a posição da ancora do TEXTO
 
@@ -49,7 +49,7 @@ int texto_get_i(Barco text);
 
 //TEXTO_GET_I recebe um TEXTO e retorna o ID do TEXTO
 
-char texto_get_ancora(Barco text);
+string texto_get_ancora(Barco text);
 
 //TEXTO_GET_ANCOR recebe um TEXTO e retorna a posição da ancora do TEXTO
 

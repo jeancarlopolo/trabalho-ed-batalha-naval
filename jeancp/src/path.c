@@ -3,11 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)
-{
-    joinFilePath(path, fileName, fullPath, lenFullPath);
-    strcat(fullPath, ext);
-}
 
 void getFileName(char *fullPath, char *fileName, int lenFileName)
 {
@@ -29,6 +24,7 @@ void getPath(char *fullPath, char *path, int lenPath)
         ponteirochar = '\0';
     };
 }
+
 
 void normalizePath(char *path, char *normPath, int lenNormPath)
 {
@@ -65,4 +61,10 @@ void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
     strncat(fullPath, fileName, lenFullPath - strlen(fullPath));
     free(aux);
     free(barra);
+}
+
+void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)
+{
+    joinFilePath(path, fileName, fullPath, lenFullPath);
+    strcat(fullPath, ext);
 }

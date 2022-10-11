@@ -8,14 +8,14 @@ typedef struct texto
     char *corb;
     char *corp;
     char *conteudo;
-    char ancora;
+    char *ancora;
     int hp;
     int np;
     int pi;
     int pd;
 } Stext;
 
-Barco create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char ancora)
+Barco create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char *ancora)
 {
     Stext *text = (Stext *)malloc(sizeof(Stext));
     text->id = id;

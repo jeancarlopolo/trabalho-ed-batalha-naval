@@ -234,6 +234,10 @@ Posic getNext(Lista L, Posic p)
 		ponteironode = p;
 		return ponteironode->prox;
 	}
+	else
+	{
+		return NIL;
+	}
 }
 
 Posic getLast(Lista L)
@@ -265,6 +269,10 @@ Posic getPrevious(Lista L, Posic p)
 			ponteironode = ponteironode->prox;
 		}
 		return ponteironode;
+	}
+	else
+	{
+		return NIL;
 	}
 }
 
