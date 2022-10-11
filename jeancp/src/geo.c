@@ -41,7 +41,7 @@ void readGeo(char *path, char *fileName, Lista *lista)
         {
             fscanf(geo, "%d %f %f %s %s %c", &id, &x, &y, corb, corp, ancora);
             fgets(text, 200, geo);
-            Barco *texto = create_texto(id, x, y, corb, corp, ancora, text);
+            Barco *texto = create_texto(id, x, y, corb, corp, text, ancora);
             insert(lista, texto);
             break;
         }

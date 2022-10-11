@@ -12,26 +12,26 @@ Barco createBarco(char id, Item info)
     b->tipo = id;
     b->info = info;
     return b;
-};
+}
 
 Item getInfo(Barco b)
 {
     struct Barco *ponteiro = b;
     return ponteiro->info;
-};
+}
 
 char getTipo(Barco b)
 {
     struct Barco *ponteiro = b;
     return ponteiro->tipo;
-};
+}
 
 void setInfo(Barco b, Item info)
 {
     struct Barco *ponteiro = b;
     ponteiro->info = info;
 
-};
+}
 
 void freeBarco(Barco b)
 {
@@ -39,22 +39,22 @@ void freeBarco(Barco b)
     switch (ponteiro->tipo)
     {
     case 'c':
-        freeCirculo(ponteiro->info);
+        circulo_free(ponteiro->info);
         break;
     case 'r':
-        freeRetangulo(ponteiro->info);
+        retangulo_free(ponteiro->info);
         break;
     case 't':
-        freeTexto(ponteiro->info);
+        texto_free(ponteiro->info);
         break;
     case 'l':
-        freeLinha(ponteiro->info);
+        linha_free(ponteiro->info);
         break;
     default:
         break;
     }
     free(ponteiro);
-};
+}
 
 
 

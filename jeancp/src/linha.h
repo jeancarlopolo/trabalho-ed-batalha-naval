@@ -13,7 +13,6 @@ nível de proteção de 50 e um HP de 1. A pontuação recebida pela sua inativa
 é 150.
 **/
 
-typedef char *string;
 typedef void *Linha;
 
 Linha create_linha(int id, float x1, float y1, float x2, float y2, string cor);

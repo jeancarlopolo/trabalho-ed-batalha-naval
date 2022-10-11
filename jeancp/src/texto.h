@@ -13,9 +13,7 @@ conteúdo, cor de borda e cor de preenchimento. O TEXTO possui um nível de prot
 A pontuação recebida pela sua inativação é 30 e pela sua destruição é 500.
 **/
 
-typedef char *string;
-
-Barco create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char ancora);
+Barco create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char *ancora);
 
 //CREATE_TEXTO retorna um TEXTO;
 

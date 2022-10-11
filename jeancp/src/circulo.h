@@ -13,7 +13,6 @@ cor de preenchimento. O CIRCULO possui um nível de proteção de 60 e um HP de 
 pela sua inativação é 75 e pela sua destruição é 75/(área/5).
 **/
 
-typedef char *string;
 typedef void *Circulo;
 
 Circulo create_circulo(int id, float x, float y, float r, string corb, string corp);

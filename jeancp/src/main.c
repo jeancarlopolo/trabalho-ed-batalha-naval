@@ -1,6 +1,6 @@
 #include "objetos.h"
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
     if (argc < 4)
     {
@@ -11,16 +11,16 @@ int main(int argc, char const *argv[])
     char *arqGeo = (char *)malloc(sizeof(char) * 100);
     char *dir = (char *)malloc(sizeof(char) * 100);
     char *path = (char *)malloc(sizeof(char) * 100);
-    if (argv[1] == "-e")
+    if (strcmp(argv[1], "-e") == 0)
     {
         normalizePath(argv[2], path, strlen(path));
-        if (argv[3] == "-f")
+        if (strcmp(argv[3], "-f") == 0)
         {
             strcpy(arqGeo, argv[4]);
-            if (argv[5] == "-q")
+            if (strcmp(argv[5], "-q") == 0)
             {
                 strcpy(arqQry, argv[6]);
-                if (argv[7] == "-o")
+                if (strcmp(argv[7], "-o") == 0)
                 {
                     normalizePath(argv[8], dir, strlen(dir));
                 }
@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
                     return 1;
                 }
             }
-            else if (argv[5] == "-o")
+            else if (strcmp(argv[5], "-o") == 0)
             {
                 normalizePath(argv[6], dir, strlen(dir));
             }
@@ -49,13 +49,13 @@ int main(int argc, char const *argv[])
     else
     {
         path = ".";
-        if (argv[1] == "-f")
+        if (strcmp(argv[1], "-f") == 0)
         {
             strcpy(arqGeo, argv[2]);
-            if (argv[3] == "-q")
+            if (strcmp(argv[3], "-q") == 0)
             {
                 strcpy(arqQry, argv[4]);
-                if (argv[5] == "-o")
+                if (strcmp(argv[5], "-o") == 0)
                 {
                     normalizePath(argv[6], dir, strlen(dir));
                 }
@@ -65,7 +65,7 @@ int main(int argc, char const *argv[])
                     return 1;
                 }
             }
-            else if (argv[3] == "-o")
+            else if (strcmp(argv[3], "-o") == 0)
             {
                 normalizePath(argv[4], dir, strlen(dir));
             }
