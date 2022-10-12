@@ -9,7 +9,8 @@
 
 /**
 LINHA é um polígono que possui dois pontos de origem (âncora definida por x e y) e cor. A LINHA possui um
-nível de proteção de 50 e um HP de 1. A pontuação recebida pela sua inativação é 50 e pela sua destruição
+nível de proteção de 50 e um HP de 1. 
+A pontuação recebida pela sua inativação é 50 e pela sua destruição
 é 150.
 **/
 
