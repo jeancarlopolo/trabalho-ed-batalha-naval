@@ -20,7 +20,7 @@ struct Line
 Barco create_linha(int id, float x1, float y1, float x2, float y2, string cor)
 {
     struct Line *li = malloc(sizeof(struct Line));
-    Barco bar = createBarco('l', li);
+    Barco bar = createBarco('l', (Item)li);
     linha_set_i(li, id);
     linha_set_x1(li, x1);
     linha_set_y1(li, y1);

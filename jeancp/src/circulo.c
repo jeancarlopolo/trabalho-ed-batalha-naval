@@ -16,7 +16,7 @@ struct Circle
 Barco create_circulo(int id, float x, float y, float r, string corb, string corp)
 {
     struct Circle *cir = malloc(sizeof(struct Circle));
-    Barco bar = createBarco('c', cir);
+    Barco bar = createBarco('c', (Item)cir);
     circulo_set_i(cir, id);
     circulo_set_x(cir, x);
     circulo_set_y(cir, y);

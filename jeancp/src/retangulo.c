@@ -14,7 +14,7 @@ struct Rectangle
 Barco create_retangulo(int id, float x, float y, float w, float h, string corb, string corp)
 {
     struct Rectangle *ret = malloc(sizeof(struct Rectangle));
-    Barco bar = createBarco('r', ret);
+    Barco bar = createBarco('r', (Item)ret);
     retangulo_set_i(ret, id);
     retangulo_set_x(ret, x);
     retangulo_set_y(ret, y);
