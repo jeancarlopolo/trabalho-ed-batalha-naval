@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     char *path = (char *)malloc(sizeof(char) * 100);
     if (strcmp(argv[1], "-e") == 0)
     {
-        normalizePath(argv[2], path, strlen(path));
+        normalizePath(argv[2], path, strlen(argv[2]));
         if (strcmp(argv[3], "-f") == 0)
         {
             strcpy(arqGeo, argv[4]);
@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
                 strcpy(arqQry, argv[6]);
                 if (strcmp(argv[7], "-o") == 0)
                 {
-                    normalizePath(argv[8], dir, strlen(dir));
+                    normalizePath(argv[8], dir, strlen(argv[8]));
                 }
                 else
                 {
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
             }
             else if (strcmp(argv[5], "-o") == 0)
             {
-                normalizePath(argv[6], dir, strlen(dir));
+                normalizePath(argv[6], dir, strlen(argv[6]));
             }
             else
             {
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
                 strcpy(arqQry, argv[4]);
                 if (strcmp(argv[5], "-o") == 0)
                 {
-                    normalizePath(argv[6], dir, strlen(dir));
+                    normalizePath(argv[6], dir, strlen(argv[6]));
                 }
                 else
                 {
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
             }
             else if (strcmp(argv[3], "-o") == 0)
             {
-                normalizePath(argv[4], dir, strlen(dir));
+                normalizePath(argv[4], dir, strlen(argv[4]));
             }
             else
             {

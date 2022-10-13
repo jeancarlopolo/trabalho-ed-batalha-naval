@@ -17,7 +17,7 @@ struct Line
     int np;
 };
 
-Linha create_linha(int id, float x1, float y1, float x2, float y2, string cor)
+Barco create_linha(int id, float x1, float y1, float x2, float y2, string cor)
 {
     struct Line *li = malloc(sizeof(struct Line));
     Barco bar = createBarco('l', li);
@@ -29,83 +29,108 @@ Linha create_linha(int id, float x1, float y1, float x2, float y2, string cor)
     linha_set_cor(li, cor);
     li->hp = 1;
     li->np = 50;
-    return li;
+    return bar;
 }
 
-void linha_set_i(Linha li, int i)
+void linha_set_i(Barco li, int i)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     ponteiro->id = i;
 }
 
-void linha_set_x1(Linha li, float x1)
+void linha_set_x1(Barco li, float x1)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     ponteiro->x1 = x1;
 }
 
-void linha_set_y1(Linha li, float y1)
+void linha_set_y1(Barco li, float y1)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     ponteiro->y1 = y1;
 }
 
-void linha_set_x2(Linha li, float x2)
+void linha_set_x2(Barco li, float x2)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     ponteiro->x2 = x2;
 }
 
-void linha_set_y2(Linha li, float y2)
+void linha_set_y2(Barco li, float y2)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     ponteiro->y2 = y2;
 }
 
-void linha_set_cor(Linha li, string cor)
+void linha_set_cor(Barco li, string cor)
 {
-    struct Line *ponteiro = getInfo (li);
-    ponteiro->cor = cor;
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
+    char corstring[20];
+    strcpy(corstring, cor);
+    ponteiro->cor = corstring;
 }
 
-int linha_get_i(Linha li)
+int linha_get_i(Barco li)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     return ponteiro->id;
 }
 
-float linha_get_x1(Linha li)
+float linha_get_x1(Barco li)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     return ponteiro->x1;
 }
 
-float linha_get_y1(Linha li)
+float linha_get_y1(Barco li)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     return ponteiro->y1;
 }
 
-float linha_get_x2(Linha li)
+float linha_get_x2(Barco li)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     return ponteiro->x2;
 }
 
-float linha_get_y2(Linha li)
+float linha_get_y2(Barco li)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     return ponteiro->y2;
 }
 
-string linha_get_cor(Linha li)
+string linha_get_cor(Barco li)
 {
-    struct Line *ponteiro = getInfo (li);
+    Item info = li;
+    getInfo(li, info);
+    struct Line *ponteiro = info;
     return ponteiro->cor;
 }
 
-void linha_free(Linha li)
+void linha_free(Barco li)
 {
     free(li);
 }
-

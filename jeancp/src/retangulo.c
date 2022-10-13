@@ -11,7 +11,7 @@ struct Rectangle
     string corb;
 };
 
-Retangulo create_retangulo(int id, float x, float y, float w, float h, string corb, string corp)
+Barco create_retangulo(int id, float x, float y, float w, float h, string corb, string corp)
 {
     struct Rectangle *ret = malloc(sizeof(struct Rectangle));
     Barco bar = createBarco('r', ret);
@@ -22,96 +22,128 @@ Retangulo create_retangulo(int id, float x, float y, float w, float h, string co
     retangulo_set_h(ret, h);
     retangulo_set_corb(ret, corb);
     retangulo_set_corp(ret, corp);
-    return ret;
+    return bar;
 }
 
-void retangulo_set_i(Retangulo ret, int i)
+void retangulo_set_i(Barco ret, int i)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     ponteiro->id = i;
 }
 
-void retangulo_set_x(Retangulo ret, float x)
+void retangulo_set_x(Barco ret, float x)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     ponteiro->x = x;
 }
 
-void retangulo_set_y(Retangulo ret, float y)
+void retangulo_set_y(Barco ret, float y)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     ponteiro->y = y;
 }
 
-void retangulo_set_w(Retangulo ret, float w)
+void retangulo_set_w(Barco ret, float w)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     ponteiro->w = w;
 }
 
-void retangulo_set_h(Retangulo ret, float h)
+void retangulo_set_h(Barco ret, float h)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     ponteiro->h = h;
 }
 
-void retangulo_set_corb(Retangulo ret, string corb)
+void retangulo_set_corb(Barco ret, string corb)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
-    ponteiro->corb = corb;
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
+    char corborda[20];
+    strcpy(corborda, corb);
+    ponteiro->corb = corborda;
 }
 
-void retangulo_set_corp(Retangulo ret, string corp)
+void retangulo_set_corp(Barco ret, string corp)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
-    ponteiro->cor = corp;
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
+    char corpreenchimento[20];
+    strcpy(corpreenchimento, corp);
+    ponteiro->cor = corpreenchimento;
 }
 
-int retangulo_get_i(Retangulo ret)
+int retangulo_get_i(Barco ret)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     return ponteiro->id;
 }
 
-float retangulo_get_x(Retangulo ret)
+float retangulo_get_x(Barco ret)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     return ponteiro->x;
 }
 
-float retangulo_get_y(Retangulo ret)
+float retangulo_get_y(Barco ret)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     return ponteiro->y;
 }
 
-float retangulo_get_w(Retangulo ret)
+float retangulo_get_w(Barco ret)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     return ponteiro->w;
 }
 
-float retangulo_get_h(Retangulo ret)
+float retangulo_get_h(Barco ret)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     return ponteiro->h;
 }
 
-string retangulo_get_corb(Retangulo ret)
+string retangulo_get_corb(Barco ret)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     return ponteiro->corb;
 }
 
-string retangulo_get_corp(Retangulo ret)
+string retangulo_get_corp(Barco ret)
 {
-    struct Rectangle *ponteiro = getInfo (ret);
+    Item info = ret;
+    getInfo(ret, info);
+    struct Rectangle *ponteiro = info;
     return ponteiro->cor;
 }
 
-void retangulo_free(Retangulo ret)
+void retangulo_free(Barco ret)
 {
     free(ret);
 }
 
-//o resto depende de outros conceitos, como: nível de proteção, pontuação, etc.
+// o resto depende de outros conceitos, como: nível de proteção, pontuação, etc.

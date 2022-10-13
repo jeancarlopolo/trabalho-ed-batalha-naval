@@ -3,11 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 void getFileName(char *fullPath, char *fileName, int lenFileName)
 {
     char *ponteirochar = strrchr(fullPath, '/');
-    if(*ponteirochar != '\0' && ponteirochar != NULL)
+    if (*ponteirochar != '\0' && ponteirochar != NULL)
     {
         ponteirochar++;
         strncpy(fileName, ponteirochar, lenFileName);
@@ -18,19 +17,19 @@ void getFileName(char *fullPath, char *fileName, int lenFileName)
 void getPath(char *fullPath, char *path, int lenPath)
 {
     char *ponteirochar = strrchr(fullPath, '/');
-    if(*ponteirochar != '\0' && ponteirochar != NULL)
+    if (*ponteirochar != '\0' && ponteirochar != NULL)
     {
         strncpy(path, fullPath, lenPath);
         ponteirochar = '\0';
     };
 }
 
-
 void normalizePath(char *path, char *normPath, int lenNormPath)
 {
-    if (path[strlen(path) - 1] == '/')
+    char *ponteirochar = strrchr(path, '/');
+    if (*ponteirochar != '\0' && ponteirochar != NULL)
     {
-        lenNormPath = strlen(path) - 1;
+        ponteirochar = '\0';
     };
     strncpy(normPath, path, lenNormPath);
 }
@@ -49,18 +48,15 @@ void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNo
 
 void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
 {
-    char *aux = (char *)malloc(sizeof(char) * (strlen(path) + strlen(fileName) + 1));
-    char *barra = (char *)malloc(sizeof(char) * 2);
-    barra[0] = '/';
-    normalizePath(path, aux, strlen(aux));
+    char aux[100];
+    char barra[] = "/";
+    normalizePath(path, aux, lenFullPath);
     strncpy(fullPath, aux, lenFullPath);
     if (fullPath[0] != '\0')
     {
         strcat(fullPath, barra);
     }
     strncat(fullPath, fileName, lenFullPath - strlen(fullPath));
-    free(aux);
-    free(barra);
 }
 
 void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)

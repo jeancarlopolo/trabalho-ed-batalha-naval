@@ -18,7 +18,7 @@ char getTipo(Barco b);
 
 //GET_BARCO_TIPO recebe um barco e retorna o caractere que representa o tipo de barco
 
-Item getInfo(Barco b);
+Item getInfo(Barco b, Item info);
 
 //GET_BARCO_INFO recebe um barco e retorna um item que contém as informações do barco
  

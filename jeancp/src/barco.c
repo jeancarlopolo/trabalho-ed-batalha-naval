@@ -14,10 +14,11 @@ Barco createBarco(char id, Item info)
     return b;
 }
 
-Item getInfo(Barco b)
+Item getInfo(Barco b, Item info)
 {
     struct Barco *ponteiro = b;
-    return ponteiro->info;
+    info = ponteiro->info;
+    return info;
 }
 
 char getTipo(Barco b)

@@ -15,10 +15,16 @@ void readGeo(char *path, char *fileName, Lista *lista)
     char corb[100], corp[100], text[200];
     int id;
     char ancora[1];
-    char *fullPath = (char *)malloc(sizeof(char) * 100);
+    char fullPath[100];
+    ;
     joinFilePath(path, fileName, fullPath, 100);
     FILE *geo = fopen(fullPath, "r");
-    while (!feof(geo))
+    if (geo == NULL)
+    {
+        printf("Erro ao abrir o arquivo %s!", fullPath);
+        exit(1);
+    }
+    while (fscanf(geo, "%[^\n] ", type) != EOF)
     {
         fscanf(geo, "%s", type);
         switch (type[0])
@@ -57,5 +63,4 @@ void readGeo(char *path, char *fileName, Lista *lista)
         }
     }
     fclose(geo);
-    free(fullPath);
 }

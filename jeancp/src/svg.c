@@ -53,29 +53,28 @@ void textSvg(FILE *svg, Barco texto)
 void writeSvg(char *pathOut, char *fileName, Lista list)
 {
     char s[] = ".svg";
-    char *fullPathSvg = (char *)malloc(sizeof(char) * 100);
+    char fullPathSvg[100] = "";
     joinAll(pathOut, fileName, s, fullPathSvg, 100);
     FILE *svg = createSvg(fullPathSvg);
     Barco aux = getFirst(list);
     while (aux != NULL)
     {
-        switch (getTipo(aux))
+        switch (getTipo(get(list, aux)))
         {
         case 'c':
-            circleSvg(svg, aux);
+            circleSvg(svg, (Barco) get(list, aux));
             break;
         case 'r':
-            rectSvg(svg, aux);
+            rectSvg(svg, get(list, aux));
             break;
         case 'l':
-            lineSvg(svg, aux);
+            lineSvg(svg, get(list, aux));
             break;
         case 't':
-            textSvg(svg, aux);
+            textSvg(svg, get(list, aux));
             break;
         }
         aux = getNext(list, aux);
     }
-    free(fullPathSvg);
     endSvg(svg);
 }
