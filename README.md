@@ -15,7 +15,7 @@ Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre 
   - [x] Barco
   - [ ] **Mina Flutuante**
 - [ ] Manipulação de arquivos
-  - [ ] Leitura do .geo
+  - [x] Leitura do .geo
   - [ ] Leitura do .qry
   - [ ] Criação do .txt
   - [ ] Criação do .svg
@@ -30,7 +30,7 @@ Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre 
   - [ ] mvv (Mover verticalmente)
 - [ ] Execução do código
   - [x] Makefile
-  - [ ] Funções de manipulação de path
-  - [ ] Leitura de argv no main.c
+  - [x] Funções de manipulação de path
+  - [x] Leitura de argv no main.c
   - [ ] Mudar comentários e variáveis pro Evandro não perceber que foi em grupo o trabalho 😳😳
   
