@@ -32,14 +32,14 @@ void readGeo(char *path, char *fileName, Lista *lista)
         case 'c':
         {
             fscanf(geo, "%d %f %f %f %s %s", &id, &x, &y, &r, corb, corp);
-            Barco circulo = create_circulo(id, x, y, r, corb, corp);
+            Barco *circulo = create_circulo(id, x, y, r, corb, corp);
             insert(lista, circulo);
             break;
         }
         case 'r':
         {
             fscanf(geo, "%d %f %f %f %f %s %s", &id, &x, &y, &w, &h, corb, corp);
-            Barco retangulo = create_retangulo(id, x, y, w, h, corb, corp);
+            Barco *retangulo = create_retangulo(id, x, y, w, h, corb, corp);
             insert(lista, retangulo);
             break;
         }
@@ -47,14 +47,14 @@ void readGeo(char *path, char *fileName, Lista *lista)
         {
             fscanf(geo, "%d %f %f %s %s %c", &id, &x, &y, corb, corp, ancora);
             fgets(text, 200, geo);
-            Barco texto = create_texto(id, x, y, corb, corp, text, ancora);
+            Barco *texto = create_texto(id, x, y, corb, corp, text, ancora);
             insert(lista, texto);
             break;
         }
         case 'l':
         {
             fscanf(geo, "%d %f %f %f %f %s", &id, &x, &y, &w, &h, corb);
-            Barco linha = create_linha(id, x, y, w, h, corb);
+            Barco *linha = create_linha(id, x, y, w, h, corb);
             insert(lista, linha);
             break;
         };
