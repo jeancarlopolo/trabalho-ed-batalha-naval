@@ -48,7 +48,7 @@ void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNo
 
 void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
 {
-    char aux[100];
+    char aux[200];
     char barra[] = "/";
     normalizePath(path, aux, lenFullPath);
     strncpy(fullPath, aux, lenFullPath);
@@ -56,7 +56,7 @@ void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
     {
         strcat(fullPath, barra);
     }
-    strncat(fullPath, fileName, lenFullPath - strlen(fullPath));
+    strncat(fullPath, fileName, lenFullPath);
 }
 
 void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)

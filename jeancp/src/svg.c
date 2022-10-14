@@ -32,7 +32,15 @@ void endSvg(FILE *svg)
 
 void rectSvg(FILE *svg, Barco retangulo)
 {
-    fprintf(svg, "\n\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" stroke=\"%s\"/>", retangulo_get_x(retangulo), retangulo_get_y(retangulo), retangulo_get_w(retangulo), retangulo_get_h(retangulo), retangulo_get_corp(retangulo), retangulo_get_corb(retangulo));
+    float x, y, w, h;
+    char *corb, *cor;
+    x = retangulo_get_x(getInfo(retangulo));
+    y = retangulo_get_y(getInfo(retangulo));
+    w = retangulo_get_w(getInfo(retangulo));
+    h = retangulo_get_h(getInfo(retangulo));
+    corb = retangulo_get_corb(getInfo(retangulo));
+    cor = retangulo_get_corp(getInfo(retangulo));
+    fprintf(svg, "\n\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" stroke=\"%s\"/>", x, y, w, h, cor, corb);
 }
 
 void circleSvg(FILE *svg, Barco circulo)
@@ -53,8 +61,8 @@ void textSvg(FILE *svg, Barco texto)
 void writeSvg(char *pathOut, char *fileName, Lista list)
 {
     char s[] = ".svg";
-    char fullPathSvg[100] = "";
-    joinAll(pathOut, fileName, s, fullPathSvg, 100);
+    char fullPathSvg[200] = "";
+    joinAll(pathOut, fileName, s, fullPathSvg, 200);
     FILE *svg = createSvg(fullPathSvg);
     Barco aux = getFirst(list);
     while (aux != NULL)

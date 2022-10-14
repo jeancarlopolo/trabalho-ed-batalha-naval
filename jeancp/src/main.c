@@ -7,10 +7,10 @@ int main(int argc, char *argv[])
         printf("Uso: ted [-e path] -f arq.geo [-q consulta.qry] -o dir");
         return 1;
     }
-    char *arqQry = (char *)malloc(sizeof(char) * 100);
-    char *arqGeo = (char *)malloc(sizeof(char) * 100);
-    char *dir = (char *)malloc(sizeof(char) * 100);
-    char *path = (char *)malloc(sizeof(char) * 100);
+    char *arqQry = (char *)malloc(sizeof(char) * 200);
+    char *arqGeo = (char *)malloc(sizeof(char) * 200);
+    char *dir = (char *)malloc(sizeof(char) * 200);
+    char *path = (char *)malloc(sizeof(char) * 200);
     if (strcmp(argv[1], "-e") == 0)
     {
         normalizePath(argv[2], path, strlen(argv[2]));

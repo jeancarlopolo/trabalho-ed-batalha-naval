@@ -1,138 +1,127 @@
 #include "texto.h"
 
-typedef struct texto
+struct Text
 {
     int id;
     float x;
     float y;
-    char *corb;
-    char *corp;
-    char *conteudo;
-    char *ancora;
-    int hp;
-    int np;
-    int pi;
-    int pd;
-} Stext;
+    char* corb;
+    char* corp;
+    char* conteudo;
+    char* ancora;
+};
 
-Barco create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char *ancora)
+texto create_texto(int id, float x, float y, char* corb, char* corp, char* conteudo, char* ancora)
 {
-    Stext *text = (Stext *)malloc(sizeof(Stext));
-    text->id = id;
-    text->x = x;
-    text->y = y;
-    text->corb = corb;
-    text->corp = corp;
-    text->conteudo = conteudo;
-    text->ancora = ancora;
-    text->hp = 1;
-    text->np = 5;
-    text->pi = 30;
-    text->pd = 30;
-    return text;
+    struct Text *txt = malloc(sizeof(struct Text));
+    texto_set_i(txt, id);
+    texto_set_x(txt, x);
+    texto_set_y(txt, y);
+    texto_set_corb(txt, corb);
+    texto_set_corp(txt, corp);
+    texto_set_conteudo(txt, conteudo);
+    texto_set_ancora(txt, ancora);
+    return txt;
 }
 
-void texto_set_id(Barco text, int id)
+void texto_set_i(texto txt, int i)
 {
-    Stext *t = (Stext *)text;
-    t->id = id;
+    struct Text *ponteiro = txt;
+    ponteiro->id = i;
 }
 
-void texto_set_x(Barco text, float x)
+void texto_set_x(texto txt, float x)
 {
-    Stext *t = (Stext *)text;
-    t->x = x;
+    struct Text *ponteiro = txt;
+    ponteiro->x = x;
 }
 
-void texto_set_y(Barco text, float y)
+void texto_set_y(texto txt, float y)
 {
-    Stext *t = (Stext *)text;
-    t->y = y;
+    struct Text *ponteiro = txt;
+    ponteiro->y = y;
 }
 
-void texto_set_corb(Barco text, char *corb)
+void texto_set_corb(texto txt, char* corb)
 {
-    Stext *t = (Stext *)text;
-    t->corb = corb;
+    struct Text *ponteiro = txt;
+    char *corborda = malloc(sizeof(char) * 200);
+    strcpy(corborda, corb);
+    ponteiro->corb = corborda;
 }
 
-void texto_set_corp(Barco text, char *corp)
+void texto_set_corp(texto txt, char* corp)
 {
-    Stext *t = (Stext *)text;
-    t->corp = corp;
+    struct Text *ponteiro = txt;
+    char *corpreenchimento = malloc(sizeof(char) * strlen(corp));
+    strcpy(corpreenchimento, corp);
+    ponteiro->corp = corpreenchimento;
 }
 
-void texto_set_conteudo(Barco text, char *conteudo)
+void texto_set_conteudo(texto txt, char* conteudo)
 {
-    Stext *t = (Stext *)text;
-    t->conteudo = conteudo;
+    struct Text *ponteiro = txt;
+    char *conteudoTexto = malloc(sizeof(char) * strlen(conteudo));
+    strcpy(conteudoTexto, conteudo);
+    ponteiro->conteudo = conteudoTexto;
 }
 
-void texto_set_ancora(Barco text, char *ancora)
+void texto_set_ancora(texto txt, char* ancora)
 {
-    Stext *t = (Stext *)text;
-    t->ancora = ancora;
+    struct Text *ponteiro = txt;
+    char *ancoraTexto = malloc(sizeof(char) * strlen(ancora));
+    strcpy(ancoraTexto, ancora);
+    ponteiro->ancora = ancoraTexto;
 }
 
-int texto_get_id(Barco text)
+int texto_get_i(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->id;
+    struct Text *ponteiro = txt;
+    return ponteiro->id;
 }
 
-float texto_get_x(Barco text)
+float texto_get_x(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->x;
+    struct Text *ponteiro = txt;
+    return ponteiro->x;
 }
 
-float texto_get_y(Barco text)
+float texto_get_y(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->y;
+    struct Text *ponteiro = txt;
+    return ponteiro->y;
 }
 
-char *texto_get_corb(Barco text)
+char* texto_get_corb(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->corb;
+    struct Text *ponteiro = txt;
+    return ponteiro->corb;
 }
 
-char *texto_get_corp(Barco text)
+char* texto_get_corp(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->corp;
+    struct Text *ponteiro = txt;
+    return ponteiro->corp;
 }
 
-char *texto_get_conteudo(Barco text)
+char* texto_get_conteudo(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->conteudo;
+    struct Text *ponteiro = txt;
+    return ponteiro->conteudo;
 }
 
-char *texto_get_ancora(Barco text)
+char* texto_get_ancora(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->ancora;
+    struct Text *ponteiro = txt;
+    return ponteiro->ancora;
 }
 
-int texto_get_pontos_inativo(Barco text)
+void texto_free(texto txt)
 {
-    Stext *t = (Stext *)text;
-    return t->pi;
-}
-
-int texto_get_pontos_destruido(Barco text)
-{
-    Stext *t = (Stext *)text;
-    return t->pd;
-}
-
-void texto_free(Barco text)
-{
-    Stext *t = (Stext *)text;
-    free(t->corb);
-    free(t->corp);
-    free(t->conteudo);
-    free(t);
+    struct Text *ponteiro = txt;
+    free(ponteiro->corb);
+    free(ponteiro->corp);
+    free(ponteiro->conteudo);
+    free(ponteiro->ancora);
+    free(ponteiro);
 }

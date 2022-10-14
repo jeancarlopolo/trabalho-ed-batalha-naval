@@ -7,149 +7,110 @@ struct Circle
     float x;
     float y;
     float r;
-    string cor;
-    string corb;
-    int hp;
-    int np;
+    char* cor;
+    char* corb;
 };
 // colocar int hp e defesa e pdi
-Barco create_circulo(int id, float x, float y, float r, string corb, string corp)
+circulo create_circulo(int id, float x, float y, float r, char* corb, char* corp)
 {
     struct Circle *cir = malloc(sizeof(struct Circle));
-    Barco bar = createBarco('c', cir);
     circulo_set_i(cir, id);
     circulo_set_x(cir, x);
     circulo_set_y(cir, y);
     circulo_set_r(cir, r);
     circulo_set_corb(cir, corb);
     circulo_set_corp(cir, corp);
-    cir->hp = 2;
-    cir->np = 60;
-    return bar;
+    return cir;
 }
 
-void circulo_set_i(Barco cir, int i)
+void circulo_set_i(circulo cir, int i)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     ponteiro->id = i;
 }
 
-void circulo_set_x(Barco cir, float x)
+void circulo_set_x(circulo cir, float x)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     ponteiro->x = x;
 }
 
-void circulo_set_y(Barco cir, float y)
+void circulo_set_y(circulo cir, float y)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     ponteiro->y = y;
 }
 
-void circulo_set_r(Barco cir, float r)
+void circulo_set_r(circulo cir, float r)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     ponteiro->r = r;
 }
 
-void circulo_set_corb(Barco cir, string corb)
+void circulo_set_corb(circulo cir, char* corb)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
-    char corborda[20];
+    struct Circle *ponteiro = cir;
+    char *corborda = malloc(sizeof(char) * strlen(corb));
     strcpy(corborda, corb);
     ponteiro->corb = corborda;
 }
 
-void circulo_set_corp(Barco cir, string corp)
+void circulo_set_corp(circulo cir, char* corp)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
-    char corpreenchimento[20];
+    struct Circle *ponteiro = cir;
+    char *corpreenchimento = malloc(sizeof(char) * strlen(corp));
     strcpy(corpreenchimento, corp);
     ponteiro->cor = corpreenchimento;
 }
 
-void free_circulo(Barco cir)
+int circulo_get_i(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
-    free(ponteiro);
-}
-
-int circulo_get_i(Barco cir)
-{
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     return ponteiro->id;
 }
 
-float circulo_get_x(Barco cir)
+float circulo_get_x(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     return ponteiro->x;
 }
 
-float circulo_get_y(Barco cir)
+float circulo_get_y(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     return ponteiro->y;
 }
 
-float circulo_get_r(Barco cir)
+float circulo_get_r(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     return ponteiro->r;
 }
 
-string circulo_get_corb(Barco cir)
+char* circulo_get_corb(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     return ponteiro->corb;
 }
 
-string circulo_get_corp(Barco cir)
+char* circulo_get_corp(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     return ponteiro->cor;
 }
 
-float circulo_get_area(Barco cir)
+float circulo_get_area(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     return 3.14 * ponteiro->r * ponteiro->r;
 }
 
-void circulo_free(Barco cir)
+void circulo_free(circulo cir)
 {
     Item info = cir;
     getInfo(cir, info);
     struct Circle *ponteiro = info;
-    free(ponteiro);
+    free(ponteiro->corb);
+    free(ponteiro->cor);
+    free(cir);
 }
-
-// o resto depende de outros conceitos, como: nível de proteção, pontuação, etc

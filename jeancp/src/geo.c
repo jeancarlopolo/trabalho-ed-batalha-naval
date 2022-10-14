@@ -7,17 +7,19 @@
 #include "texto.h"
 #include "path.h"
 #include "geo.h"
+#include "barco.h"
+#include "mina.h"
 
 void readGeo(char *path, char *fileName, Lista *lista)
 {
-    char type[100];
+    char type[200];
     float x, y, w, h, r;
-    char corb[100], corp[100], text[200];
+    char corb[200], corp[200], text[200];
     int id;
     char ancora[1];
-    char fullPath[100];
+    char fullPath[200];
     ;
-    joinFilePath(path, fileName, fullPath, 100);
+    joinFilePath(path, fileName, fullPath, 200);
     FILE *geo = fopen(fullPath, "r");
     if (geo == NULL)
     {
@@ -32,29 +34,35 @@ void readGeo(char *path, char *fileName, Lista *lista)
         case 'c':
         {
             fscanf(geo, "%d %f %f %f %s %s", &id, &x, &y, &r, corb, corp);
-            Barco *circulo = create_circulo(id, x, y, r, corb, corp);
-            insert(lista, circulo);
+            Barco *circle = create_barco('c', create_circulo(id, x, y, r, corb, corp));
+            insert(lista, circle);
             break;
         }
         case 'r':
         {
             fscanf(geo, "%d %f %f %f %f %s %s", &id, &x, &y, &w, &h, corb, corp);
-            Barco *retangulo = create_retangulo(id, x, y, w, h, corb, corp);
-            insert(lista, retangulo);
+            Barco *retan = create_barco('r', create_retangulo(id, x, y, w, h, corb, corp));
+            insert(lista, retan);
             break;
         }
         case 't':
         {
             fscanf(geo, "%d %f %f %s %s %c", &id, &x, &y, corb, corp, ancora);
             fgets(text, 200, geo);
-            Barco *texto = create_texto(id, x, y, corb, corp, text, ancora);
-            insert(lista, texto);
+            Barco *txt;
+            if (strcmp(text, "#")==0)
+            {
+                createMina(id, x, y, corb, corp, ancora);
+            }else{
+            txt = create_barco('t', create_texto(id, x, y, corb, corp, text, ancora));
+            }
+            insert(lista, txt);
             break;
         }
         case 'l':
         {
             fscanf(geo, "%d %f %f %f %f %s", &id, &x, &y, &w, &h, corb);
-            Barco *linha = create_linha(id, x, y, w, h, corb);
+            Barco *linha = create_barco('l', create_linha(id, x, y, w, h, corb));
             insert(lista, linha);
             break;
         };
