@@ -16,7 +16,7 @@ void setInfo(Barco b, Item info)
     ponteiro->info = info;
 }
 
-void setTipo(Barco b, char tipo)
+void setTipo(Barco b, char* tipo)
 {
     struct Ship *ponteiro = b;
     ponteiro->tipo = tipo;
@@ -33,13 +33,15 @@ void setHp(Barco sh, int hp){
 }
 
 
-Barco create_barco(char tipo, Item info)
+Barco create_barco(char* tipo, Item info)
 {
     struct Ship *sh = malloc(sizeof(struct Ship));
     sh->tipo = malloc(sizeof(char));
     setTipo(sh, tipo);
+    char t;
+    strcpy(&t, tipo);
     setInfo(sh, info);
-    switch (tipo)
+    switch (t)
     {
     case 'r':
         setProtecao(sh, 60);

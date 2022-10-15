@@ -14,7 +14,7 @@ Um barco é uma estrutura que contém um id, um item, hp e proteção. Ele pode 
 3. Ao passar por uma mina
 */
 
-Barco create_barco(char id, Item info);
+Barco create_barco(char* id, Item info);
 
 //CREATE_BARCO recebe um caractere que representa o tipo de barco e um item que contém as informações do barco e retorna um barco
 
@@ -46,7 +46,7 @@ void setInfo(Barco b, Item info);
 
 //SET_BARCO_INFO recebe um barco e um item que contém as informações do barco e seta as informações do barco
 
-void setTipo(Barco b, char tipo);
+void setTipo(Barco b, char* tipo);
 
 //SET_BARCO_TIPO recebe um barco e um caractere que representa o tipo de barco e seta o tipo de barco
 
