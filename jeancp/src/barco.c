@@ -19,7 +19,9 @@ void setInfo(Barco b, Item info)
 void setTipo(Barco b, char tipo)
 {
     struct Ship *ponteiro = b;
-    ponteiro->tipo = tipo;
+    char *tipoBarco = malloc(sizeof(char) * strlen(tipo));
+    strcpy(tipoBarco, tipo);
+    ponteiro->tipo = tipoBarco;
 }
 
 void setProtecao(Barco sh, float protecao){
@@ -36,6 +38,7 @@ void setHp(Barco sh, int hp){
 Barco create_barco(char tipo, Item info)
 {
     struct Ship *sh = malloc(sizeof(struct Ship));
+    sh->tipo = malloc(sizeof(char));
     setTipo(sh, tipo);
     setInfo(sh, info);
     switch (tipo)
@@ -63,7 +66,9 @@ Barco create_barco(char tipo, Item info)
 char getTipo(Barco b)
 {
     struct Ship *ponteiro = (struct Ship *) b;
-    return ponteiro->tipo;
+    char t;
+    strcpy(&t, ponteiro->tipo);
+    return t;
 }
 
 Item getInfo(Barco b)
@@ -87,9 +92,8 @@ int getHp(Barco b)
 float getPontuacaoDesativ(Barco b)
 {
     struct Ship *ponteiro = b;
-    char tipo;
-    strcpy(tipo, ponteiro->tipo);
     float pt;
+    char tipo = getTipo(ponteiro);
     switch (tipo){
     case 'r':
         pt = 90;
@@ -111,8 +115,7 @@ float getPontuacaoDestruicao(Barco b)
 {
     struct Ship *ponteiro = b;
     float pt, a;
-    char tipo;
-    strcpy(tipo, ponteiro->tipo);
+    char tipo = getTipo(ponteiro);
     switch (tipo){
     case 'r':
         a = retangulo_get_area(b);
