@@ -19,9 +19,7 @@ void setInfo(Barco b, Item info)
 void setTipo(Barco b, char tipo)
 {
     struct Ship *ponteiro = b;
-    char *tipoBarco = malloc(sizeof(char) * strlen(tipo));
-    strcpy(tipoBarco, tipo);
-    ponteiro->tipo = tipoBarco;
+    ponteiro->tipo = tipo;
 }
 
 void setProtecao(Barco sh, float protecao){
