@@ -11,18 +11,6 @@ struct Text
     char* ancora;
 };
 
-texto create_texto(int id, float x, float y, char* corb, char* corp, char* conteudo, char* ancora)
-{
-    struct Text *txt = malloc(sizeof(struct Text));
-    texto_set_i(txt, id);
-    texto_set_x(txt, x);
-    texto_set_y(txt, y);
-    texto_set_corb(txt, corb);
-    texto_set_corp(txt, corp);
-    texto_set_conteudo(txt, conteudo);
-    texto_set_ancora(txt, ancora);
-    return txt;
-}
 
 void texto_set_i(texto txt, int i)
 {
@@ -115,6 +103,20 @@ char* texto_get_ancora(texto txt)
     struct Text *ponteiro = txt;
     return ponteiro->ancora;
 }
+
+texto create_texto(int id, float x, float y, char* corb, char* corp, char* conteudo, char* ancora)
+{
+    struct Text *txt = malloc(sizeof(struct Text));
+    texto_set_i(txt, id);
+    texto_set_x(txt, x);
+    texto_set_y(txt, y);
+    texto_set_corb(txt, corb);
+    texto_set_corp(txt, corp);
+    texto_set_conteudo(txt, conteudo);
+    texto_set_ancora(txt, ancora);
+    return txt;
+}
+
 
 void texto_free(texto txt)
 {

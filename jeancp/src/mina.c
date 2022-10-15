@@ -31,7 +31,7 @@ void setMinaY(Mina min, float y)
     ponteiro->y = y;
 }
 
-void setMinaCorB(Mina min, char* corb)
+void setMinaCorb(Mina min, char* corb)
 {
     struct mina *ponteiro = min;
     char *corborda = malloc(sizeof(char) * strlen(corb));
@@ -62,8 +62,8 @@ Mina createMina(int id, float x, float y, char* corb, char* corp, char *ancora)
     setMinaId(min, id);
     setMinaX(min, x);
     setMinaY(min, y);
-    setMinaCorB(min, corb);
-    setMinaCorP(min, corp);
+    setMinaCorb(min, corb);
+    setMinaCorp(min, corp);
     setMinaAncora(min, ancora);
     return min;
 }

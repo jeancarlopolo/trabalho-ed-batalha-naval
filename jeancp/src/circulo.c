@@ -1,4 +1,5 @@
 #include "circulo.h"
+#include "barco.h"
 
 // a struct tem que estar dif. do void pointer do .h
 struct Circle
@@ -107,8 +108,7 @@ float circulo_get_area(circulo cir)
 
 void circulo_free(circulo cir)
 {
-    Item info = cir;
-    getInfo(cir, info);
+    Item info = getInfo(cir);
     struct Circle *ponteiro = info;
     free(ponteiro->corb);
     free(ponteiro->cor);
