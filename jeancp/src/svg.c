@@ -103,6 +103,9 @@ void writeSvg(char *pathOut, char *fileName, Lista list)
         case 't':
             textSvg(svg, get(list, aux));
             break;
+        case 'm':
+            textSvg(svg, get(list, aux));
+            break;
         }
         aux = getNext(list, aux);
     }

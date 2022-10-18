@@ -26,7 +26,7 @@ void readGeo(char *path, char *fileName, Lista *lista)
         printf("Erro ao abrir o arquivo %s!", fullPath);
         exit(1);
     }
-    while (fscanf(geo, "%[^\n] ", type) != EOF)
+    do
     {
         fscanf(geo, "%s", type);
         switch (type[0])
@@ -52,7 +52,7 @@ void readGeo(char *path, char *fileName, Lista *lista)
             Barco *txt;
             if (strcmp(text, "#") == 0)
             {
-                createMina(id, x, y, corb, corp, ancora);
+                txt = create_barco('m', createMina(id, x, y, corb, corp, ancora));
             }
             else
             {
@@ -72,5 +72,6 @@ void readGeo(char *path, char *fileName, Lista *lista)
             break;
         }
     }
+    while (!feof(geo));
     fclose(geo);
 }
