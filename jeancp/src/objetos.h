@@ -13,6 +13,6 @@
 #include "svg.h"
 #include "path.h"
 #include "torpedos.h"
-//#include "qry.h"
+#include "qry.h"
 
 #endif

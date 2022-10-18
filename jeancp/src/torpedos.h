@@ -10,10 +10,16 @@
 O torpedo é um tipo de ataque que pode ser disparado contra um navio. Ele reduz a vida do navio em 
 1 ponto e marca o local onde o torpedo foi disparado com um asterisco vermelho caso tenha atingido
 um navio ou um asterisco cinza caso tenha atingido o mar.
+
+Já o torpedo replicante é um tipo de ataque que cria clones dos navios que atingiu. Os clones são
+cópias exatas transladadas para uma posição relativa ao navio original. As cores de borda dos clones
+são as cores de preenchimento do navio de original e vice versa.
 */
 
 /** Dispara um torpedo nas coordenadas x e y. */
 void torpedo(Lista lista, float x, float y, FILE *svg);
 
+/** Dispara um torpedo replicante nas coordenadas x e y que replica barcos atingidos para as coordenadas x1 e y1. */
+void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int id, FILE *svg);
 
 #endif
