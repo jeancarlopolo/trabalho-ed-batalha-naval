@@ -2,30 +2,24 @@
 
 FILE *createSvg(char *fullPathSvg)
 {
-
     FILE *svg = fopen(fullPathSvg, "w");
-
     if (!svg)
     {
         printf("Erro na criacao do SVG!!\n");
         free(fullPathSvg);
         exit(1);
     }
-
     fprintf(svg, "<svg xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n");
-
     return svg;
 }
 
 void endSvg(FILE *svg)
 {
-
     if (!svg)
     {
         printf("Erro na finalizacao do SVG!!\n");
         exit(1);
     }
-
     fprintf(svg, "\n</svg>");
     fclose(svg);
 }
@@ -80,34 +74,43 @@ void textSvg(FILE *svg, Barco texto)
     fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, conteudo);
 }
 
-void writeSvg(char *pathOut, char *fileName, Lista list)
+FILE *writeSvg(char *pathOut, char *fileName)
 {
     char s[] = ".svg";
     char fullPathSvg[200] = "";
     joinAll(pathOut, fileName, s, fullPathSvg, 200);
     FILE *svg = createSvg(fullPathSvg);
-    Barco aux = getFirst(list);
+    return svg;
+}
+
+void stringSvg(FILE *svg, char *string, float x, float y, char *corp, char *corb, char *ancora)
+{
+    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"m\">%s</text>", x, y, corp, corb, ancora, string);
+}
+
+void barcosSvg(FILE *svg, Lista barcos)
+{
+    Posic aux = getFirst(barcos);
     while (aux != NULL)
     {
-        switch (getTipo(get(list, aux)))
+        switch (getTipo(get(barcos, aux)))
         {
         case 'c':
-            circleSvg(svg, (Barco) get(list, aux));
+            circleSvg(svg, get(barcos, aux));
             break;
         case 'r':
-            rectSvg(svg, get(list, aux));
+            rectSvg(svg, get(barcos, aux));
             break;
         case 'l':
-            lineSvg(svg, get(list, aux));
+            lineSvg(svg, get(barcos, aux));
             break;
         case 't':
-            textSvg(svg, get(list, aux));
+            textSvg(svg, get(barcos, aux));
             break;
         case 'm':
-            textSvg(svg, get(list, aux));
+            textSvg(svg, get(barcos, aux));
             break;
         }
-        aux = getNext(list, aux);
+        aux = getNext(barcos, aux);
     }
-    endSvg(svg);
 }

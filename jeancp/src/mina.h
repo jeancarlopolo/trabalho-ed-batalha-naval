@@ -5,65 +5,51 @@
 #include <stdlib.h>
 #include "texto.h"
 
-typedef void* Mina;
-
 /**
 Uma mina é um objeto que pode ser colocado no campo de batalha e que explode quando um barco passa por cima dela
 */
+typedef void* Mina;
 
+/** Cria uma mina */
 Mina createMina(int id, float x, float y, char* corb, char* corp, char* ancora);
 
-//Cria uma mina
-
+/** Seta o id da mina */
 void setMinaId(Mina mina, int id);
 
-//Seta o id da mina
-
+/** Seta a coordenada x da ancora da mina */
 void setMinaX(Mina mina, float x);
 
-//Seta a coordenada x da ancora da mina
-
+/** Seta a coordenada y da ancora da mina */
 void setMinaY(Mina mina, float y);
 
-//Seta a coordenada y da ancora da mina
-
+/** Seta a cor da borda da mina */
 void setMinaCorb(Mina mina, char* cor);
 
-//Seta a cor da mina
-
+/** Seta a cor de preenchimento da mina */
 void setMinaCorp(Mina mina, char* cor);
 
+/** Seta a ancora da mina */
 void setMinaAncora(Mina mina, char* ancora);
 
-//Seta a ancora da mina
-
+/** Retorna o id da mina */
 int getMinaId(Mina mina);
 
-//Retorna o id da mina
-
+/** Retorna a coordenada x da ancora da mina */
 float getMinaX(Mina mina);
 
-//Retorna a coordenada x da ancora da mina
-
+/** Retorna a coordenada y da ancora da mina */
 float getMinaY(Mina mina);
 
-//Retorna a coordenada y da ancora da mina
-
+/** Retorna a cor da borda da mina */
 char* getMinaCorB(Mina mina);
 
-//Retorna a cor da borda da mina
-
+/** Retorna a cor de preenchimento da mina */
 char* getMinaCorp(Mina mina);
 
-//Retorna a cor de preenchimento da mina
-
+/** Retorna a ancora da mina */
 char* getMinaAncora(Mina mina);
 
-//Retorna a ancora da mina
-
+/** Libera a memoria alocada para a mina */
 void killMina(Mina mina);
-
-//Libera a memoria alocada para a mina
-
 
 #endif

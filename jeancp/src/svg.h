@@ -18,32 +18,31 @@ por tags que definem o que será desenhado e como será desenhado. É possível 
 e visualizar o que foi desenhado. Sua sintaxe é baseada em XML. 
 **/
 
+/** CREATE_SVG recebe uma string com o caminho completo do arquivo SVG e uma lista de formas e retorna um arquivo SVG */
 FILE* createSvg(char *fullPathSvg);
 
-//CREATE_SVG recebe uma string com o caminho completo do arquivo SVG e uma lista de formas e retorna um arquivo SVG
-
+/** END_SVG finaliza o arquivo SVG */
 void endSvg(FILE *svg);
 
-//END_SVG finaliza o arquivo SVG
-
+/** RECT_SVG recebe um arquivo SVG e um barco contendo um retângulo e desenha o retângulo no arquivo SVG */
 void rectSvg(FILE *svg, Barco r);
 
-//RECT_SVG recebe um arquivo SVG e um retângulo e desenha o retângulo no arquivo SVG
-
+/** LINE_SVG recebe um arquivo SVG e um barco contendo uma linha e desenha a linha no arquivo SVG */
 void lineSvg(FILE *svg, Barco l);
 
-//LINE_SVG recebe um arquivo SVG e uma linha e desenha a linha no arquivo SVG
-
+/** CIRCLE_SVG recebe um arquivo SVG e um barco contendo um círculo e desenha o círculo no arquivo SVG */
 void circleSvg(FILE *svg, Barco c);
 
-//CIRCLE_SVG recebe um arquivo SVG e um círculo e desenha o círculo no arquivo SVG
-
+/** TEXT_SVG recebe um arquivo SVG e um barco contendo um texto e desenha o texto no arquivo SVG */
 void textSvg(FILE *svg, Barco t);
 
-//TEXT_SVG recebe um arquivo SVG e um texto e desenha o texto no arquivo SVG
+/** STRING_SVG recebe um arquivo SVG e uma string e desenha a string no arquivo SVG */
+void stringSvg(FILE *svg, char *string, float x, float y, char *corp, char *corb, char *ancora);
 
-void writeSvg(char *pathOut, char *name, Lista l);
+/** BARCOS_SVG recebe um arquivo SVG e uma lista de barcos e desenha os barcos no arquivo SVG */
+void barcosSvg(FILE *svg, Lista barcos);
 
-//WRITE_SVG recebe uma string com o caminho de saída, uma string com o nome do arquivo SVG e uma lista de formas e cria um arquivo SVG
+/** WRITE_SVG recebe uma string com o caminho de saída, uma string com o nome do arquivo SVG e uma lista de formas e cria um arquivo SVG */
+FILE *writeSvg(char *pathOut, char *name);
 
 #endif

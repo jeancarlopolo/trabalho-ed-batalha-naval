@@ -8,9 +8,8 @@
 
 /**
 CIRCULO é um polígono que possui um ponto de origem (âncora definida por x e y), raio, cor de borda e
-cor de preenchimento. O CIRCULO possui um nível de proteção de 60 e um HP de 2. A pontuação recebida
-pela sua inativação é 75 e pela sua destruição é 75/(área/5).
-**/
+cor de preenchimento. 
+*/
 typedef void *circulo;
 
 circulo create_circulo(int id, float x, float y, float r, char* corb, char* corp);

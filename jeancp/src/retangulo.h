@@ -7,9 +7,8 @@
 
 /**
 RETANGULO é um polígono que possui um ponto de origem (âncora definida por x e y), largura, altura,
-cor de borda e cor de preenchimento. O RETANGULO possui um nível de proteção de 60 e um HP de 3. A
-pontuação recebida pela sua inativação é 90 e pela sua destruição é 90/(área/5).
-**/
+cor de borda e cor de preenchimento.
+*/
 typedef void *retangulo;
 
 retangulo create_retangulo(int id, float x, float y, float w, float h, char* corb, char* corp);

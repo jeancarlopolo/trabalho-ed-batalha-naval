@@ -83,12 +83,14 @@ int main(int argc, char *argv[])
     }
     Lista listabarcos = createLista(-1);
     readGeo(path, arqGeo, listabarcos);
+    FILE *svg = writeSvg(dir, arqGeo);
     // if (arqQry != NULL)
     // {
     //     createTxt(dir);
     //     read_qry(path, arqQry, listabarcos);
     // }
-    writeSvg(dir, arqGeo, listabarcos);
+    barcosSvg(listabarcos, svg);
+    endSvg(svg);
     free(arqQry);
     free(arqGeo);
     free(dir);
