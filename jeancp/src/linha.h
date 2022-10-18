@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lista.h"
-#include "linha.h"
 
 /**
 LINHA é um polígono que possui dois pontos de origem (âncora definida por x e y) e cor. A LINHA possui um

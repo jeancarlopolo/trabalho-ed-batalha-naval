@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lista.h"
 
 /**
 RETANGULO é um polígono que possui um ponto de origem (âncora definida por x e y), largura, altura,

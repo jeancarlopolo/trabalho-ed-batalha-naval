@@ -1,4 +1,5 @@
 #include "lista.h"
+#include "barco.h"
 
 struct listanode
 {
@@ -134,7 +135,10 @@ void remover(Lista L, Posic p)
 		if (p == getFirst(L))
 		{
 			ponteiro->l = ponteironode->prox;
-			ponteironode->info = NIL;
+			if (ponteironode->info != NIL)
+			{
+				freeBarco(ponteironode->info);
+			}
 			ponteironode->prox = NIL;
 			free(ponteironode);
 		}
@@ -144,7 +148,10 @@ void remover(Lista L, Posic p)
 			{
 				ponteironode = ponteironode->prox;
 			}
-			ponteironode->prox->info = NIL;
+			if (ponteironode->prox->info != NIL)
+			{
+				freeBarco(ponteironode->prox->info);
+			}
 			ponteironode->prox = ponteironode->prox->prox;
 			free(p);
 		}

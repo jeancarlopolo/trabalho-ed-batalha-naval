@@ -45,17 +45,39 @@ void rectSvg(FILE *svg, Barco retangulo)
 
 void circleSvg(FILE *svg, Barco circulo)
 {
-    fprintf(svg, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"%s\" stroke=\"%s\"/>", circulo_get_x(circulo), circulo_get_y(circulo), circulo_get_r(circulo), circulo_get_corp(circulo), circulo_get_corb(circulo));
+    float x, y, r;
+    char *corb, *cor;
+    x = circulo_get_x(getInfo(circulo));
+    y = circulo_get_y(getInfo(circulo));
+    r = circulo_get_r(getInfo(circulo));
+    corb = circulo_get_corb(getInfo(circulo));
+    cor = circulo_get_corp(getInfo(circulo));
+    fprintf(svg, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"%f\" fill=\"%s\" stroke=\"%s\"/>", x, y, r, cor, corb);
 }
 
 void lineSvg(FILE *svg, Barco linha)
 {
-    fprintf(svg, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" stroke=\"%s\"/>", linha_get_x1(linha), linha_get_y1(linha), linha_get_x2(linha), linha_get_y2(linha), linha_get_cor(linha));
+    float x1, y1, x2, y2;
+    char *cor;
+    x1 = linha_get_x1(getInfo(linha));
+    y1 = linha_get_y1(getInfo(linha));
+    x2 = linha_get_x2(getInfo(linha));
+    y2 = linha_get_y2(getInfo(linha));
+    cor = linha_get_cor(getInfo(linha));
+    fprintf(svg, "\n\t<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" stroke=\"%s\"/>", x1, y1, x2, y2, cor);
 }
 
 void textSvg(FILE *svg, Barco texto)
 {
-    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", texto_get_x(texto), texto_get_y(texto), texto_get_corp(texto), texto_get_corb(texto), texto_get_ancora(texto), texto_get_conteudo(texto));
+    float x, y;
+    char *corb, *corp, *ancora, *conteudo;
+    x = texto_get_x(getInfo(texto));
+    y = texto_get_y(getInfo(texto));
+    corb = texto_get_corb(getInfo(texto));
+    corp = texto_get_corp(getInfo(texto));
+    ancora = texto_get_ancora(getInfo(texto));
+    conteudo = texto_get_conteudo(getInfo(texto));
+    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, conteudo);
 }
 
 void writeSvg(char *pathOut, char *fileName, Lista list)

@@ -8,11 +8,11 @@ struct Circle
     float x;
     float y;
     float r;
-    char* cor;
-    char* corb;
+    char *cor;
+    char *corb;
 };
 // colocar int hp e defesa e pdi
-circulo create_circulo(int id, float x, float y, float r, char* corb, char* corp)
+circulo create_circulo(int id, float x, float y, float r, char *corb, char *corp)
 {
     struct Circle *cir = malloc(sizeof(struct Circle));
     circulo_set_i(cir, id);
@@ -48,7 +48,7 @@ void circulo_set_r(circulo cir, float r)
     ponteiro->r = r;
 }
 
-void circulo_set_corb(circulo cir, char* corb)
+void circulo_set_corb(circulo cir, char *corb)
 {
     struct Circle *ponteiro = cir;
     char *corborda = malloc(sizeof(char) * strlen(corb));
@@ -56,7 +56,7 @@ void circulo_set_corb(circulo cir, char* corb)
     ponteiro->corb = corborda;
 }
 
-void circulo_set_corp(circulo cir, char* corp)
+void circulo_set_corp(circulo cir, char *corp)
 {
     struct Circle *ponteiro = cir;
     char *corpreenchimento = malloc(sizeof(char) * strlen(corp));
@@ -88,13 +88,13 @@ float circulo_get_r(circulo cir)
     return ponteiro->r;
 }
 
-char* circulo_get_corb(circulo cir)
+char *circulo_get_corb(circulo cir)
 {
     struct Circle *ponteiro = cir;
     return ponteiro->corb;
 }
 
-char* circulo_get_corp(circulo cir)
+char *circulo_get_corp(circulo cir)
 {
     struct Circle *ponteiro = cir;
     return ponteiro->cor;

@@ -1,47 +1,43 @@
 #include "barco.h"
-#include "circulo.h"
-#include "retangulo.h"
 
 struct Ship
 {
-    char* tipo;
+    char tipo;
     Item info;
     float protecao;
     int hp;
 };
 
-void setInfo(Barco b, Item info)
+void setInfo(Barco b, void *info)
 {
     struct Ship *ponteiro = b;
     ponteiro->info = info;
 }
 
-void setTipo(Barco b, char* tipo)
+void setTipo(Barco b, char tipo)
 {
     struct Ship *ponteiro = b;
     ponteiro->tipo = tipo;
 }
 
-void setProtecao(Barco sh, float protecao){
+void setProtecao(Barco sh, float protecao)
+{
     struct Ship *ponteiro = sh;
     ponteiro->protecao = protecao;
 }
 
-void setHp(Barco sh, int hp){
+void setHp(Barco sh, int hp)
+{
     struct Ship *ponteiro = sh;
     ponteiro->hp = hp;
 }
 
-
-Barco create_barco(char* tipo, Item info)
+Barco create_barco(char tipo, void* info)
 {
     struct Ship *sh = malloc(sizeof(struct Ship));
-    sh->tipo = malloc(sizeof(char));
     setTipo(sh, tipo);
-    char t;
-    strcpy(&t, tipo);
     setInfo(sh, info);
-    switch (t)
+    switch (sh->tipo)
     {
     case 'r':
         setProtecao(sh, 60);
@@ -65,15 +61,13 @@ Barco create_barco(char* tipo, Item info)
 
 char getTipo(Barco b)
 {
-    struct Ship *ponteiro = (struct Ship *) b;
-    char t;
-    strcpy(&t, ponteiro->tipo);
-    return t;
+    struct Ship *ponteiro = b;
+    return ponteiro->tipo;
 }
 
-Item getInfo(Barco b)
+void *getInfo(Barco b)
 {
-    struct Ship *ponteiro = (struct Ship *) b;
+    struct Ship *ponteiro = (struct Ship *)b;
     return ponteiro->info;
 }
 
@@ -94,7 +88,8 @@ float getPontuacaoDesativ(Barco b)
     struct Ship *ponteiro = b;
     float pt;
     char tipo = getTipo(ponteiro);
-    switch (tipo){
+    switch (tipo)
+    {
     case 'r':
         pt = 90;
         break;
@@ -116,16 +111,15 @@ float getPontuacaoDestruicao(Barco b)
     struct Ship *ponteiro = b;
     float pt, a;
     char tipo = getTipo(ponteiro);
-    switch (tipo){
+    switch (tipo)
+    {
     case 'r':
         a = retangulo_get_area(b);
-        pt = 90/(a/5);
-        
+        pt = 90 / (a / 5);
         break;
     case 'c':
         a = circulo_get_area(b);
-        pt = 75/(a/5);
-        
+        pt = 75 / (a / 5);
         break;
     case 't':
         pt = 500;
@@ -139,5 +133,22 @@ float getPontuacaoDestruicao(Barco b)
 
 void freeBarco(Barco b)
 {
+    switch (getTipo(b))
+    {
+    case 'r':
+        retangulo_free(getInfo(b));
+        break;
+    case 'c':
+        circulo_free(getInfo(b));
+        break;
+    case 'l':
+        linha_free(getInfo(b));
+        break;
+    case 't':
+        texto_free(getInfo(b));
+        break;
+    default:
+        break;
+    }
     free(b);
 }
