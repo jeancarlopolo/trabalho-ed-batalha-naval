@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
         //createTxt(dir);
         read_qry(path, arqQry, listabarcos, svg);
     }
-    barcosSvg(listabarcos, svg);
+    barcosSvg(svg, listabarcos);
     endSvg(svg);
     free(arqQry);
     free(arqGeo);

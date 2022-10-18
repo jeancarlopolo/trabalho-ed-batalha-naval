@@ -16,6 +16,10 @@ struct lista
 Lista createLista(int capacidade)
 {
 	struct lista *L = malloc(sizeof(struct lista));
+	struct listanode *l = malloc(sizeof(struct listanode));
+	L->l = l;
+	l->prox = NIL;
+	l->info = NIL;
 	if (capacidade < 0)
 	{
 		L->capacidade = CAPAC_ILIMITADA;

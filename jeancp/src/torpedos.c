@@ -12,6 +12,7 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
     while (elemento != NULL)
     {
         destruido = false;
+        barco = get(lista, elemento);
         switch (getTipo(barco))
         {
         case 'c':
@@ -64,7 +65,7 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
             y1 = linha_get_y1(getInfo(barco));
             x2 = linha_get_x2(getInfo(barco));
             y2 = linha_get_y2(getInfo(barco));
-            if (x >= x1 && x <= x2 && y >= y1 && y <= y2)
+            if (((x <= x1 && x >= x2) || (x >= x1 && x <= x2)) && ((y >= y1 && y <= y2) || (y <= y1 && y >= y2)))
             {
                 i++;
                 hp = getHP(barco);
@@ -109,10 +110,11 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
     int contador = 0;
     float x2, y2, x3, y3, raio, w, h;
     Posic elemento = getFirst(lista);
-    Barco *barco = get(lista, elemento);
+    Barco *barco;
     char *corb, *corp, *texto, *ancora;
     while (elemento != NULL)
     {
+        barco = get(lista, elemento);
         switch (getTipo(barco))
         {
         case 'c':
@@ -121,6 +123,7 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
             y2 = circulo_get_y(getInfo(barco));
             if (sqrt(pow(x - x2, 2) + pow(y - y2, 2)) < raio)
             {
+                contador++;
                 corb = circulo_get_corb(getInfo(barco));
                 corp = circulo_get_corp(getInfo(barco));
                 Barco *circle = create_barco('c', create_circulo(id + contador, x2 + x1, y2 + y1, raio, corp, corb));
@@ -134,6 +137,7 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
             h = retangulo_get_h(getInfo(barco));
             if (x >= x2 && x <= x2 + w && y >= y2 && y <= y2 + h)
             {
+                contador++;
                 corb = retangulo_get_corb(getInfo(barco));
                 corp = retangulo_get_corp(getInfo(barco));
                 Barco *rectangle = create_barco('r', create_retangulo(id + contador, x2 + x1, y2 + y1, w, h, corp, corb));
@@ -145,6 +149,7 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
             y2 = texto_get_y(getInfo(barco));
             if (x == x2 && y == y2)
             {
+                contador++;
                 corb = texto_get_corb(getInfo(barco));
                 corp = texto_get_corp(getInfo(barco));
                 texto = texto_get_conteudo(getInfo(barco));
@@ -158,8 +163,9 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
             y2 = linha_get_y1(getInfo(barco));
             x3 = linha_get_x2(getInfo(barco));
             y3 = linha_get_y2(getInfo(barco));
-            if (x >= x2 && x <= x3 && y >= y2 && y <= y3)
+            if (((x <= x2 && x >= x3) || (x >= x2 && x <= x3)) && ((y >= y2 && y <= y3) || (y <= y2 && y >= y3)))
             {
+                contador++;
                 corb = linha_get_cor(getInfo(barco));
                 Barco *line = create_barco('l', create_linha(id + contador, x2 + x1, y2 + y1, x3 + x1, y3 + y1, corb));
                 insert(lista, line);
@@ -168,8 +174,7 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
         default:
             break;
         }
-        contador++;
         elemento = getNext(lista, elemento);
     }
-    stringSvg(svg, "@", x, y, "red", "red", "m");
+    stringSvg(svg, "@", x, y, "red", "red", "i");
 }
