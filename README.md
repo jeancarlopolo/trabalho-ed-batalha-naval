@@ -8,17 +8,17 @@ Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre 
 ## O que falta fazer
 
 - [ ] Estruturas dos polígonos
-  - [ ] Retângulo
-  - [ ] Círculo
-  - [ ] Texto
-  - [ ] Linha
+  - [x] Retângulo
+  - [x] Círculo
+  - [x] Texto
+  - [x] Linha
   - [x] Barco
   - [ ] **Mina Flutuante**
 - [ ] Manipulação de arquivos
   - [x] Leitura do .geo
   - [ ] Leitura do .qry
   - [ ] Criação do .txt
-  - [ ] Criação do .svg
+  - [x] Criação do .svg
 - [ ] Funções do .qry
   - [ ] na (Nível de Agressividade)
   - [ ] tp (Torpedo)
