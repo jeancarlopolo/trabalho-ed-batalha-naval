@@ -21,8 +21,8 @@ Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre 
   - [x] Criação do .svg
 - [ ] Funções do .qry
   - [ ] na (Nível de Agressividade)
-  - [ ] tp (Torpedo)
-  - [ ] tr (Torpedo Replicante)
+  - [x] tp (Torpedo)
+  - [x] tr (Torpedo Replicante)
   - [ ] be (Bomba de Radiação)
   - [ ] se (Selecionar barco)
   - [ ] sec (Selecionar barco e definir como nau-capitã)
