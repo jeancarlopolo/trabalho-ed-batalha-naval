@@ -21,8 +21,8 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
             if (sqrt(pow(x - x1, 2) + pow(y - y1, 2)) < raio)
             {
                 i++;
-                hp = circulo_get_hp(getInfo(barco));
-                circulo_set_hp(getInfo(barco), hp - 1);
+                hp = getHP(barco);
+                setHP(barco, hp - 1);
                 if (hp - 1 == 0)
                 {
                     destruido = true;
@@ -37,8 +37,8 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
             if (x >= x1 && x <= x1 + w && y >= y1 && y <= y1 + h)
             {
                 i++;
-                hp = retangulo_get_hp(getInfo(barco));
-                retangulo_set_hp(getInfo(barco), hp - 1);
+                hp = getHP(barco);
+                setHP(barco, hp - 1);
                 if (hp - 1 == 0)
                 {
                     destruido = true;
@@ -51,8 +51,8 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
             if (x == x1 && y == y1)
             {
                 i++;
-                hp = texto_get_hp(getInfo(barco));
-                texto_set_hp(getInfo(barco), hp - 1);
+                hp = getHP(barco);
+                setHP(barco, hp - 1);
                 if (hp - 1 == 0)
                 {
                     destruido = true;
@@ -60,15 +60,15 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
             }
             break;
         case 'l':
-            x1 = linha_get_x(getInfo(barco));
-            y1 = linha_get_y(getInfo(barco));
+            x1 = linha_get_x1(getInfo(barco));
+            y1 = linha_get_y1(getInfo(barco));
             x2 = linha_get_x2(getInfo(barco));
             y2 = linha_get_y2(getInfo(barco));
             if (x >= x1 && x <= x2 && y >= y1 && y <= y2)
             {
                 i++;
-                hp = linha_get_hp(getInfo(barco));
-                linha_set_hp(getInfo(barco), hp - 1);
+                hp = getHP(barco);
+                setHP(barco, hp - 1);
                 if (hp - 1 == 0)
                 {
                     destruido = true;
@@ -106,12 +106,11 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
 
 void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int id, FILE *svg)
 {
-    int hp, contador = 0;
+    int contador = 0;
     float x2, y2, x3, y3, raio, w, h;
     Posic elemento = getFirst(lista);
-    Posic aux = elemento;
     Barco *barco = get(lista, elemento);
-    char arroba[10], *corb, *corp, *texto, *ancora;
+    char *corb, *corp, *texto, *ancora;
     while (elemento != NULL)
     {
         switch (getTipo(barco))
@@ -148,7 +147,7 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
             {
                 corb = texto_get_corb(getInfo(barco));
                 corp = texto_get_corp(getInfo(barco));
-                texto = texto_get_texto(getInfo(barco));
+                texto = texto_get_conteudo(getInfo(barco));
                 ancora = texto_get_ancora(getInfo(barco));
                 Barco *text = create_barco('t', create_texto(id + contador, x2 + x1, y2 + y1, corp, corb, texto, ancora));
                 insert(lista, text);
