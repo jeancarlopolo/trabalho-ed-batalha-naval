@@ -26,7 +26,7 @@ void setProtecao(Barco sh, float protecao)
     ponteiro->protecao = protecao;
 }
 
-void setHp(Barco sh, int hp)
+void setHP(Barco sh, int hp)
 {
     struct Ship *ponteiro = sh;
     ponteiro->hp = hp;
@@ -77,7 +77,7 @@ float getProtecao(Barco b)
     return ponteiro->protecao;
 }
 
-int getHp(Barco b)
+int getHP(Barco b)
 {
     struct Ship *ponteiro = b;
     return ponteiro->hp;
