@@ -41,19 +41,19 @@ Barco create_barco(char tipo, void* info)
     {
     case 'r':
         setProtecao(sh, 60);
-        setHp(sh, 3);
+        setHP(sh, 3);
         break;
     case 'c':
         setProtecao(sh, 60);
-        setHp(sh, 2);
+        setHP(sh, 2);
         break;
     case 't':
         setProtecao(sh, 50);
-        setHp(sh, 1);
+        setHP(sh, 1);
         break;
     case 'l':
         setProtecao(sh, 50);
-        setHp(sh, 1);
+        setHP(sh, 1);
         break;
     }
     return sh;

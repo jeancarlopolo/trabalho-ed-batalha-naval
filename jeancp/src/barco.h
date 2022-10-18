@@ -29,7 +29,7 @@ void* getInfo(Barco b);
 
 
 /** GET_BARCO_HP recebe um barco e retorna o HP do barco */
-float getHP(Barco b);
+int getHP(Barco b);
 
 
 /** GET_BARCO_PROTECAO recebe um barco e retorna o nível de proteção do barco */
@@ -53,7 +53,7 @@ void setTipo(Barco b, char tipo);
 
 
 /** SET_BARCO_HP recebe um barco e um float que representa o HP do barco e seta o HP do barco */
-void setHP(Barco b, float hp);
+void setHP(Barco b, int hp);
 
 
 /** SET_BARCO_PROTECAO recebe um barco e um float que representa o nível de proteção do barco e seta o nível de proteção do barco */
