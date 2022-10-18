@@ -85,7 +85,7 @@ FILE *writeSvg(char *pathOut, char *fileName)
 
 void stringSvg(FILE *svg, char *string, float x, float y, char *corp, char *corb, char *ancora)
 {
-    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"m\">%s</text>", x, y, corp, corb, ancora, string);
+    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, string);
 }
 
 void barcosSvg(FILE *svg, Lista barcos)

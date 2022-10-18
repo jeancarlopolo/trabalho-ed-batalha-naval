@@ -154,8 +154,8 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
             }
             break;
         case 'l':
-            x2 = linha_get_x(getInfo(barco));
-            y2 = linha_get_y(getInfo(barco));
+            x2 = linha_get_x1(getInfo(barco));
+            y2 = linha_get_y1(getInfo(barco));
             x3 = linha_get_x2(getInfo(barco));
             y3 = linha_get_y2(getInfo(barco));
             if (x >= x2 && x <= x3 && y >= y2 && y <= y3)
