@@ -16,14 +16,14 @@ Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre 
   - [ ] **Mina Flutuante**
 - [ ] Manipulação de arquivos
   - [x] Leitura do .geo
-  - [ ] Leitura do .qry
+  - [x] Leitura do .qry
   - [ ] Criação do .txt
   - [x] Criação do .svg
 - [ ] Funções do .qry
-  - [ ] na (Nível de Agressividade)
+  - [x] na (Nível de Agressividade)
   - [x] tp (Torpedo)
   - [x] tr (Torpedo Replicante)
-  - [ ] be (Bomba de Radiação)
+  - [x] be (Bomba de Radiação)
   - [ ] se (Selecionar barco)
   - [ ] sec (Selecionar barco e definir como nau-capitã)
   - [ ] mvh (Mover horizontalmente)
