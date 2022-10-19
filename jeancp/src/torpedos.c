@@ -96,11 +96,11 @@ void torpedo(Lista lista, float x, float y, FILE *svg)
     if (i > 0)
     {
         sprintf(asterisco, "*%d", i);
-        stringSvg(svg, asterisco, x, y, "red", "red", "m");
+        stringSvg(svg, asterisco, x, y, "red", "red", "middle");
     }
     else
     {
-        stringSvg(svg, "*", x, y, "gray", "gray", "m");
+        stringSvg(svg, "*", x, y, "gray", "gray", "middle");
         // AGUA no txt
     }
 }
@@ -176,5 +176,5 @@ void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int i
         }
         elemento = getNext(lista, elemento);
     }
-    stringSvg(svg, "@", x, y, "red", "red", "i");
+    stringSvg(svg, "@", x, y, "red", "red", "middle");
 }

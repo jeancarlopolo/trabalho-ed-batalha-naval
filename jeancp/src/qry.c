@@ -32,7 +32,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE* svg)
         else if (type[0] == 'b' && type[1] == 'e')
         {
             fscanf(qry, "%f %f %f", &x, &y, &r);
-            //bomba_rad(lista, x, y, r, na);
+            bomba_rad(lista, x, y, r, na, svg);
         }
         else if (type[0] == 'm' && type[1] == 'v')
         {

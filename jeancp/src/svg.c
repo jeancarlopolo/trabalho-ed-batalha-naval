@@ -70,47 +70,62 @@ void textSvg(FILE *svg, Barco texto)
     corb = texto_get_corb(getInfo(texto));
     corp = texto_get_corp(getInfo(texto));
     ancora = texto_get_ancora(getInfo(texto));
-    conteudo = texto_get_conteudo(getInfo(texto));
-    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, conteudo);
-}
-
-FILE *writeSvg(char *pathOut, char *fileName)
-{
-    char s[] = ".svg";
-    char fullPathSvg[200] = "";
-    joinAll(pathOut, fileName, s, fullPathSvg, 200);
-    FILE *svg = createSvg(fullPathSvg);
-    return svg;
-}
-
-void stringSvg(FILE *svg, char *string, float x, float y, char *corp, char *corb, char *ancora)
-{
-    fprintf(svg, "\n\t<text x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, string);
-}
-
-void barcosSvg(FILE *svg, Lista barcos)
-{
-    Posic aux = getFirst(barcos);
-    while (aux != NULL)
+    switch (ancora[0])
     {
-        switch (getTipo(get(barcos, aux)))
-        {
-        case 'c':
-            circleSvg(svg, get(barcos, aux));
-            break;
-        case 'r':
-            rectSvg(svg, get(barcos, aux));
-            break;
-        case 'l':
-            lineSvg(svg, get(barcos, aux));
-            break;
-        case 't':
-            textSvg(svg, get(barcos, aux));
-            break;
-        case 'm':
-            textSvg(svg, get(barcos, aux));
-            break;
-        }
-        aux = getNext(barcos, aux);
+    case 'i':
+        ancora = "start";
+        break;
+    case 'm':
+        ancora = "middle";
+        break;
+    case 'f':
+        ancora = "end";
+        break;
+    default:
+        ancora = "start";
+        break;
     }
-}
+        conteudo = texto_get_conteudo(getInfo(texto));
+        fprintf(svg, "\n\t<text font-size=\"5\" x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, conteudo);
+    }
+
+    FILE *writeSvg(char *pathOut, char *fileName)
+    {
+        char s[] = ".svg";
+        char fullPathSvg[200] = "";
+        joinAll(pathOut, fileName, s, fullPathSvg, 200);
+        FILE *svg = createSvg(fullPathSvg);
+        return svg;
+    }
+
+    void stringSvg(FILE * svg, char *string, float x, float y, char *corp, char *corb, char *ancora)
+    {
+        fprintf(svg, "\n\t<text font-size=\"5\" x=\"%f\" y=\"%f\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, string);
+    }
+
+    void barcosSvg(FILE * svg, Lista barcos)
+    {
+        Posic aux = getFirst(barcos);
+        while (aux != NULL)
+        {
+            switch (getTipo(get(barcos, aux)))
+            {
+            case 'c':
+                circleSvg(svg, get(barcos, aux));
+                break;
+            case 'r':
+                rectSvg(svg, get(barcos, aux));
+                break;
+            case 'l':
+                lineSvg(svg, get(barcos, aux));
+                break;
+            case 't':
+                textSvg(svg, get(barcos, aux));
+                break;
+            case 'm':
+                textSvg(svg, get(barcos, aux));
+                break;
+            }
+            aux = getNext(barcos, aux);
+        }
+    }
