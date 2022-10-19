@@ -78,7 +78,7 @@ void bomba_rad(Lista *l, float x, float y, float r, float na, FILE *svg)
             y1 = linha_get_y1(getInfo(barco));
             x2 = linha_get_x2(getInfo(barco));
             y2 = linha_get_y2(getInfo(barco));
-            if (sqrt(pow(x1 - x, 2) + pow(y1 - y, 2)) < r || sqrt(pow(x2 - x, 2) + pow(y2 - y, 2)) < r)
+            if (sqrt(pow(x1 - x, 2) + pow(y1 - y, 2)) < r && sqrt(pow(x2 - x, 2) + pow(y2 - y, 2)) < r)
             {
                 np = getProtecao(barco);
                 setProtecao(barco, np - calcular_reducao((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1), r, na));
