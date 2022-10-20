@@ -49,6 +49,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE* svg, Lista *listam
                 //move_vertical(lista, j, k, y);
             }
         }
+
     }
     free(fullPath);
     fclose(qry);

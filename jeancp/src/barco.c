@@ -6,8 +6,20 @@ struct Ship
     Item info;
     float protecao;
     int hp;
+    bool isCapitao;
 };
 
+bool isCapitao(Barco b)
+{
+    struct Ship *ponteiro = b;
+    return ponteiro->isCapitao;
+}
+
+void setCapitao(Barco b, bool capitao)
+{
+    struct Ship *ponteiro = b;
+    ponteiro->isCapitao = capitao;
+}
 void setInfo(Barco b, void *info)
 {
     struct Ship *ponteiro = b;

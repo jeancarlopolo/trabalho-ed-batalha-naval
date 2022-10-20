@@ -69,4 +69,10 @@ float getBarcoX(Barco b);
 /** GET_BARCO_Y recebe um barco e retorna a coordenada y do barco */
 float getBarcoY(Barco b);
 
+/** isCapitao recebe um barco e retorna 1 se o barco for um capitão e 0 caso contrário */
+bool isCapitao(Barco b);
+
+/** setCapitao recebe um barco e seta o barco como capitão */
+ void setCapitao(Barco b, bool capitao);
+ 
 #endif
