@@ -3,12 +3,34 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "lista.h"
+#include "barco.h"
+#include "circulo.h"
+#include "retangulo.h"
+#include "texto.h"
+#include "linha.h"
+#include "circulo.c"
+#include "mina.h"
 
 //funções de movimentação
 
-void move_barco_x(Barco b, int x);
-void move_horizontal();
-void move_vertical();
-void move_barco_y(Barco b, int y);
-void passou_mina(circulo cir, lista l, int x, int y);
+
+/**MOVE_BARCOS move os barcos de acordo com o comando mv*/
+void move_barco(Lista *barcosSelec, float x, float y, Lista *listaminas, Lista *lista, FILE* svg);
+
+/**passou_mina verifica se o barco passou por uma mina*/
+bool passou_mina(Barco b, float x, float y, Lista *listaminas, Lista *lista, FILE* svg, Lista *listaSelec);
+
+/**move_retangulo move o retangulo de acordo com o comando mv*/
+void move_retangulo(Barco b, float x, float y);
+
+/**move_circulo move o circulo de acordo com o comando mv*/
+void move_circulo(Barco b, float x, float y);
+
+/**move_texto move o texto de acordo com o comando mv*/
+void move_texto(Barco b, float x, float y);
+
+/**move_linha move a linha de acordo com o comando mv*/
+void move_linha(Barco b, float x, float y);
+
+#endif

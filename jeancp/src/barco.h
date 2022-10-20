@@ -63,5 +63,10 @@ void setProtecao(Barco b, float protecao);
 /** FREE_BARCO recebe um barco e libera a memória alocada para o barco */
 void freeBarco(Barco b);
 
+/** GET_BARCO_X recebe um barco e retorna a coordenada x do barco */
+float getBarcoX(Barco b);
+
+/** GET_BARCO_Y recebe um barco e retorna a coordenada y do barco */
+float getBarcoY(Barco b);
 
 #endif

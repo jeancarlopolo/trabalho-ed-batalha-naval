@@ -104,9 +104,9 @@ char* getMinaAncora(Mina min)
     return ponteiro->ancora;
 }
 
-void killMina(Mina min)
+void killMina(Mina mina)
 {
-    struct mina *ponteiro = min;
+    struct mina *ponteiro = mina;
     free(ponteiro->corb);
     free(ponteiro->corp);
     free(ponteiro->ancora);

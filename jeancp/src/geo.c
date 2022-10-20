@@ -10,7 +10,7 @@
 #include "barco.h"
 #include "mina.h"
 
-void readGeo(char *path, char *fileName, Lista *lista)
+void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas)
 {
     char type[200];
     float x, y, w, h, r;
@@ -52,13 +52,14 @@ void readGeo(char *path, char *fileName, Lista *lista)
             Barco *txt;
             if (strcmp(text, "#") == 0)
             {
-                txt = create_barco('m', createMina(id, x, y, corb, corp, ancora));
+                txt = createMina(id, x, y, corb, corp, ancora);
+                insert(listaminas, txt);
             }
             else
             {
                 txt = create_barco('t', create_texto(id, x, y, corb, corp, text, ancora));
+                insert(lista, txt);
             }
-            insert(lista, txt);
             break;
         }
         case 'l':

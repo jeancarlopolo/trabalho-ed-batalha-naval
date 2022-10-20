@@ -32,7 +32,54 @@ void setHP(Barco sh, int hp)
     ponteiro->hp = hp;
 }
 
-Barco create_barco(char tipo, void* info)
+float barco_get_x(Barco b)
+{
+    switch (getTipo(b))
+    {
+    case 'r':
+        return retangulo_get_x(getInfo(b));
+        break;
+    case 'c':
+        return circulo_get_x(getInfo(b));
+        break;
+    case 't':
+        return texto_get_x(getInfo(b));
+        break;
+    case 'l':
+        if (linha_get_x1(getInfo(b)) > linha_get_x2(getInfo(b)))
+        {
+            return linha_get_x2(getInfo(b));
+        }
+        else
+        {
+            return linha_get_x1(getInfo(b));
+        }
+    }
+}
+
+float barco_get_y(Barco b)
+{
+    switch (getTipo(b))
+    {
+    case 'r':
+        return retangulo_get_y(getInfo(b));
+        break;
+    case 'c':
+        return circulo_get_y(getInfo(b));
+        break;
+    case 't':
+        return texto_get_y(getInfo(b));
+        break;
+    case 'l':
+        if (linha_get_y1(getInfo(b)) < linha_get_y2(getInfo(b)))
+            return linha_get_y1(getInfo(b));
+        else
+            return linha_get_y2(getInfo(b));
+        break;
+    }
+}
+
+Barco create_barco(char tipo, void *info)
 {
     struct Ship *sh = malloc(sizeof(struct Ship));
     setTipo(sh, tipo);

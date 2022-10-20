@@ -1,8 +1,9 @@
 #include "qry.h"
 #include "path.h"
 
-void read_qry(char *path, char *fileName, Lista *lista, FILE* svg)
+void read_qry(char *path, char *fileName, Lista *lista, FILE* svg, Lista *listaminas)
 {
+    Lista listasSelec = createLista(-1);
     char type[100];
     float x, y, dx, dy, r, na = 0;
     int id, j, k;
@@ -39,11 +40,12 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE* svg)
             if (type[2] == 'h')
             {
                 fscanf(qry, "%d %d %f", &j, &k, &x);
-                //move_horizontal(lista, j, k, x);
+                move_barco(listasSelec, x, 0, listaminas, lista, svg);
             }
             else if (type[2] == 'v')
             {
                 fscanf(qry, "%d %d %f", &j, &k, &y);
+                move_barco(listasSelec, 0, y, listaminas, lista, svg);
                 //move_vertical(lista, j, k, y);
             }
         }
