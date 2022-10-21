@@ -1,5 +1,4 @@
 # Batalha Naval 🛥️
-![Lines of code](https://img.shields.io/tokei/lines/github/jeancarlopolo/trabalho-ed-batalha-naval)
 
 ![image](https://user-images.githubusercontent.com/92150848/195022753-82b4f00a-f61b-4174-a232-c9f3b6bf56fa.png)
 > Primeiro projeto da reoferta de *Estrutura de Dados I* para o terceiro semestre de Ciência da Computação na UEL.
