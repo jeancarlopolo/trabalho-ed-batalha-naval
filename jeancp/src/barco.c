@@ -6,16 +6,16 @@ struct Ship
     Item info;
     float protecao;
     int hp;
-    bool isCapitao;
+    int isCapitao;
 };
 
-bool isCapitao(Barco b)
+int isCapitao(Barco b)
 {
     struct Ship *ponteiro = b;
     return ponteiro->isCapitao;
 }
 
-void setCapitao(Barco b, bool capitao)
+void setCapitao(Barco b, int capitao)
 {
     struct Ship *ponteiro = b;
     ponteiro->isCapitao = capitao;
@@ -103,6 +103,7 @@ Barco create_barco(char tipo, void *info)
     struct Ship *sh = malloc(sizeof(struct Ship));
     setTipo(sh, tipo);
     setInfo(sh, info);
+    setCapitao(sh, -1);
     switch (sh->tipo)
     {
     case 'r':
@@ -217,4 +218,26 @@ void freeBarco(Barco b)
         break;
     }
     free(b);
+}
+
+int getBarcoId(Barco b)
+{
+    switch (getTipo(b))
+    {
+    case 'r':
+        return retangulo_get_i(getInfo(b));
+        break;
+    case 'c':
+        return circulo_get_i(getInfo(b));
+        break;
+    case 't':
+        return texto_get_i(getInfo(b));
+        break;
+    case 'l':
+        return linha_get_i(getInfo(b));
+        break;
+    default:
+        return 0;
+        break;
+    }
 }

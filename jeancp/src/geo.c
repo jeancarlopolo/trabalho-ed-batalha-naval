@@ -18,7 +18,6 @@ void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas)
     int id;
     char ancora[1];
     char fullPath[200];
-    ;
     joinFilePath(path, fileName, fullPath, 200);
     FILE *geo = fopen(fullPath, "r");
     if (geo == NULL)

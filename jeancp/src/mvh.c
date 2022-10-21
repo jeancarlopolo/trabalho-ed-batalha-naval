@@ -30,37 +30,33 @@ void move_linha(Barco b, float x, float y)
     linha_set_y2(l, y);
 }
 
-void move_barco(Lista *barcosSelec, float x, float y, Lista *listaminas, Lista *lista, FILE *svg)
+void move_barco(Lista barcosSelec, float x, float y, Lista *listaminas, Lista *lista, FILE *svg, int j, int k)
 {
-    Posic elemento = getFirst(barcosSelec);
+    Barco *b = escolher_barco(barcosSelec, j, k);
     float xfinal, yfinal, pontos = 0;
-    xfinal = x + getBarcoX(getInfo(elemento));
-    yfinal = y + getBarcoX(getInfo(elemento));
-    while (elemento != NULL)
+    xfinal = x + getBarcoX(b);
+    yfinal = y + getBarcoX(b);
+    if (!passou_mina(barcosSelec, x, y, listaminas, lista, svg, barcosSelec))
     {
-        if (!passou_mina(barcosSelec, x, y, listaminas, lista, svg, barcosSelec))
+        switch (getTipo(barcosSelec))
         {
-            switch (getTipo(barcosSelec))
-            {
-            case 'r':
-                move_retangulo(getInfo(barcosSelec), xfinal, yfinal);
-                break;
-            case 'c':
-                move_circulo(getInfo(barcosSelec), xfinal, yfinal);
-                break;
-            case 't':
-                move_texto(getInfo(barcosSelec), xfinal, yfinal);
-                break;
-            case 'l':
-                move_linha(getInfo(barcosSelec), xfinal, yfinal);
-                break;
-            }
+        case 'r':
+            move_retangulo(getInfo(barcosSelec), xfinal, yfinal);
+            break;
+        case 'c':
+            move_circulo(getInfo(barcosSelec), xfinal, yfinal);
+            break;
+        case 't':
+            move_texto(getInfo(barcosSelec), xfinal, yfinal);
+            break;
+        case 'l':
+            move_linha(getInfo(barcosSelec), xfinal, yfinal);
+            break;
         }
-        else
-        {
-            pontos += getPontuacaoDestruicao(elemento);
-        }
-        elemento = getNext(barcosSelec, elemento);
+    }
+    else
+    {
+        pontos += getPontuacaoDestruicao(b);
     }
 }
 
@@ -334,4 +330,45 @@ bool passou_mina(Barco b, float xend, float yend, Lista *listaminas, Lista *list
     return false;
 }
 
-
+Barco escolher_barco(Lista barcosSelec, int j, int k)
+{
+    Posic p = getFirst(barcosSelec);
+    Posic barcoSelecionado;
+    Barco *b;
+    while (p != NULL)
+    {
+        b = get(barcosSelec, p);
+        if (isCapitao(b) == j)
+        {
+            break;
+        }
+        p = getNext(barcosSelec, p);
+    }
+    if (p == NULL)
+    {
+        return NULL;
+    }
+    if (k > 0)
+    {
+        for (int i = 0; i < k; i++)
+        {
+            barcoSelecionado = getNext(barcosSelec, p);
+            if (barcoSelecionado == NULL)
+            {
+                barcoSelecionado = getFirst(barcosSelec);
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i > k; i--)
+        {
+            barcoSelecionado = getPrevious(barcosSelec, p);
+            if (barcoSelecionado == NULL)
+            {
+                barcoSelecionado = getLast(barcosSelec);
+            }
+        }
+    }
+    return barcoSelecionado;
+}
