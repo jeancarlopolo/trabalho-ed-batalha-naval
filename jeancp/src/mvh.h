@@ -4,14 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lista.h"
-#include "barco.h"
-#include "circulo.h"
-#include "retangulo.h"
-#include "texto.h"
-#include "linha.h"
-#include "circulo.c"
 #include "mina.h"
-
+#include "barco.h"
+#include "math.h"
+#include "svg.h"
 //funções de movimentação
 
 

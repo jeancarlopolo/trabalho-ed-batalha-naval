@@ -34,8 +34,8 @@ void move_barco(Lista *barcosSelec, float x, float y, Lista *listaminas, Lista *
 {
     Posic elemento = getFirst(barcosSelec);
     float xfinal, yfinal, pontos = 0;
-    xfinal = x + barco_get_x(getInfo(elemento));
-    yfinal = y + barco_get_y(getInfo(elemento));
+    xfinal = x + getBarcoX(getInfo(elemento));
+    yfinal = y + getBarcoX(getInfo(elemento));
     while (elemento != NULL)
     {
         if (!passou_mina(barcosSelec, x, y, listaminas, lista, svg, barcosSelec))
@@ -68,14 +68,15 @@ bool passou_mina(Barco b, float xend, float yend, Lista *listaminas, Lista *list
 {
 
     Posic elemento = getFirst(listaminas);
+    float xmina, ymina, raio, x, y, w, h;
     switch (getTipo(b))
     {
     case 'c':
-        float xmina = mina_get_x(getInfo(elemento));
-        float ymina = mina_get_y(getInfo(elemento));
-        float raio = circulo_get_r(getInfo(b));
-        float x = circulo_get_x(getInfo(b));
-        float y = circulo_get_y(getInfo(b));
+        xmina = getMinaX(getInfo(elemento));
+        ymina = getMinaY(getInfo(elemento));
+        raio = circulo_get_r(getInfo(b));
+        x = circulo_get_x(getInfo(b));
+        y = circulo_get_y(getInfo(b));
         while (elemento != NULL)
         {
             // movimento vertical
@@ -135,12 +136,12 @@ bool passou_mina(Barco b, float xend, float yend, Lista *listaminas, Lista *list
         break;
 
     case 'r':
-        float xmina = mina_get_x(getInfo(elemento));
-        float ymina = mina_get_y(getInfo(elemento));
-        float w = retangulo_get_w(getInfo(b));
-        float h = retangulo_get_h(getInfo(b));
-        float x = retangulo_get_x(getInfo(b));
-        float y = retangulo_get_y(getInfo(b));
+        xmina = getMinaX(getInfo(elemento));
+        ymina = getMinaY(getInfo(elemento));
+        w = retangulo_get_w(getInfo(b));
+        h = retangulo_get_h(getInfo(b));
+        x = retangulo_get_x(getInfo(b));
+        y = retangulo_get_y(getInfo(b));
         while (elemento != NULL)
         {
             // movimento vertical
@@ -200,10 +201,10 @@ bool passou_mina(Barco b, float xend, float yend, Lista *listaminas, Lista *list
         break;
 
     case 't':
-        float xmina = mina_get_x(getInfo(elemento));
-        float ymina = mina_get_y(getInfo(elemento));
-        float x = texto_get_x(getInfo(b));
-        float y = texto_get_y(getInfo(b));
+        xmina = getMinaX(getInfo(elemento));
+        ymina = getMinaY(getInfo(elemento));
+        x = texto_get_x(getInfo(b));
+        y = texto_get_y(getInfo(b));
         while (elemento != NULL)
         {
             // movimento vertical
@@ -263,12 +264,12 @@ bool passou_mina(Barco b, float xend, float yend, Lista *listaminas, Lista *list
         break;
 
     case 'l':
-        float xmina = mina_get_x(getInfo(elemento));
-        float ymina = mina_get_y(getInfo(elemento));
-        float w = fabs(linha_get_x1(getInfo(b)) - linha_get_x2(getInfo(b)));
-        float h = fabs(linha_get_y1(getInfo(b)) - linha_get_y2(getInfo(b)));
-        float x = barco_get_x(b);
-        float y = barco_get_y(b);
+        xmina = getMinaX(getInfo(elemento));
+        ymina = getMinaY(getInfo(elemento));
+        w = fabs(linha_get_x1(getInfo(b)) - linha_get_x2(getInfo(b)));
+        h = fabs(linha_get_y1(getInfo(b)) - linha_get_y2(getInfo(b)));
+        x = getBarcoX(b);
+        y = getBarcoY(b);
         while (elemento != NULL)
         {
             // movimento vertical

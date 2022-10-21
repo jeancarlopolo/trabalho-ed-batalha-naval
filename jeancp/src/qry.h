@@ -7,5 +7,5 @@
 #include "mvh.h"
 
 /**READ_QRY lê o arquivo qry e chama as funções necessárias para a execução dos comandos*/
-void read_qry(char *path, char *fileName, Lista *lista, FILE* svg);
+void read_qry(char *path, char *fileName, Lista *lista, FILE* svg, Lista *listaminas);
 #endif

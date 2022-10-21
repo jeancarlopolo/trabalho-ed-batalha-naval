@@ -44,7 +44,7 @@ void setHP(Barco sh, int hp)
     ponteiro->hp = hp;
 }
 
-float barco_get_x(Barco b)
+float getBarcoX(Barco b)
 {
     switch (getTipo(b))
     {
@@ -66,10 +66,14 @@ float barco_get_x(Barco b)
         {
             return linha_get_x1(getInfo(b));
         }
+        break;
+    default:
+        return 0;
+        break;
     }
 }
 
-float barco_get_y(Barco b)
+float getBarcoY(Barco b)
 {
     switch (getTipo(b))
     {
@@ -87,6 +91,9 @@ float barco_get_y(Barco b)
             return linha_get_y1(getInfo(b));
         else
             return linha_get_y2(getInfo(b));
+        break;
+    default:
+        return 0;
         break;
     }
 }
