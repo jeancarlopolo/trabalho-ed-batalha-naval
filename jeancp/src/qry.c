@@ -3,6 +3,7 @@
 
 void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listaminas)
 {
+    FILE *textow = fopen("relatorio.txt", "w");
     Lista listasSelec = createLista(-1);
     char type[100];
     float x, y, dx, dy, r, na = 0;

@@ -10,6 +10,6 @@
 float calcular_reducao(float area, float r, float na);
 
 /** Bomba de radiação atinge o local especificado */
-void bomba_rad(Lista *l, float x, float y, float r, float na, FILE *svg);
+void bomba_rad(Lista *l, float x, float y, float r, float na, FILE *svg, FILE *textow);
 
 #endif
