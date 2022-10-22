@@ -17,9 +17,9 @@ são as cores de preenchimento do navio de original e vice versa.
 */
 
 /** Dispara um torpedo nas coordenadas x e y. */
-void torpedo(Lista lista, float x, float y, FILE *svg);
+void torpedo(Lista lista, float x, float y, FILE *svg, File *textow);
 
 /** Dispara um torpedo replicante nas coordenadas x e y que replica barcos atingidos para as coordenadas x1 e y1. */
-void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int id, FILE *svg);
+void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int id, FILE *svg, FILE *textow);
 
 #endif

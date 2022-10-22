@@ -24,18 +24,18 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
             if (type[1] == 'p')
             {
                 fscanf(qry, "%f %f", &x, &y);
-                torpedo(lista, x, y, svg);
+                torpedo(lista, x, y, svg, textow);
             }
             else if (type[1] == 'r')
             {
                 fscanf(qry, "%f %f %f %f %d", &x, &y, &dx, &dy, &id);
-                torpedo_replicante(lista, x, y, dx, dy, id, svg);
+                torpedo_replicante(lista, x, y, dx, dy, id, svg, textow);
             }
         }
         else if (type[0] == 'b' && type[1] == 'e')
         {
             fscanf(qry, "%f %f %f", &x, &y, &r);
-            bomba_rad(lista, x, y, r, na, svg);
+            bomba_rad(lista, x, y, r, na, svg, textow);
         }
         else if (type[0] == 'm' && type[1] == 'v')
         {

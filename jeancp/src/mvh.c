@@ -371,4 +371,3 @@ Barco escolher_barco(Lista barcosSelec, int j, int k)
         }
     }
     return barcoSelecionado;
-}
