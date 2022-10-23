@@ -102,7 +102,7 @@ double torpedo(Lista lista, double x, double y, FILE *svg, FILE *textow)
         if (destruido)
         {
             pontos += barco_get_point_destr(barco);
-            fprintf(textow, "Pontos recebidos: %lf\n", barco_get_point_destr(barco));
+            fprintf(textow, "Pontos recebidos: %lf \nPontos totais: %lf\n\n", barco_get_point_destr(barco), pontos);
             aux = elemento;
             elemento = getNext(lista, elemento);
             remover(lista, aux);
