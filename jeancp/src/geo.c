@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "retangulo.h"
-#include "linha.h"
-#include "circulo.h"
-#include "texto.h"
 #include "path.h"
 #include "geo.h"
 #include "barco.h"
@@ -13,7 +9,7 @@
 void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas)
 {
     char type[200];
-    float x, y, w, h, r;
+    double x, y, w, h, r;
     char corb[200], corp[200], text[200];
     int id;
     char ancora[1];
@@ -25,28 +21,32 @@ void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas)
         printf("Erro ao abrir o arquivo %s!", fullPath);
         exit(1);
     }
-    do
+    while (true)
     {
         fscanf(geo, "%s", type);
+        if (feof(geo))
+        {
+            break;
+        }
         switch (type[0])
         {
         case 'c':
         {
-            fscanf(geo, "%d %f %f %f %s %s", &id, &x, &y, &r, corb, corp);
+            fscanf(geo, "%d %lf %lf %lf %s %s", &id, &x, &y, &r, corb, corp);
             Barco *circle = create_barco('c', create_circulo(id, x, y, r, corb, corp));
             insert(lista, circle);
             break;
         }
         case 'r':
         {
-            fscanf(geo, "%d %f %f %f %f %s %s", &id, &x, &y, &w, &h, corb, corp);
+            fscanf(geo, "%d %lf %lf %lf %lf %s %s", &id, &x, &y, &w, &h, corb, corp);
             Barco *retan = create_barco('r', create_retangulo(id, x, y, w, h, corb, corp));
             insert(lista, retan);
             break;
         }
         case 't':
         {
-            fscanf(geo, "%d %f %f %s %s %c", &id, &x, &y, corb, corp, ancora);
+            fscanf(geo, "%d %lf %lf %s %s %c", &id, &x, &y, corb, corp, ancora);
             fgets(text, 200, geo);
             Barco *txt;
             if (strcmp(text, "#") == 0)
@@ -63,7 +63,7 @@ void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas)
         }
         case 'l':
         {
-            fscanf(geo, "%d %f %f %f %f %s", &id, &x, &y, &w, &h, corb);
+            fscanf(geo, "%d %lf %lf %lf %lf %s", &id, &x, &y, &w, &h, corb);
             Barco *linha = create_barco('l', create_linha(id, x, y, w, h, corb));
             insert(lista, linha);
             break;
@@ -72,6 +72,5 @@ void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas)
             break;
         }
     }
-    while (!feof(geo));
     fclose(geo);
 }

@@ -139,7 +139,7 @@ void remover(Lista L, Posic p)
 			ponteiro->l = ponteironode->prox;
 			if (ponteironode->info != NIL)
 			{
-				freeBarco(ponteironode->info);
+				barco_kill(ponteironode->info);
 			}
 			ponteironode->prox = NIL;
 			free(ponteironode);
@@ -152,7 +152,7 @@ void remover(Lista L, Posic p)
 			}
 			if (ponteironode->prox->info != NIL)
 			{
-				freeBarco(ponteironode->prox->info);
+				barco_kill(ponteironode->prox->info);
 			}
 			ponteironode->prox = ponteironode->prox->prox;
 			free(p);

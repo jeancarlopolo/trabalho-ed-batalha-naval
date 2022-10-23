@@ -3,8 +3,8 @@
 struct Text
 {
     int id;
-    float x;
-    float y;
+    double x;
+    double y;
     char* corb;
     char* corp;
     char* conteudo;
@@ -18,13 +18,13 @@ void texto_set_i(texto txt, int i)
     ponteiro->id = i;
 }
 
-void texto_set_x(texto txt, float x)
+void texto_set_x(texto txt, double x)
 {
     struct Text *ponteiro = txt;
     ponteiro->x = x;
 }
 
-void texto_set_y(texto txt, float y)
+void texto_set_y(texto txt, double y)
 {
     struct Text *ponteiro = txt;
     ponteiro->y = y;
@@ -68,13 +68,13 @@ int texto_get_i(texto txt)
     return ponteiro->id;
 }
 
-float texto_get_x(texto txt)
+double texto_get_x(texto txt)
 {
     struct Text *ponteiro = txt;
     return ponteiro->x;
 }
 
-float texto_get_y(texto txt)
+double texto_get_y(texto txt)
 {
     struct Text *ponteiro = txt;
     return ponteiro->y;
@@ -104,7 +104,7 @@ char* texto_get_ancora(texto txt)
     return ponteiro->ancora;
 }
 
-texto create_texto(int id, float x, float y, char* corb, char* corp, char* conteudo, char* ancora)
+texto create_texto(int id, double x, double y, char* corb, char* corp, char* conteudo, char* ancora)
 {
     struct Text *txt = malloc(sizeof(struct Text));
     texto_set_i(txt, id);

@@ -1,13 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "texto.h"
 #include "mina.h"
 
 struct mina
 {
     int id;
-    float x;
-    float y;
+    double x;
+    double y;
     char* corb;
     char* corp;
     char* ancora;
@@ -19,13 +16,13 @@ void setMinaId(Mina min, int id)
     ponteiro->id = id;
 }
 
-void setMinaX(Mina min, float x)
+void setMinaX(Mina min, double x)
 {
     struct mina *ponteiro = min;
     ponteiro->x = x;
 }
 
-void setMinaY(Mina min, float y)
+void setMinaY(Mina min, double y)
 {
     struct mina *ponteiro = min;
     ponteiro->y = y;
@@ -56,7 +53,7 @@ void setMinaAncora(Mina min, char* ancora)
 }
 
 
-Mina createMina(int id, float x, float y, char* corb, char* corp, char *ancora)
+Mina createMina(int id, double x, double y, char* corb, char* corp, char *ancora)
 {
     struct mina *min = (struct mina *) malloc(sizeof(struct mina));
     setMinaId(min, id);
@@ -74,13 +71,13 @@ int getMinaId(Mina min)
     return ponteiro->id;
 }
 
-float getMinaX(Mina min)
+double getMinaX(Mina min)
 {
     struct mina *ponteiro = min;
     return ponteiro->x;
 }
 
-float getMinaY(Mina min)
+double getMinaY(Mina min)
 {
     struct mina *ponteiro = min;
     return ponteiro->y;

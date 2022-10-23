@@ -11,27 +11,27 @@ LINHA é um polígono que possui dois pontos de origem (âncora definida por x e
 typedef void *linha;
 
 /** CREATE_LINHA retorna uma LINHA; */
-linha create_linha(int id, float x1, float y1, float x2, float y2, char* cor);
+linha create_linha(int id, double x1, double y1, double x2, double y2, char* cor);
 
 
 /** LINHA_SET_I recebe uma LINHA e um inteiro e seta o ID da LINHA */
 void linha_set_i(linha li, int i);
 
 
-/** LINHA_SET_X1 recebe uma LINHA e um float e seta o x do início da LINHA */
-void linha_set_x1(linha li, float x1);
+/** LINHA_SET_X1 recebe uma LINHA e um double e seta o x do início da LINHA */
+void linha_set_x1(linha li, double x1);
 
 
-/** LINHA_SET_Y1 recebe uma LINHA e um float e seta o y do início da LINHA */
-void linha_set_y1(linha li, float y1);
+/** LINHA_SET_Y1 recebe uma LINHA e um double e seta o y do início da LINHA */
+void linha_set_y1(linha li, double y1);
 
 
-/** LINHA_SET_X2 recebe uma LINHA e um float e seta o x do fim da LINHA */
-void linha_set_x2(linha li, float x2);
+/** LINHA_SET_X2 recebe uma LINHA e um double e seta o x do fim da LINHA */
+void linha_set_x2(linha li, double x2);
 
 
-/** LINHA_SET_Y2 recebe uma LINHA e um float e seta o y do fim da LINHA */
-void linha_set_y2(linha li, float y2);
+/** LINHA_SET_Y2 recebe uma LINHA e um double e seta o y do fim da LINHA */
+void linha_set_y2(linha li, double y2);
 
 
 /** LINHA_SET_COR recebe uma LINHA e uma string e seta a cor da LINHA */
@@ -43,19 +43,19 @@ int linha_get_i(linha li);
 
 
 /** LINHA_GET_X1 recebe uma LINHA e retorna o x do início da LINHA */
-float linha_get_x1(linha li);
+double linha_get_x1(linha li);
 
 
 /** LINHA_GET_Y1 recebe uma LINHA e retorna o y do início da LINHA */
-float linha_get_y1(linha li);
+double linha_get_y1(linha li);
 
 
 /** LINHA_GET_X2 recebe uma LINHA e retorna o x do fim da LINHA */
-float linha_get_x2(linha li);
+double linha_get_x2(linha li);
 
 
 /** LINHA_GET_Y2 recebe uma LINHA e retorna o y do fim da LINHA */
-float linha_get_y2(linha li);
+double linha_get_y2(linha li);
 
 
 /** LINHA_GET_COR recebe uma LINHA e retorna a cor da LINHA */

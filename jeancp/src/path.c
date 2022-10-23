@@ -61,6 +61,16 @@ void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
 
 void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)
 {
-    joinFilePath(path, fileName, fullPath, lenFullPath);
-    strcat(fullPath, ext);
+    char *ponteirochar = strrchr(fileName, '.');
+    if (ponteirochar == NULL)
+    {
+        joinFilePath(path, fileName, fullPath, lenFullPath);
+        strcat(fullPath, ext);
+    }
+    else
+    {
+        *ponteirochar = '\0';
+        joinFilePath(path, fileName, fullPath, lenFullPath);
+        strcat(fullPath, ext);
+    }
 }

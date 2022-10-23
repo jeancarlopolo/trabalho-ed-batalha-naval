@@ -87,11 +87,12 @@ int main(int argc, char *argv[])
     FILE *svg = writeSvg(dir, arqGeo);
     if (arqQry != NULL)
     {
-        //createTxt(dir);
         read_qry(path, arqQry, listabarcos, svg, listaminas);
     }
     barcosSvg(svg, listabarcos);
     endSvg(svg);
+    killLista(listabarcos);
+    killLista(listaminas);
     free(arqQry);
     free(arqGeo);
     free(dir);

@@ -5,7 +5,7 @@
 
 ***
 
-## O que falta fazer
+## O que falta fazer 
 
 - [x] Estruturas dos polígonos
   - [x] Retângulo
@@ -14,10 +14,10 @@
   - [x] Linha
   - [x] Barco
   - [x] **Mina Flutuante**
-- [ ] Manipulação de arquivos
+- [x] Manipulação de arquivos
   - [x] Leitura do .geo
   - [x] Leitura do .qry
-  - [ ] Criação do .txt
+  - [x] Criação do .txt
   - [x] Criação do .svg
 - [x] Funções do .qry
   - [x] na (Nível de Agressividade)
@@ -26,10 +26,11 @@
   - [x] be (Bomba de Radiação)
   - [x] se (Selecionar barco)
   - [x] sec (Selecionar barco e definir como nau-capitã)
-  - [x] mvh (Mover horizontalmente)
+  - [x] movimentacao (Mover horizontalmente)
   - [x] mvv (Mover verticalmente)
 - [x] Execução do código
   - [x] Makefile
   - [x] Funções de manipulação de path
   - [x] Leitura de argv no main.c
   
+***

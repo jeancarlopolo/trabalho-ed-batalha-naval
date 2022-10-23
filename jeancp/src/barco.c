@@ -1,70 +1,70 @@
 #include "barco.h"
 
-struct Ship
+struct Boat
 {
     char tipo;
     Item info;
-    float protecao;
+    double protecao;
     int hp;
-    int isCapitao;
+    int capitaoid;
 };
 
-int isCapitao(Barco b)
+int barco_get_capitaoid(Barco b)
 {
-    struct Ship *ponteiro = b;
-    return ponteiro->isCapitao;
+    struct Boat *ponteiro = b;
+    return ponteiro->capitaoid;
 }
 
-void setCapitao(Barco b, int capitao)
+void barco_set_capitaoid(Barco b, int capitaoid)
 {
-    struct Ship *ponteiro = b;
-    ponteiro->isCapitao = capitao;
+    struct Boat *ponteiro = b;
+    ponteiro->capitaoid = capitaoid;
 }
-void setInfo(Barco b, void *info)
+void barco_set_info(Barco b, void *info)
 {
-    struct Ship *ponteiro = b;
+    struct Boat *ponteiro = b;
     ponteiro->info = info;
 }
 
-void setTipo(Barco b, char tipo)
+void barco_set_tipo(Barco b, char tipo)
 {
-    struct Ship *ponteiro = b;
+    struct Boat *ponteiro = b;
     ponteiro->tipo = tipo;
 }
 
-void setProtecao(Barco sh, float protecao)
+void barco_set_protecao(Barco sh, double protecao)
 {
-    struct Ship *ponteiro = sh;
+    struct Boat *ponteiro = sh;
     ponteiro->protecao = protecao;
 }
 
-void setHP(Barco sh, int hp)
+void barco_set_hp(Barco sh, int hp)
 {
-    struct Ship *ponteiro = sh;
+    struct Boat *ponteiro = sh;
     ponteiro->hp = hp;
 }
 
-float getBarcoX(Barco b)
+double barco_get_x(Barco b)
 {
-    switch (getTipo(b))
+    switch (barco_get_tipo(b))
     {
     case 'r':
-        return retangulo_get_x(getInfo(b));
+        return retangulo_get_x(barco_get_info(b));
         break;
     case 'c':
-        return circulo_get_x(getInfo(b));
+        return circulo_get_x(barco_get_info(b));
         break;
     case 't':
-        return texto_get_x(getInfo(b));
+        return texto_get_x(barco_get_info(b));
         break;
     case 'l':
-        if (linha_get_x1(getInfo(b)) > linha_get_x2(getInfo(b)))
+        if (linha_get_x1(barco_get_info(b)) > linha_get_x2(barco_get_info(b)))
         {
-            return linha_get_x2(getInfo(b));
+            return linha_get_x2(barco_get_info(b));
         }
         else
         {
-            return linha_get_x1(getInfo(b));
+            return linha_get_x1(barco_get_info(b));
         }
         break;
     default:
@@ -73,24 +73,24 @@ float getBarcoX(Barco b)
     }
 }
 
-float getBarcoY(Barco b)
+double barco_get_y(Barco b)
 {
-    switch (getTipo(b))
+    switch (barco_get_tipo(b))
     {
     case 'r':
-        return retangulo_get_y(getInfo(b));
+        return retangulo_get_y(barco_get_info(b));
         break;
     case 'c':
-        return circulo_get_y(getInfo(b));
+        return circulo_get_y(barco_get_info(b));
         break;
     case 't':
-        return texto_get_y(getInfo(b));
+        return texto_get_y(barco_get_info(b));
         break;
     case 'l':
-        if (linha_get_y1(getInfo(b)) < linha_get_y2(getInfo(b)))
-            return linha_get_y1(getInfo(b));
+        if (linha_get_y1(barco_get_info(b)) < linha_get_y2(barco_get_info(b)))
+            return linha_get_y1(barco_get_info(b));
         else
-            return linha_get_y2(getInfo(b));
+            return linha_get_y2(barco_get_info(b));
         break;
     default:
         return 0;
@@ -100,61 +100,61 @@ float getBarcoY(Barco b)
 
 Barco create_barco(char tipo, void *info)
 {
-    struct Ship *sh = malloc(sizeof(struct Ship));
-    setTipo(sh, tipo);
-    setInfo(sh, info);
-    setCapitao(sh, -1);
+    struct Boat *sh = malloc(sizeof(struct Boat));
+    barco_set_tipo(sh, tipo);
+    barco_set_info(sh, info);
+    barco_set_capitaoid(sh, -1);
     switch (sh->tipo)
     {
     case 'r':
-        setProtecao(sh, 60);
-        setHP(sh, 3);
+        barco_set_protecao(sh, 60);
+        barco_set_hp(sh, 3);
         break;
     case 'c':
-        setProtecao(sh, 60);
-        setHP(sh, 2);
+        barco_set_protecao(sh, 60);
+        barco_set_hp(sh, 2);
         break;
     case 't':
-        setProtecao(sh, 50);
-        setHP(sh, 1);
+        barco_set_protecao(sh, 50);
+        barco_set_hp(sh, 1);
         break;
     case 'l':
-        setProtecao(sh, 50);
-        setHP(sh, 1);
+        barco_set_protecao(sh, 50);
+        barco_set_hp(sh, 1);
         break;
     }
     return sh;
 }
 
-char getTipo(Barco b)
+char barco_get_tipo(Barco b)
 {
-    struct Ship *ponteiro = b;
+    struct Boat *ponteiro = b;
     return ponteiro->tipo;
 }
 
-void *getInfo(Barco b)
+void *barco_get_info(Barco b)
 {
-    struct Ship *ponteiro = (struct Ship *)b;
+    struct Boat *ponteiro = (struct Boat *)b;
     return ponteiro->info;
 }
 
-float getProtecao(Barco b)
+double barco_get_protecao(Barco b)
 {
-    struct Ship *ponteiro = b;
+    struct Boat *ponteiro = b;
     return ponteiro->protecao;
 }
 
-int getHP(Barco b)
+int barco_get_hp(Barco b)
 {
-    struct Ship *ponteiro = b;
+    struct Boat *ponteiro = b;
     return ponteiro->hp;
 }
 
-float getPontuacaoDesativ(Barco b)
+double barco_get_point_desat(Barco b)
 {
-    struct Ship *ponteiro = b;
-    float pt;
-    char tipo = getTipo(ponteiro);
+    struct Boat *ponteiro = b;
+    double pt;
+    char tipo = barco_get_tipo(ponteiro);
     switch (tipo)
     {
     case 'r':
@@ -173,19 +173,19 @@ float getPontuacaoDesativ(Barco b)
     return pt;
 }
 
-float getPontuacaoDestruicao(Barco b)
+double barco_get_point_destr(Barco b)
 {
-    struct Ship *ponteiro = b;
-    float pt, a;
-    char tipo = getTipo(ponteiro);
+    struct Boat *ponteiro = b;
+    double pt, a;
+    char tipo = barco_get_tipo(ponteiro);
     switch (tipo)
     {
     case 'r':
-        a = retangulo_get_area(b);
+        a = retangulo_get_area(barco_get_info(ponteiro));
         pt = 90 / (a / 5);
         break;
     case 'c':
-        a = circulo_get_area(b);
+        a = circulo_get_area(barco_get_info(ponteiro));
         pt = 75 / (a / 5);
         break;
     case 't':
@@ -198,21 +198,21 @@ float getPontuacaoDestruicao(Barco b)
     return pt;
 }
 
-void freeBarco(Barco b)
+void barco_kill(Barco b)
 {
-    switch (getTipo(b))
+    switch (barco_get_tipo(b))
     {
     case 'r':
-        retangulo_free(getInfo(b));
+        retangulo_free(barco_get_info(b));
         break;
     case 'c':
-        circulo_free(getInfo(b));
+        circulo_free(barco_get_info(b));
         break;
     case 'l':
-        linha_free(getInfo(b));
+        linha_free(barco_get_info(b));
         break;
     case 't':
-        texto_free(getInfo(b));
+        texto_free(barco_get_info(b));
         break;
     default:
         break;
@@ -220,21 +220,21 @@ void freeBarco(Barco b)
     free(b);
 }
 
-int getBarcoId(Barco b)
+int barco_get_id(Barco b)
 {
-    switch (getTipo(b))
+    switch (barco_get_tipo(b))
     {
     case 'r':
-        return retangulo_get_i(getInfo(b));
+        return retangulo_get_i(barco_get_info(b));
         break;
     case 'c':
-        return circulo_get_i(getInfo(b));
+        return circulo_get_i(barco_get_info(b));
         break;
     case 't':
-        return texto_get_i(getInfo(b));
+        return texto_get_i(barco_get_info(b));
         break;
     case 'l':
-        return linha_get_i(getInfo(b));
+        return linha_get_i(barco_get_info(b));
         break;
     default:
         return 0;

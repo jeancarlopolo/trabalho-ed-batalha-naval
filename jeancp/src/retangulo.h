@@ -11,7 +11,7 @@ cor de borda e cor de preenchimento.
 */
 typedef void *retangulo;
 
-retangulo create_retangulo(int id, float x, float y, float w, float h, char* corb, char* corp);
+retangulo create_retangulo(int id, double x, double y, double w, double h, char* corb, char* corp);
 
 //CREATE_RETANGULO retorna um RETANGULO;
 
@@ -19,21 +19,21 @@ void retangulo_set_i(retangulo ret, int id);
 
 //RETANGULO_SET_I recebe um RETANGULO e um inteiro e seta o ID do RETANGULO
 
-void retangulo_set_x(retangulo ret, float x);
+void retangulo_set_x(retangulo ret, double x);
 
-//RETANGULO_SET_X recebe um RETANGULO e um float e seta o x da ancora (centro) do RETANGULO
+//RETANGULO_SET_X recebe um RETANGULO e um double e seta o x da ancora (centro) do RETANGULO
 
-void retangulo_set_y(retangulo ret, float y);
+void retangulo_set_y(retangulo ret, double y);
 
-//RETANGULO_SET_Y recebe um RETANGULO e um float e seta o y da ancora (centro) do RETANGULO
+//RETANGULO_SET_Y recebe um RETANGULO e um double e seta o y da ancora (centro) do RETANGULO
 
-void retangulo_set_w(retangulo ret, float w);
+void retangulo_set_w(retangulo ret, double w);
 
-//RETANGULO_SET_W recebe um RETANGULO e um float e seta a largura do RETANGULO
+//RETANGULO_SET_W recebe um RETANGULO e um double e seta a largura do RETANGULO
 
-void retangulo_set_h(retangulo ret, float h);
+void retangulo_set_h(retangulo ret, double h);
 
-//RETANGULO_SET_H recebe um RETANGULO e um float e seta a altura do RETANGULO
+//RETANGULO_SET_H recebe um RETANGULO e um double e seta a altura do RETANGULO
 
 void retangulo_set_corb(retangulo ret, char* corb);
 
@@ -47,19 +47,19 @@ int retangulo_get_i(retangulo ret);
 
 //RETANGULO_GET_I recebe um RETANGULO e retorna o ID do RETANGULO
 
-float retangulo_get_x(retangulo ret);
+double retangulo_get_x(retangulo ret);
 
 //RETANGULO_GET_X recebe um RETANGULO e retorna o x da ancora (centro) do RETANGULO
 
-float retangulo_get_y(retangulo ret);
+double retangulo_get_y(retangulo ret);
 
 //RETANGULO_GET_Y recebe um RETANGULO e retorna o y da ancora (centro) do RETANGULO
 
-float retangulo_get_w(retangulo ret);
+double retangulo_get_w(retangulo ret);
 
 //RETANGULO_GET_W recebe um RETANGULO e retorna a largura do RETANGULO
 
-float retangulo_get_h(retangulo ret);
+double retangulo_get_h(retangulo ret);
 
 //RETANGULO_GET_H recebe um RETANGULO e retorna a altura do RETANGULO
 
@@ -71,7 +71,7 @@ char* retangulo_get_corp(retangulo ret);
 
 //RETANGULO_GET_CORP recebe um RETANGULO e retorna a cor de preenchimento do RETANGULO
 
-float retangulo_get_area(retangulo ret);
+double retangulo_get_area(retangulo ret);
 
 //RETANGULO_GET_AREA recebe um RETANGULO e retorna a área do RETANGULO
 

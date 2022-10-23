@@ -12,7 +12,7 @@ conteúdo, cor de borda e cor de preenchimento.
 typedef void *texto;
 
 /**CREATE_TEXTO retorna um TEXTO;*/
-texto create_texto(int id, float x, float y, char *corb, char *corp, char *conteudo, char *ancora);
+texto create_texto(int id, double x, double y, char *corb, char *corp, char *conteudo, char *ancora);
 
 
 /**TEXTO_SET_I recebe um TEXTO e um inteiro e seta o ID do TEXTO*/
@@ -23,12 +23,12 @@ void texto_set_id(texto text, int id);
 void texto_set_ancora(texto text, char* ancora);
 
 
-/**TEXTO_SET_X recebe um TEXTO e um float e seta o x da ancora do TEXTO*/
-void texto_set_x(texto text, float x);
+/**TEXTO_SET_X recebe um TEXTO e um double e seta o x da ancora do TEXTO*/
+void texto_set_x(texto text, double x);
 
 
-/**TEXTO_SET_Y recebe um TEXTO e um float e seta o y da ancora do TEXTO*/
-void texto_set_y(texto text, float y);
+/**TEXTO_SET_Y recebe um TEXTO e um double e seta o y da ancora do TEXTO*/
+void texto_set_y(texto text, double y);
 
 
 /**TEXTO_SET_CONTEUDO recebe um TEXTO e uma char* e seta o conteúdo do TEXTO*/
@@ -52,11 +52,11 @@ char* texto_get_ancora(texto text);
 
 
 /**TEXTO_GET_X recebe um TEXTO e retorna o x da ancora do TEXTO*/
-float texto_get_x(texto text);
+double texto_get_x(texto text);
 
 
 /**TEXTO_GET_Y recebe um TEXTO e retorna o y da ancora do TEXTO*/
-float texto_get_y(texto text);
+double texto_get_y(texto text);
 
 
 /**TEXTO_GET_CONTEUDO recebe um TEXTO e retorna o conteúdo do TEXTO*/

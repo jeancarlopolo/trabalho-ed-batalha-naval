@@ -16,10 +16,10 @@ cópias exatas transladadas para uma posição relativa ao navio original. As co
 são as cores de preenchimento do navio de original e vice versa.
 */
 
-/** Dispara um torpedo nas coordenadas x e y. */
-void torpedo(Lista lista, float x, float y, FILE *svg, FILE *textow);
+/** Dispara um torpedo nas coordenadas x e y. Retorna a pontuação recebida.*/
+double torpedo(Lista lista, double x, double y, FILE *svg, FILE *textow);
 
 /** Dispara um torpedo replicante nas coordenadas x e y que replica barcos atingidos para as coordenadas x1 e y1. */
-void torpedo_replicante(Lista lista, float x, float y, float x1, float y1, int id, FILE *svg, FILE *textow);
+void torpedo_replicante(Lista lista, double x, double y, double x1, double y1, int id, FILE *svg, FILE *textow);
 
 #endif

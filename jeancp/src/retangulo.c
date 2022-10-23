@@ -3,15 +3,15 @@
 struct Rectangle
 {
     int id;
-    float x;
-    float y;
-    float w;
-    float h;
+    double x;
+    double y;
+    double w;
+    double h;
     char* cor;
     char* corb;
 };
 
-retangulo create_retangulo(int id, float x, float y, float w, float h, char* corb, char* corp)
+retangulo create_retangulo(int id, double x, double y, double w, double h, char* corb, char* corp)
 {
     struct Rectangle *ret = (struct Rectangle *) malloc(sizeof(struct Rectangle));
     retangulo_set_i(ret, id);
@@ -30,25 +30,25 @@ void retangulo_set_i(retangulo ret, int i)
     ponteiro->id = i;
 }
 
-void retangulo_set_x(retangulo ret, float x)
+void retangulo_set_x(retangulo ret, double x)
 {
     struct Rectangle *ponteiro = ret;
     ponteiro->x = x;
 }
 
-void retangulo_set_y(retangulo ret, float y)
+void retangulo_set_y(retangulo ret, double y)
 {
     struct Rectangle *ponteiro = ret;
     ponteiro->y = y;
 }
 
-void retangulo_set_w(retangulo ret, float w)
+void retangulo_set_w(retangulo ret, double w)
 {
     struct Rectangle *ponteiro = ret;
     ponteiro->w = w;
 }
 
-void retangulo_set_h(retangulo ret, float h)
+void retangulo_set_h(retangulo ret, double h)
 {
     struct Rectangle *ponteiro = ret;
     ponteiro->h = h;
@@ -76,25 +76,25 @@ int retangulo_get_i(retangulo ret)
     return ponteiro->id;
 }
 
-float retangulo_get_x(retangulo ret)
+double retangulo_get_x(retangulo ret)
 {
     struct Rectangle *ponteiro = ret;
     return ponteiro->x;
 }
 
-float retangulo_get_y(retangulo ret)
+double retangulo_get_y(retangulo ret)
 {
     struct Rectangle *ponteiro = ret;
     return ponteiro->y;
 }
 
-float retangulo_get_w(retangulo ret)
+double retangulo_get_w(retangulo ret)
 {
     struct Rectangle *ponteiro = ret;
     return ponteiro->w;
 }
 
-float retangulo_get_h(retangulo ret)
+double retangulo_get_h(retangulo ret)
 {
     struct Rectangle *ponteiro = ret;
     return ponteiro->h;
@@ -112,7 +112,7 @@ char* retangulo_get_corp(retangulo ret)
     return ponteiro->cor;
 }
 
-float retangulo_get_area(retangulo ret)
+double retangulo_get_area(retangulo ret)
 {
     struct Rectangle *ponteiro = ret;
     return ponteiro->h * ponteiro->w;

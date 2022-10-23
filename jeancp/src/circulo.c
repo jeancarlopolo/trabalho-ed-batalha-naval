@@ -1,18 +1,16 @@
 #include "circulo.h"
-#include "barco.h"
 
-// a struct tem que estar dif. do void pointer do .h
 struct Circle
 {
     int id;
-    float x;
-    float y;
-    float r;
+    double x;
+    double y;
+    double r;
     char *cor;
     char *corb;
 };
-// colocar int hp e defesa e pdi
-circulo create_circulo(int id, float x, float y, float r, char *corb, char *corp)
+
+circulo create_circulo(int id, double x, double y, double r, char *corb, char *corp)
 {
     struct Circle *cir = malloc(sizeof(struct Circle));
     circulo_set_i(cir, id);
@@ -30,19 +28,19 @@ void circulo_set_i(circulo cir, int i)
     ponteiro->id = i;
 }
 
-void circulo_set_x(circulo cir, float x)
+void circulo_set_x(circulo cir, double x)
 {
     struct Circle *ponteiro = cir;
     ponteiro->x = x;
 }
 
-void circulo_set_y(circulo cir, float y)
+void circulo_set_y(circulo cir, double y)
 {
     struct Circle *ponteiro = cir;
     ponteiro->y = y;
 }
 
-void circulo_set_r(circulo cir, float r)
+void circulo_set_r(circulo cir, double r)
 {
     struct Circle *ponteiro = cir;
     ponteiro->r = r;
@@ -70,19 +68,19 @@ int circulo_get_i(circulo cir)
     return ponteiro->id;
 }
 
-float circulo_get_x(circulo cir)
+double circulo_get_x(circulo cir)
 {
     struct Circle *ponteiro = cir;
     return ponteiro->x;
 }
 
-float circulo_get_y(circulo cir)
+double circulo_get_y(circulo cir)
 {
     struct Circle *ponteiro = cir;
     return ponteiro->y;
 }
 
-float circulo_get_r(circulo cir)
+double circulo_get_r(circulo cir)
 {
     struct Circle *ponteiro = cir;
     return ponteiro->r;
@@ -100,7 +98,7 @@ char *circulo_get_corp(circulo cir)
     return ponteiro->cor;
 }
 
-float circulo_get_area(circulo cir)
+double circulo_get_area(circulo cir)
 {
     struct Circle *ponteiro = cir;
     return 3.14 * ponteiro->r * ponteiro->r;
@@ -108,8 +106,7 @@ float circulo_get_area(circulo cir)
 
 void circulo_free(circulo cir)
 {
-    Item info = getInfo(cir);
-    struct Circle *ponteiro = info;
+    struct Circle *ponteiro = cir;
     free(ponteiro->corb);
     free(ponteiro->cor);
     free(cir);

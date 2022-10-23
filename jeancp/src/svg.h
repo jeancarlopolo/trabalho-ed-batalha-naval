@@ -37,7 +37,7 @@ void circleSvg(FILE *svg, Barco c);
 void textSvg(FILE *svg, Barco t);
 
 /** STRING_SVG recebe um arquivo SVG e uma string e desenha a string no arquivo SVG */
-void stringSvg(FILE *svg, char *string, float x, float y, char *corp, char *corb, char *ancora);
+void stringSvg(FILE *svg, char *string, double x, double y, char *corp, char *corb, char *ancora);
 
 /** BARCOS_SVG recebe um arquivo SVG e uma lista de barcos e desenha os barcos no arquivo SVG */
 void barcosSvg(FILE *svg, Lista barcos);

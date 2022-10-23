@@ -1,81 +1,68 @@
 #ifndef _BARCO_H
 #define _BARCO_H
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "linha.h"
 #include "circulo.h"
 #include "retangulo.h"
 #include "texto.h"
 
-/** 
-Um barco é uma estrutura que contém um id, um item, hp e proteção. Ele pode ser destruído de três maneiras:
+/**
+Um barco é uma estrutura que contém um id, um id de capitão, um item, hp, proteção. Ele pode ser destruído de três maneiras:
 1. Seu hp chegar a 0 ao ser bombardeado
 2. Seu nível de proteção chegar a 0 ao ser atingido por uma bomba de radiação
 3. Ao passar por uma mina
 */
-typedef void* Barco;
+typedef void *Barco;
 
-/** CREATE_BARCO recebe um caractere que representa o tipo de barco e um item que contém as informações do barco e retorna um barco */
-Barco create_barco(char id, void* info);
+/** Aloca memória para um barco e inicializa seus valores */
+Barco create_barco(char id, void *info);
 
+/** Retorna o tipo de um barco */
+char barco_get_tipo(Barco b);
 
-/** GET_BARCO_TIPO recebe um barco e retorna o caractere que representa o tipo de barco */
-char getTipo(Barco b);
+/** Retorna o item que o barco carrega */
+void *barco_get_info(Barco b);
 
+/** Retorna o hp de um barco */
+int barco_get_hp(Barco b);
 
-/** GET_BARCO_INFO recebe um barco e retorna um item que contém as informações do barco */
-void* getInfo(Barco b);
+/** Retorna o nível de proteção de um barco */
+double barco_get_protecao(Barco b);
 
+/** Retorna a pontuação recebida pela inativação de um barco */
+double barco_get_point_desat(Barco b);
 
-/** GET_BARCO_HP recebe um barco e retorna o HP do barco */
-int getHP(Barco b);
+/** Retorna a pontuação recebida pela destruição de um barco */
+double barco_get_point_destr(Barco b);
 
+/** Seta o item que o barco carrega */
+void barco_set_info(Barco b, void *info);
 
-/** GET_BARCO_PROTECAO recebe um barco e retorna o nível de proteção do barco */
-float getProtecao(Barco b);
+/** Seta o tipo de um barco */
+void barco_set_tipo(Barco b, char tipo);
 
+/** Seta o hp de um barco */
+void barco_set_hp(Barco b, int hp);
 
-/** GET_BARCO_PONTUACAO_DESATIV recebe um barco e retorna a pontuação recebida pela inativação do barco */
-float getPontuacaoDesativ(Barco b);
+/** Seta o nível de proteção de um barco */
+void barco_set_protecao(Barco b, double protecao);
 
+/** Libera a memória alocada para um barco */
+void barco_kill(Barco b);
 
-/** GET_BARCO_PONTUACAO_DESTRUIR recebe um barco e retorna a pontuação recebida pela destruição do barco */
-float getPontuacaoDestruicao(Barco b);
+/** Retorna a coordenada x do barco */
+double barco_get_x(Barco b);
 
+/** Retorna a coordenada y do barco */
+double barco_get_y(Barco b);
 
-/** SET_BARCO_INFO recebe um barco e um item que contém as informações do barco e seta as informações do barco */
-void setInfo(Barco b, void* info);
+/** Retorna o id de capitão do barco */
+int barco_get_capitaoid(Barco b);
 
+/** Seta o id de capitão do barco */
+void barco_set_capitaoid(Barco b, int capitao);
 
-/** SET_BARCO_TIPO recebe um barco e um caractere que representa o tipo de barco e seta o tipo de barco */
-void setTipo(Barco b, char tipo);
+/** Retorna o id do barco */
+int barco_get_id(Barco b);
 
-
-/** SET_BARCO_HP recebe um barco e um float que representa o HP do barco e seta o HP do barco */
-void setHP(Barco b, int hp);
-
-
-/** SET_BARCO_PROTECAO recebe um barco e um float que representa o nível de proteção do barco e seta o nível de proteção do barco */
-void setProtecao(Barco b, float protecao);
-
-
-/** FREE_BARCO recebe um barco e libera a memória alocada para o barco */
-void freeBarco(Barco b);
-
-/** GET_BARCO_X recebe um barco e retorna a coordenada x do barco */
-float getBarcoX(Barco b);
-
-/** GET_BARCO_Y recebe um barco e retorna a coordenada y do barco */
-float getBarcoY(Barco b);
-
-/** isCapitao recebe um barco e retorna seu id de capitão */
-int isCapitao(Barco b);
-
-/** setCapitao recebe um barco e seta o barco como capitão */
-void setCapitao(Barco b, int capitao);
-
-/** getBarcoId recebe um barco e retorna seu id */
-int getBarcoId(Barco b);
- 
 #endif
