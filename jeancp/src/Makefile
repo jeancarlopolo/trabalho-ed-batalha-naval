@@ -13,6 +13,9 @@ OBJ=$(C_SOURCE:.c=.o)
 # Compiler
 CC=gcc
 
+# Aluno: Jean Carlo Polo
+ALUNO = jeancp
+
 # Flags for compiler
 CC_FLAGS=-W         \
          -Wall      \
@@ -40,3 +43,9 @@ main.o: main.c $(H_SOURCE)
 
 clean:
 	rm -rf *.o $(objects) *~
+
+pack: $(objects)
+	rm -f ../$(ALUNO).zip
+	echo $(ALUNO)
+	date >> .entrega
+	cd ..; zip $(ALUNO).zip -r src/*.c src/*.h src/Makefile LEIA-ME.txt src/.entrega
