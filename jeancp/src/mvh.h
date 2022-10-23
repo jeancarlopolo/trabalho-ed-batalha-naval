@@ -11,10 +11,10 @@
 //funções de movimentação
 
 /**MOVE_BARCOS move os barcos de acordo com o comando mv*/
-void move_barco(Lista barcosSelec, float x, float y, Lista *listaminas, Lista *lista, FILE* svg, int j, int k);
+void move_barco(Lista barcosSelec, float x, float y, Lista *listaminas, Lista *lista, FILE* svg, int j, int k, FILE *textow);
 
 /**passou_mina verifica se o barco passou por uma mina*/
-bool passou_mina(Barco b, float x, float y, Lista *listaminas, Lista *lista, FILE* svg, Lista *listaSelec);
+bool passou_mina(Barco b, float x, float y, Lista *listaminas, Lista *lista, FILE* svg, Lista *listaSelec, FILE *textow);
 
 /**move_retangulo move o retangulo de acordo com o comando mv*/
 void move_retangulo(Barco b, float x, float y);

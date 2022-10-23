@@ -43,12 +43,12 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
             if (type[2] == 'h')
             {
                 fscanf(qry, "%d %d %f", &j, &k, &x);
-                move_barco(listasSelec, x, 0, listaminas, lista, svg, j, k);
+                move_barco(listasSelec, x, 0, listaminas, lista, svg, j, k, textow);
             }
             else if (type[2] == 'v')
             {
                 fscanf(qry, "%d %d %f", &j, &k, &y);
-                move_barco(listasSelec, 0, y, listaminas, lista, svg, j, k);
+                move_barco(listasSelec, 0, y, listaminas, lista, svg, j, k, textow);
                 // move_vertical(lista, j, k, y);
             }
         }
@@ -68,6 +68,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         {
                             setCapitao(barco, idc);
                             insert(listasSelec, barco);
+                            fprintf(textow, "retangulo selecionado para nau capita \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \narea: %f \nX: %f \nY: %f \n", retangulo_get_i(getInfo(barco)), retangulo_get_corb(getInfo(barco)), retangulo_get_corp(getInfo(barco)), retangulo_get_area(getInfo(barco)), retangulo_get_x(getInfo(barco)), retangulo_get_y(getInfo(barco)));
                         }
                         break;
                     case 'c':
@@ -75,6 +76,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         {
                             setCapitao(barco, idc);
                             insert(listasSelec, barco);
+                            fprintf(textow, "circulo selecionado para nau capita \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nraio: %f \narea: %f \nX: %f \nY: %f \n", circulo_get_i(getInfo(barco)), circulo_get_corb(getInfo(barco)), circulo_get_corp(getInfo(barco)), circulo_get_r(getInfo(barco)), circulo_get_area(getInfo(barco)), circulo_get_x(getInfo(barco)), circulo_get_y(getInfo(barco)));
                         }
                         break;
                     case 't':
@@ -82,6 +84,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         {
                             setCapitao(barco, idc);
                             insert(listasSelec, barco);
+                            fprintf(textow, "texto selecionado para nau capita \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nX: %f \nY: %f \n", texto_get_i(getInfo(barco)), texto_get_corb(getInfo(barco)), texto_get_corp(getInfo(barco)), texto_get_x(getInfo(barco)), texto_get_y(getInfo(barco)));
                         }
                         break;
                     case 'l':
@@ -89,6 +92,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         {
                             setCapitao(barco, idc);
                             insert(listasSelec, barco);
+                            fprintf(textow, "linha selecionada para nau capita \nid: %d \ncor: %s \nX1: %f \nY1: %f \nX2: %f \nY2: %f \n", linha_get_i(getInfo(barco)), linha_get_cor(getInfo(barco)), linha_get_x1(getInfo(barco)), linha_get_y1(getInfo(barco)), linha_get_x2(getInfo(barco)), linha_get_y2(getInfo(barco)));
                         }
                         break;
                     default:
@@ -110,6 +114,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         if (retangulo_get_i(getInfo(barco)) == id)
                         {
                             insert(listasSelec, barco);
+                            fprintf(textow, "retangulo selecionado \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \narea: %f \nX: %f \nY: %f \n", retangulo_get_i(getInfo(barco)), retangulo_get_corb(getInfo(barco)), retangulo_get_corp(getInfo(barco)), retangulo_get_area(getInfo(barco)), retangulo_get_x(getInfo(barco)), retangulo_get_y(getInfo(barco)));
                             break;
                         }
                         break;
@@ -117,6 +122,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         if (circulo_get_i(getInfo(barco)) == id)
                         {
                             insert(listasSelec, barco);
+                            fprintf(textow, "circulo selecionado \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nraio: %f \narea: %f \nX: %f \nY: %f \n", circulo_get_i(getInfo(barco)), circulo_get_corb(getInfo(barco)), circulo_get_corp(getInfo(barco)), circulo_get_r(getInfo(barco)), circulo_get_area(getInfo(barco)), circulo_get_x(getInfo(barco)), circulo_get_y(getInfo(barco)));
                             break;
                         }
                         break;
@@ -124,6 +130,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         if (texto_get_i(getInfo(barco)) == id)
                         {
                             insert(listasSelec, barco);
+                            fprintf(textow, "texto selecionado \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nX: %f \nY: %f \n", texto_get_i(getInfo(barco)), texto_get_corb(getInfo(barco)), texto_get_corp(getInfo(barco)), texto_get_x(getInfo(barco)), texto_get_y(getInfo(barco)));
                             break;
                         }
                         break;
@@ -131,6 +138,7 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
                         if (linha_get_i(getInfo(barco)) == id)
                         {
                             insert(listasSelec, barco);
+                            fprintf(textow, "linha selecionada \nid: %d \ncor: %s \nX1: %f \nY1: %f \nX2: %f \nY2: %f \n", linha_get_i(getInfo(barco)), linha_get_cor(getInfo(barco)), linha_get_x1(getInfo(barco)), linha_get_y1(getInfo(barco)), linha_get_x2(getInfo(barco)), linha_get_y2(getInfo(barco)));
                             break;
                         }
                         break;
@@ -144,5 +152,6 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
         }
     }
     free(fullPath);
+    fclose(textow);
     fclose(qry);
 }
