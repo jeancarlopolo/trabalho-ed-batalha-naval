@@ -121,7 +121,7 @@ double bomba_rad(Lista *l, double x, double y, double r, double na, FILE *svg, F
         if (desativado)
         {
             pontos += barco_get_point_desat(barco);
-            fprintf(textow, "Pontos recebidos: %lf \nPontos totais: %lf\n\n", barco_get_point_desat(barco));
+            fprintf(textow, "Pontos recebidos: %lf \nPontos totais: %lf\n\n", barco_get_point_desat(barco), pontos);
             aux = elemento;
             elemento = getNext(l, elemento);
             remover(l, aux);
