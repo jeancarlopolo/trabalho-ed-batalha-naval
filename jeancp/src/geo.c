@@ -6,7 +6,7 @@
 #include "barco.h"
 #include "mina.h"
 
-void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas)
+void geo_read(char *path, char *fileName, Lista *lista, Lista *listaminas)
 {
     char type[200];
     double x, y, w, h, r;

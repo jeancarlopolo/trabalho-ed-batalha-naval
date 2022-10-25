@@ -3,7 +3,7 @@
 
 #include "lista.h"
 
-/** readGeo recebe o caminho do arquivo geo e o nome do arquivo geo e uma lista e adiciona os elementos do arquivo geo na lista */
-void readGeo(char *path, char *fileName, Lista *lista, Lista *listaminas);
+/** geo_read recebe o caminho do arquivo geo e o nome do arquivo geo e uma lista e adiciona os elementos do arquivo geo na lista */
+void geo_read(char *path, char *fileName, Lista *lista, Lista *listaminas);
 
 #endif

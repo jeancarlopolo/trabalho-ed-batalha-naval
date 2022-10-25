@@ -7,68 +7,53 @@
 
 /**
 CIRCULO é um polígono que possui um ponto de origem (âncora definida por x e y), raio, cor de borda e
-cor de preenchimento. 
+cor de preenchimento.
 */
 typedef void *circulo;
 
-circulo create_circulo(int id, double x, double y, double r, char* corb, char* corp);
+/** create_circulo cria um círculo com os dados passados como parâmetro*/
+circulo create_circulo(int id, double x, double y, double r, char *corb, char *corp);
 
-//CREATE_CIRCULO retorna um CIRCULO;
-
+/** circulo_set_i define o id do círculo*/
 void circulo_set_i(circulo cir, int id);
 
-//CIRCULO_SET_I recebe um CIRCULO e um inteiro e seta o ID do CIRCULO
-
+/** circulo_set_x define a coordenada x do círculo*/
 void circulo_set_x(circulo cir, double x);
 
-//CIRCULO_SET_X recebe um CIRCULO e um double e seta o x da ancora (centro) do CIRCULO
-
+/** circulo_set_y define a coordenada y do círculo*/
 void circulo_set_y(circulo cir, double y);
 
-//CIRCULO_SET_Y recebe um CIRCULO e um double e seta o y da ancora (centro) do CIRCULO
-
+/** circulo_set_r define o raio do círculo*/
 void circulo_set_r(circulo cir, double r);
 
-//CIRCULO_SET_R recebe um CIRCULO e um double e seta o raio do CIRCULO
+/** circulo_set_corb define a cor de borda do círculo*/
+void circulo_set_corb(circulo cir, char *corb);
 
-void circulo_set_corb(circulo cir, char* corb);
+/** circulo_set_corp define a cor de preenchimento do círculo*/
+void circulo_set_corp(circulo cir, char *corp);
 
-//CIRCULO_SET_CORB recebe um CIRCULO e uma char* e seta a cor de borda do CIRCULO
-
-void circulo_set_corp(circulo cir, char* corp);
-
-//CIRCULO_SET_CORP recebe um CIRCULO e uma char* e seta a cor de preenchimento do CIRCULO
-
+/** circulo_get_i retorna o id do círculo*/
 int circulo_get_i(circulo cir);
 
-//CIRCULO_GET_I recebe um CIRCULO e retorna o ID do CIRCULO
-
+/** circulo_get_x retorna a coordenada x do círculo*/
 double circulo_get_x(circulo cir);
 
-//CIRCULO_GET_X recebe um CIRCULO e retorna o x da ancora (centro) do CIRCULO
-
+/** circulo_get_y retorna a coordenada y do círculo*/
 double circulo_get_y(circulo cir);
 
-//CIRCULO_GET_Y recebe um CIRCULO e retorna o y da ancora (centro) do CIRCULO
-
+/** circulo_get_r retorna o raio do círculo*/
 double circulo_get_r(circulo cir);
 
-//CIRCULO_GET_R recebe um CIRCULO e retorna o raio do CIRCULO
+/** circulo_get_corb retorna a cor de borda do círculo*/
+char *circulo_get_corb(circulo cir);
 
-char* circulo_get_corb(circulo cir);
+/** circulo_get_corp retorna a cor de preenchimento do círculo*/
+char *circulo_get_corp(circulo cir);
 
-//CIRCULO_GET_CORB recebe um CIRCULO e retorna a cor de borda do CIRCULO
-
-char* circulo_get_corp(circulo cir);
-
-//CIRCULO_GET_CORP recebe um CIRCULO e retorna a cor de preenchimento do CIRCULO
-
+/** circulo_get_area retorna a area do círculo*/
 double circulo_get_area(circulo cir);
 
-//CIRCULO_GET_AREA recebe um CIRCULO e retorna a área do CIRCULO
-
+/** circulo_free libera a memória alocada para o círculo*/
 void circulo_free(circulo cir);
-
-//CIRCULO_FREE recebe um CIRCULO e libera a memória alocada para o mesmou
 
 #endif

@@ -33,18 +33,18 @@ Lista createLista(int capacidade)
 
 int length(Lista L)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	int i = 0;
-	if (ponteironode != NIL)
+	if (pointernode != NIL)
 	{
-		if (ponteironode->info != NIL)
+		if (pointernode->info != NIL)
 		{
 			i++;
 		}
-		while (ponteironode->prox != NIL)
+		while (pointernode->prox != NIL)
 		{
-			ponteironode = ponteironode->prox;
+			pointernode = pointernode->prox;
 			i++;
 		}
 	}
@@ -53,8 +53,8 @@ int length(Lista L)
 
 int maxLength(Lista L)
 {
-	struct lista *ponteiro = L;
-	return ponteiro->capacidade;
+	struct lista *pointer = L;
+	return pointer->capacidade;
 }
 
 bool isEmpty(Lista L)
@@ -71,8 +71,8 @@ bool isEmpty(Lista L)
 
 bool isFull(Lista L)
 {
-	struct lista *ponteiro = L;
-	if (ponteiro->capacidade != CAPAC_ILIMITADA && length(ponteiro) >= maxLength(ponteiro))
+	struct lista *pointer = L;
+	if (pointer->capacidade != CAPAC_ILIMITADA && length(pointer) >= maxLength(pointer))
 	{
 		return true;
 	}
@@ -84,30 +84,30 @@ bool isFull(Lista L)
 
 Posic insert(Lista L, Item info)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	if (isFull(L))
 	{
 		return NIL;
 	}
 	else
 	{
-		while (ponteironode->prox != NIL)
+		while (pointernode->prox != NIL)
 		{
-			ponteironode = ponteironode->prox;
+			pointernode = pointernode->prox;
 		}
 		if (!isEmpty(L))
 		{
 			struct listanode *elemento = malloc(sizeof(struct listanode));
-			ponteironode->prox = elemento;
+			pointernode->prox = elemento;
 			elemento->prox = NIL;
 			elemento->info = info;
 			return elemento;
 		}
 		else
 		{
-			ponteironode->info = info;
-			return ponteironode;
+			pointernode->info = info;
+			return pointernode;
 		}
 	}
 }
@@ -130,31 +130,31 @@ Item pop(Lista L)
 
 void remover(Lista L, Posic p)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	if (!isEmpty(L))
 	{
 		if (p == getFirst(L))
 		{
-			ponteiro->l = ponteironode->prox;
-			if (ponteironode->info != NIL)
+			pointer->l = pointernode->prox;
+			if (pointernode->info != NIL)
 			{
-				barco_kill(ponteironode->info);
+				barco_kill(pointernode->info);
 			}
-			ponteironode->prox = NIL;
-			free(ponteironode);
+			pointernode->prox = NIL;
+			free(pointernode);
 		}
 		else
 		{
-			while (ponteironode->prox != p)
+			while (pointernode->prox != p)
 			{
-				ponteironode = ponteironode->prox;
+				pointernode = pointernode->prox;
 			}
-			if (ponteironode->prox->info != NIL)
+			if (pointernode->prox->info != NIL)
 			{
-				barco_kill(ponteironode->prox->info);
+				barco_kill(pointernode->prox->info);
 			}
-			ponteironode->prox = ponteironode->prox->prox;
+			pointernode->prox = pointernode->prox->prox;
 			free(p);
 		}
 	}
@@ -162,12 +162,12 @@ void remover(Lista L, Posic p)
 
 Item get(Lista L, Posic p)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	if (!isEmpty(L))
 	{
-		ponteironode = p;
-		return ponteironode->info;
+		pointernode = p;
+		return pointernode->info;
 	}
 	else
 	{
@@ -177,9 +177,9 @@ Item get(Lista L, Posic p)
 
 Posic insertBefore(Lista L, Posic p, Item info)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteiroantes = ponteiro->l;
-	struct listanode *ponteironode = p;
+	struct lista *pointer = L;
+	struct listanode *pointerantes = pointer->l;
+	struct listanode *pointernode = p;
 	if (isFull(L))
 	{
 		return NIL;
@@ -190,20 +190,20 @@ Posic insertBefore(Lista L, Posic p, Item info)
 		{
 			struct listanode *elemento = malloc(sizeof(struct listanode));
 			elemento->info = info;
-			elemento->prox = ponteironode;
-			ponteiro->l = elemento;
+			elemento->prox = pointernode;
+			pointer->l = elemento;
 			return elemento;
 		}
 		else
 		{
-			while (ponteiroantes->prox != p)
+			while (pointerantes->prox != p)
 			{
-				ponteiroantes = ponteiroantes->prox;
+				pointerantes = pointerantes->prox;
 			}
 			struct listanode *elemento = malloc(sizeof(struct listanode));
 			elemento->info = info;
-			elemento->prox = ponteironode;
-			ponteiroantes->prox = elemento;
+			elemento->prox = pointernode;
+			pointerantes->prox = elemento;
 			return elemento;
 		}
 	}
@@ -211,18 +211,18 @@ Posic insertBefore(Lista L, Posic p, Item info)
 
 Posic insertAfter(Lista L, Posic p, Item info)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	if (isFull(L))
 	{
 		return NIL;
 	}
 	else
 	{
-		ponteironode = p;
+		pointernode = p;
 		struct listanode *elemento = malloc(sizeof(struct listanode));
-		elemento->prox = ponteironode->prox;
-		ponteironode->prox = elemento;
+		elemento->prox = pointernode->prox;
+		pointernode->prox = elemento;
 		elemento->info = info;
 		return elemento;
 	}
@@ -230,18 +230,18 @@ Posic insertAfter(Lista L, Posic p, Item info)
 
 Posic getFirst(Lista L)
 {
-	struct lista *ponteiro = L;
-	return ponteiro->l;
+	struct lista *pointer = L;
+	return pointer->l;
 }
 
 Posic getNext(Lista L, Posic p)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	if (!isEmpty(L))
 	{
-		ponteironode = p;
-		return ponteironode->prox;
+		pointernode = p;
+		return pointernode->prox;
 	}
 	else
 	{
@@ -251,15 +251,15 @@ Posic getNext(Lista L, Posic p)
 
 Posic getLast(Lista L)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	if (!isEmpty(L))
 	{
-		while (ponteironode->prox != NIL)
+		while (pointernode->prox != NIL)
 		{
-			ponteironode = ponteironode->prox;
+			pointernode = pointernode->prox;
 		}
-		return ponteironode;
+		return pointernode;
 	}
 	else
 	{
@@ -269,15 +269,15 @@ Posic getLast(Lista L)
 
 Posic getPrevious(Lista L, Posic p)
 {
-	struct lista *ponteiro = L;
-	struct listanode *ponteironode = ponteiro->l;
+	struct lista *pointer = L;
+	struct listanode *pointernode = pointer->l;
 	if (!isEmpty(L))
 	{
-		while (ponteironode->prox != p)
+		while (pointernode->prox != p)
 		{
-			ponteironode = ponteironode->prox;
+			pointernode = pointernode->prox;
 		}
-		return ponteironode;
+		return pointernode;
 	}
 	else
 	{
@@ -293,5 +293,3 @@ void killLista(Lista L)
 	}
 	free(L);
 }
-
-

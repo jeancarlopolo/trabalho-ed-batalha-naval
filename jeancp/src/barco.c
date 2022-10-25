@@ -11,37 +11,37 @@ struct Boat
 
 int barco_get_capitaoid(Barco b)
 {
-    struct Boat *ponteiro = b;
-    return ponteiro->capitaoid;
+    struct Boat *pointer = b;
+    return pointer->capitaoid;
 }
 
 void barco_set_capitaoid(Barco b, int capitaoid)
 {
-    struct Boat *ponteiro = b;
-    ponteiro->capitaoid = capitaoid;
+    struct Boat *pointer = b;
+    pointer->capitaoid = capitaoid;
 }
 void barco_set_info(Barco b, void *info)
 {
-    struct Boat *ponteiro = b;
-    ponteiro->info = info;
+    struct Boat *pointer = b;
+    pointer->info = info;
 }
 
 void barco_set_tipo(Barco b, char tipo)
 {
-    struct Boat *ponteiro = b;
-    ponteiro->tipo = tipo;
+    struct Boat *pointer = b;
+    pointer->tipo = tipo;
 }
 
 void barco_set_protecao(Barco sh, double protecao)
 {
-    struct Boat *ponteiro = sh;
-    ponteiro->protecao = protecao;
+    struct Boat *pointer = sh;
+    pointer->protecao = protecao;
 }
 
 void barco_set_hp(Barco sh, int hp)
 {
-    struct Boat *ponteiro = sh;
-    ponteiro->hp = hp;
+    struct Boat *pointer = sh;
+    pointer->hp = hp;
 }
 
 double barco_get_x(Barco b)
@@ -128,33 +128,33 @@ Barco create_barco(char tipo, void *info)
 
 char barco_get_tipo(Barco b)
 {
-    struct Boat *ponteiro = b;
-    return ponteiro->tipo;
+    struct Boat *pointer = b;
+    return pointer->tipo;
 }
 
 void *barco_get_info(Barco b)
 {
-    struct Boat *ponteiro = (struct Boat *)b;
-    return ponteiro->info;
+    struct Boat *pointer = (struct Boat *)b;
+    return pointer->info;
 }
 
 double barco_get_protecao(Barco b)
 {
-    struct Boat *ponteiro = b;
-    return ponteiro->protecao;
+    struct Boat *pointer = b;
+    return pointer->protecao;
 }
 
 int barco_get_hp(Barco b)
 {
-    struct Boat *ponteiro = b;
-    return ponteiro->hp;
+    struct Boat *pointer = b;
+    return pointer->hp;
 }
 
 double barco_get_point_desat(Barco b)
 {
-    struct Boat *ponteiro = b;
+    struct Boat *pointer = b;
     double pt;
-    char tipo = barco_get_tipo(ponteiro);
+    char tipo = barco_get_tipo(pointer);
     switch (tipo)
     {
     case 'r':
@@ -175,17 +175,17 @@ double barco_get_point_desat(Barco b)
 
 double barco_get_point_destr(Barco b)
 {
-    struct Boat *ponteiro = b;
+    struct Boat *pointer = b;
     double pt, a;
-    char tipo = barco_get_tipo(ponteiro);
+    char tipo = barco_get_tipo(pointer);
     switch (tipo)
     {
     case 'r':
-        a = retangulo_get_area(barco_get_info(ponteiro));
+        a = retangulo_get_area(barco_get_info(pointer));
         pt = 90 / (a / 5);
         break;
     case 'c':
-        a = circulo_get_area(barco_get_info(ponteiro));
+        a = circulo_get_area(barco_get_info(pointer));
         pt = 75 / (a / 5);
         break;
     case 't':

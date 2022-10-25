@@ -11,74 +11,55 @@ cor de borda e cor de preenchimento.
 */
 typedef void *retangulo;
 
-retangulo create_retangulo(int id, double x, double y, double w, double h, char* corb, char* corp);
+/** create_retangulo cria um retangulo com os dados passados como parâmetro*/
+retangulo create_retangulo(int id, double x, double y, double w, double h, char *corb, char *corp);
 
-//CREATE_RETANGULO retorna um RETANGULO;
-
+/** retangulo_set_i define o id do retângulo*/
 void retangulo_set_i(retangulo ret, int id);
 
-//RETANGULO_SET_I recebe um RETANGULO e um inteiro e seta o ID do RETANGULO
-
+/** retangulo_set_x define a coordenada x do retângulo*/
 void retangulo_set_x(retangulo ret, double x);
 
-//RETANGULO_SET_X recebe um RETANGULO e um double e seta o x da ancora (centro) do RETANGULO
-
+/** retangulo_set_y define a coordenada y do retângulo*/
 void retangulo_set_y(retangulo ret, double y);
 
-//RETANGULO_SET_Y recebe um RETANGULO e um double e seta o y da ancora (centro) do RETANGULO
-
+/** retangulo_set_w define a largura do retângulo*/
 void retangulo_set_w(retangulo ret, double w);
 
-//RETANGULO_SET_W recebe um RETANGULO e um double e seta a largura do RETANGULO
-
+/** retangulo_set_h define a altura do retângulo*/
 void retangulo_set_h(retangulo ret, double h);
 
-//RETANGULO_SET_H recebe um RETANGULO e um double e seta a altura do RETANGULO
+/** retangulo_set_corb define a cor de borda do retângulo*/
+void retangulo_set_corb(retangulo ret, char *corb);
 
-void retangulo_set_corb(retangulo ret, char* corb);
+/** retangulo_set_corp define a cor de preenchimento do retângulo*/
+void retangulo_set_corp(retangulo ret, char *corp);
 
-//RETANGULO_SET_CORB recebe um RETANGULO e uma char* e seta a cor de borda do RETANGULO
-
-void retangulo_set_corp(retangulo ret, char* corp);
-
-//RETANGULO_SET_CORP recebe um RETANGULO e uma char* e seta a cor de preenchimento do RETANGULO
-
+/** retangulo_get_i retorna o id do retângulo*/
 int retangulo_get_i(retangulo ret);
 
-//RETANGULO_GET_I recebe um RETANGULO e retorna o ID do RETANGULO
-
+/** retangulo_get_x retorna a coordenada x do retângulo*/
 double retangulo_get_x(retangulo ret);
 
-//RETANGULO_GET_X recebe um RETANGULO e retorna o x da ancora (centro) do RETANGULO
-
+/** retangulo_get_y retorna a coordenada y do retângulo*/
 double retangulo_get_y(retangulo ret);
 
-//RETANGULO_GET_Y recebe um RETANGULO e retorna o y da ancora (centro) do RETANGULO
-
+/** retangulo_get_w retorna a largura do retângulo*/
 double retangulo_get_w(retangulo ret);
 
-//RETANGULO_GET_W recebe um RETANGULO e retorna a largura do RETANGULO
-
+/** retangulo_get_h retorna a altura do retângulo*/
 double retangulo_get_h(retangulo ret);
 
-//RETANGULO_GET_H recebe um RETANGULO e retorna a altura do RETANGULO
+/** retangulo_get_corb retorna a cor de borda do retângulo*/
+char *retangulo_get_corb(retangulo ret);
 
-char* retangulo_get_corb(retangulo ret);
+/** retangulo_get_corp retorna a cor de preenchimento do retângulo*/
+char *retangulo_get_corp(retangulo ret);
 
-//RETANGULO_GET_CORB recebe um RETANGULO e retorna a cor de borda do RETANGULO
-
-char* retangulo_get_corp(retangulo ret);
-
-//RETANGULO_GET_CORP recebe um RETANGULO e retorna a cor de preenchimento do RETANGULO
-
+/** retangulo_get_area retorna a area do retângulo*/
 double retangulo_get_area(retangulo ret);
 
-//RETANGULO_GET_AREA recebe um RETANGULO e retorna a área do RETANGULO
-
+/** retangulo_free libera a memória alocada para o retângulo*/
 void retangulo_free(retangulo ret);
 
-//RETANGULO_FREE recebe um RETANGULO e libera a memória alocada para o mesmo
-
 #endif
-
-

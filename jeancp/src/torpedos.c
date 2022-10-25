@@ -27,11 +27,11 @@ double torpedo(Lista lista, double x, double y, FILE *svg, FILE *textow)
                 if (hp - 1 == 0)
                 {
                     destruido = true;
-                    fprintf(textow, "\nTorpedo destruiu: círculo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nraio: %lf \narea: %lf \nX: %lf \nY: %lf \n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)));
+                    fprintf(textow, "\nTorpedo destruiu: círculo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nraio: %lf \nárea: %lf \nX: %lf \nY: %lf \n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)));
                 }
                 else
                 {
-                    fprintf(textow, "\nTorpedo atingiu: círculo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nraio: %lf \narea: %lf \nX: %lf \nY: %lf \nHP: %d\n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)), hp);
+                    fprintf(textow, "\nTorpedo atingiu: círculo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \nraio: %lf \nárea: %lf \nX: %lf \nY: %lf \nHP: %d\n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)), hp);
                 }
             }
             break;
@@ -48,11 +48,11 @@ double torpedo(Lista lista, double x, double y, FILE *svg, FILE *textow)
                 if (hp - 1 == 0)
                 {
                     destruido = true;
-                    fprintf(textow, "\nTorpedo destruiu: retângulo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \naltura: %lf \nlargura: %lf \narea: %lf \nX: %lf \nY: %lf \n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)));
+                    fprintf(textow, "\nTorpedo destruiu: retângulo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \naltura: %lf \nlargura: %lf \nárea: %lf \nX: %lf \nY: %lf \n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)));
                 }
                 else
                 {
-                    fprintf(textow, "\nTorpedo atingiu: retângulo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \naltura: %lf \nlargura: %lf \narea: %lf \nX: %lf \nY: %lf \nHP: %d\n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)), hp);
+                    fprintf(textow, "\nTorpedo atingiu: retângulo \nid: %d \ncor da borda: %s \ncor do preenchimento: %s \naltura: %lf \nlargura: %lf \nárea: %lf \nX: %lf \nY: %lf \nHP: %d\n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)), hp);
                 }
             }
             break;
@@ -106,7 +106,6 @@ double torpedo(Lista lista, double x, double y, FILE *svg, FILE *textow)
             aux = elemento;
             elemento = getNext(lista, elemento);
             remover(lista, aux);
-            // reportar destruição
         }
         else
         {
@@ -116,11 +115,11 @@ double torpedo(Lista lista, double x, double y, FILE *svg, FILE *textow)
     if (i > 0)
     {
         sprintf(asterisco, "*%d", i);
-        stringSvg(svg, asterisco, x, y, "red", "red", "middle");
+        svg_string(svg, asterisco, x, y, "red", "red", "middle");
     }
     else
     {
-        stringSvg(svg, "*", x, y, "gray", "gray", "middle");
+        svg_string(svg, "*", x, y, "gray", "gray", "middle");
         fprintf(textow, "\nÁGUA!\n");
     }
     return pontos;
@@ -149,8 +148,8 @@ void torpedo_replicante(Lista lista, double x, double y, double x1, double y1, i
                 corp = circulo_get_corp(barco_get_info(barco));
                 Barco *circle = create_barco('c', create_circulo(id + contador, x2 + x1, y2 + y1, raio, corp, corb));
                 insert(lista, circle);
-                fprintf(textow, "\nTorpedo replicante: circulo \nid: %d \nraio: %lf \ncor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", circulo_get_i(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)));
-                fprintf(textow, "\nCópia: circulo \nid: %d \nraio: %lf \ncor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", circulo_get_i(barco_get_info(circle)), circulo_get_r(barco_get_info(circle)), circulo_get_corb(barco_get_info(circle)), circulo_get_corp(barco_get_info(circle)), circulo_get_x(barco_get_info(circle)), circulo_get_y(barco_get_info(circle)));
+                fprintf(textow, "\nTorpedo replicante: círculo \nid: %d \nraio: %lf \ncor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", circulo_get_i(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)));
+                fprintf(textow, "\nCópia: círculo \nid: %d \nraio: %lf \ncor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", circulo_get_i(barco_get_info(circle)), circulo_get_r(barco_get_info(circle)), circulo_get_corb(barco_get_info(circle)), circulo_get_corp(barco_get_info(circle)), circulo_get_x(barco_get_info(circle)), circulo_get_y(barco_get_info(circle)));
             }
             break;
         case 'r':
@@ -165,7 +164,7 @@ void torpedo_replicante(Lista lista, double x, double y, double x1, double y1, i
                 corp = retangulo_get_corp(barco_get_info(barco));
                 Barco *rectangle = create_barco('r', create_retangulo(id + contador, x2 + x1, y2 + y1, w, h, corp, corb));
                 insert(lista, rectangle);
-                fprintf(textow, "\nTorpedo replicante: retangulo \nid: %d \naltura: %lf \nlargura: %lf \ncor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", retangulo_get_i(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)));
+                fprintf(textow, "\nTorpedo replicante: retângulo \nid: %d \naltura: %lf \nlargura: %lf \ncor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", retangulo_get_i(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)));
                 fprintf(textow, "\nCópia: retangulo \nid: %d \naltura: %lf \nlargura: %lf \ncor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", retangulo_get_i(barco_get_info(rectangle)), retangulo_get_h(barco_get_info(rectangle)), retangulo_get_w(barco_get_info(rectangle)), retangulo_get_corb(barco_get_info(rectangle)), retangulo_get_corp(barco_get_info(rectangle)), retangulo_get_x(barco_get_info(rectangle)), retangulo_get_y(barco_get_info(rectangle)));
             }
             break;
@@ -181,8 +180,8 @@ void torpedo_replicante(Lista lista, double x, double y, double x1, double y1, i
                 ancora = texto_get_ancora(barco_get_info(barco));
                 Barco *text = create_barco('t', create_texto(id + contador, x2 + x1, y2 + y1, corp, corb, texto, ancora));
                 insert(lista, text);
-                fprintf(textow, "\nTorpedo replicante: texto \nid: %d \nconteudo: %scor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", texto_get_i(barco_get_info(barco)), texto_get_conteudo(barco_get_info(barco)), texto_get_corb(barco_get_info(barco)), texto_get_corp(barco_get_info(barco)), texto_get_x(barco_get_info(barco)), texto_get_y(barco_get_info(barco)));
-                fprintf(textow, "\nCópia: texto \nid: %d \nconteudo: %scor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", texto_get_i(barco_get_info(text)), texto_get_conteudo(barco_get_info(text)), texto_get_corb(barco_get_info(text)), texto_get_corp(barco_get_info(text)), texto_get_x(barco_get_info(text)), texto_get_y(barco_get_info(text)));
+                fprintf(textow, "\nTorpedo replicante: texto \nid: %d \nconteúdo: %scor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", texto_get_i(barco_get_info(barco)), texto_get_conteudo(barco_get_info(barco)), texto_get_corb(barco_get_info(barco)), texto_get_corp(barco_get_info(barco)), texto_get_x(barco_get_info(barco)), texto_get_y(barco_get_info(barco)));
+                fprintf(textow, "\nCópia: texto \nid: %d \nconteúdo: %scor da borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \n", texto_get_i(barco_get_info(text)), texto_get_conteudo(barco_get_info(text)), texto_get_corb(barco_get_info(text)), texto_get_corp(barco_get_info(text)), texto_get_x(barco_get_info(text)), texto_get_y(barco_get_info(text)));
             }
             break;
         case 'l':
@@ -205,5 +204,5 @@ void torpedo_replicante(Lista lista, double x, double y, double x1, double y1, i
         }
         elemento = getNext(lista, elemento);
     }
-    stringSvg(svg, "@", x, y, "red", "red", "middle");
+    svg_string(svg, "@", x, y, "red", "red", "middle");
 }

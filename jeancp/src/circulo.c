@@ -24,90 +24,90 @@ circulo create_circulo(int id, double x, double y, double r, char *corb, char *c
 
 void circulo_set_i(circulo cir, int i)
 {
-    struct Circle *ponteiro = cir;
-    ponteiro->id = i;
+    struct Circle *pointer = cir;
+    pointer->id = i;
 }
 
 void circulo_set_x(circulo cir, double x)
 {
-    struct Circle *ponteiro = cir;
-    ponteiro->x = x;
+    struct Circle *pointer = cir;
+    pointer->x = x;
 }
 
 void circulo_set_y(circulo cir, double y)
 {
-    struct Circle *ponteiro = cir;
-    ponteiro->y = y;
+    struct Circle *pointer = cir;
+    pointer->y = y;
 }
 
 void circulo_set_r(circulo cir, double r)
 {
-    struct Circle *ponteiro = cir;
-    ponteiro->r = r;
+    struct Circle *pointer = cir;
+    pointer->r = r;
 }
 
 void circulo_set_corb(circulo cir, char *corb)
 {
-    struct Circle *ponteiro = cir;
+    struct Circle *pointer = cir;
     char *corborda = malloc(sizeof(char) * strlen(corb));
     strcpy(corborda, corb);
-    ponteiro->corb = corborda;
+    pointer->corb = corborda;
 }
 
 void circulo_set_corp(circulo cir, char *corp)
 {
-    struct Circle *ponteiro = cir;
+    struct Circle *pointer = cir;
     char *corpreenchimento = malloc(sizeof(char) * strlen(corp));
     strcpy(corpreenchimento, corp);
-    ponteiro->cor = corpreenchimento;
+    pointer->cor = corpreenchimento;
 }
 
 int circulo_get_i(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    return ponteiro->id;
+    struct Circle *pointer = cir;
+    return pointer->id;
 }
 
 double circulo_get_x(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    return ponteiro->x;
+    struct Circle *pointer = cir;
+    return pointer->x;
 }
 
 double circulo_get_y(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    return ponteiro->y;
+    struct Circle *pointer = cir;
+    return pointer->y;
 }
 
 double circulo_get_r(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    return ponteiro->r;
+    struct Circle *pointer = cir;
+    return pointer->r;
 }
 
 char *circulo_get_corb(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    return ponteiro->corb;
+    struct Circle *pointer = cir;
+    return pointer->corb;
 }
 
 char *circulo_get_corp(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    return ponteiro->cor;
+    struct Circle *pointer = cir;
+    return pointer->cor;
 }
 
 double circulo_get_area(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    return 3.14 * ponteiro->r * ponteiro->r;
+    struct Circle *pointer = cir;
+    return 3.14 * pointer->r * pointer->r;
 }
 
 void circulo_free(circulo cir)
 {
-    struct Circle *ponteiro = cir;
-    free(ponteiro->corb);
-    free(ponteiro->cor);
+    struct Circle *pointer = cir;
+    free(pointer->corb);
+    free(pointer->cor);
     free(cir);
 }

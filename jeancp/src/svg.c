@@ -1,6 +1,6 @@
 #include "svg.h"
 
-FILE *createSvg(char *fullPathSvg)
+FILE *svg_create(char *fullPathSvg)
 {
     FILE *svg = fopen(fullPathSvg, "w");
     if (!svg)
@@ -13,7 +13,7 @@ FILE *createSvg(char *fullPathSvg)
     return svg;
 }
 
-void endSvg(FILE *svg)
+void svg_end(FILE *svg)
 {
     if (!svg)
     {
@@ -24,7 +24,7 @@ void endSvg(FILE *svg)
     fclose(svg);
 }
 
-void rectSvg(FILE *svg, Barco retangulo)
+void svg_rect(FILE *svg, Barco retangulo)
 {
     double x, y, w, h;
     char *corb, *cor;
@@ -37,7 +37,7 @@ void rectSvg(FILE *svg, Barco retangulo)
     fprintf(svg, "\n\t<rect x=\"%lf\" y=\"%lf\" width=\"%lf\" height=\"%lf\" fill=\"%s\" stroke=\"%s\"/>", x, y, w, h, cor, corb);
 }
 
-void circleSvg(FILE *svg, Barco circulo)
+void svg_circle(FILE *svg, Barco circulo)
 {
     double x, y, r;
     char *corb, *cor;
@@ -49,7 +49,7 @@ void circleSvg(FILE *svg, Barco circulo)
     fprintf(svg, "\n\t<circle cx=\"%lf\" cy=\"%lf\" r=\"%lf\" fill=\"%s\" stroke=\"%s\"/>", x, y, r, cor, corb);
 }
 
-void lineSvg(FILE *svg, Barco linha)
+void svg_line(FILE *svg, Barco linha)
 {
     double x1, y1, x2, y2;
     char *cor;
@@ -61,7 +61,7 @@ void lineSvg(FILE *svg, Barco linha)
     fprintf(svg, "\n\t<line x1=\"%lf\" y1=\"%lf\" x2=\"%lf\" y2=\"%lf\" stroke=\"%s\"/>", x1, y1, x2, y2, cor);
 }
 
-void textSvg(FILE *svg, Barco texto)
+void svg_text(FILE *svg, Barco texto)
 {
     double x, y;
     char *corb, *corp, *ancora, *conteudo;
@@ -89,21 +89,21 @@ void textSvg(FILE *svg, Barco texto)
     fprintf(svg, "\n\t<text font-size=\"5\" x=\"%lf\" y=\"%lf\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, conteudo);
 }
 
-FILE *writeSvg(char *pathOut, char *fileName)
+FILE *svg_write(char *pathOut, char *fileName)
 {
     char s[] = ".svg";
     char fullPathSvg[200] = "";
     joinAll(pathOut, fileName, s, fullPathSvg, 200);
-    FILE *svg = createSvg(fullPathSvg);
+    FILE *svg = svg_create(fullPathSvg);
     return svg;
 }
 
-void stringSvg(FILE *svg, char *string, double x, double y, char *corp, char *corb, char *ancora)
+void svg_string(FILE *svg, char *string, double x, double y, char *corp, char *corb, char *ancora)
 {
     fprintf(svg, "\n\t<text font-size=\"5\" x=\"%lf\" y=\"%lf\" fill=\"%s\" stroke=\"%s\" text-anchor=\"%s\">%s</text>", x, y, corp, corb, ancora, string);
 }
 
-void barcosSvg(FILE *svg, Lista barcos)
+void svg_barcos(FILE *svg, Lista barcos)
 {
     Posic aux = getFirst(barcos);
     while (aux != NULL)
@@ -111,19 +111,19 @@ void barcosSvg(FILE *svg, Lista barcos)
         switch (barco_get_tipo(get(barcos, aux)))
         {
         case 'c':
-            circleSvg(svg, get(barcos, aux));
+            svg_circle(svg, get(barcos, aux));
             break;
         case 'r':
-            rectSvg(svg, get(barcos, aux));
+            svg_rect(svg, get(barcos, aux));
             break;
         case 'l':
-            lineSvg(svg, get(barcos, aux));
+            svg_line(svg, get(barcos, aux));
             break;
         case 't':
-            textSvg(svg, get(barcos, aux));
+            svg_text(svg, get(barcos, aux));
             break;
         case 'm':
-            textSvg(svg, get(barcos, aux));
+            svg_text(svg, get(barcos, aux));
             break;
         }
         aux = getNext(barcos, aux);

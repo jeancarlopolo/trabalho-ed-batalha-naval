@@ -7,7 +7,7 @@
 #include "svg.h"
 
 /**
-O torpedo é um tipo de ataque que pode ser disparado contra um navio. Ele reduz a vida do navio em 
+O torpedo é um tipo de ataque que pode ser disparado contra um navio. Ele reduz a vida do navio em
 1 ponto e marca o local onde o torpedo foi disparado com um asterisco vermelho caso tenha atingido
 um navio ou um asterisco cinza caso tenha atingido o mar.
 

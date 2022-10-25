@@ -1,7 +1,7 @@
 #include "qry.h"
 #include "path.h"
 
-void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listaminas)
+void qry_read(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listaminas)
 {
     Lista listasSelec = createLista(-1);
     char type[100];
@@ -215,8 +215,8 @@ void read_qry(char *path, char *fileName, Lista *lista, FILE *svg, Lista *listam
         fprintf(textow, "\n");
     }
     fprintf(textow, "Pontuação total: %lf\n", pontos);
-    fprintf(textow, "Proporção em pontos obtidos e a pontuação máxima: %lf/%lf = %lf\n", pontos, pontosmax, pontos/pontosmax);
-    fprintf(textow, "Proporção entre pontos obtidos e o número de agressões contidas no arquivo .qry: %lf/%d = %lf\n", pontos, cont, pontos/cont);
+    fprintf(textow, "Proporção em pontos obtidos e a pontuação máxima: %lf/%lf = %lf\n", pontos, pontosmax, pontos / pontosmax);
+    fprintf(textow, "Proporção entre pontos obtidos e o número de agressões contidas no arquivo .qry: %lf/%d = %lf\n", pontos, cont, pontos / cont);
     free(fullPath);
     fclose(textow);
     fclose(qry);

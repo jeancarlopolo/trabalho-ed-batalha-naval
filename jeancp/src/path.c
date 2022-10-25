@@ -5,39 +5,39 @@
 
 void getFileName(char *fullPath, char *fileName, int lenFileName)
 {
-    char *ponteirochar = strrchr(fullPath, '/');
-    if (*ponteirochar != '\0' && ponteirochar != NULL)
+    char *pointerchar = strrchr(fullPath, '/');
+    if (*pointerchar != '\0' && pointerchar != NULL)
     {
-        ponteirochar++;
-        strncpy(fileName, ponteirochar, lenFileName);
-        ponteirochar = '\0';
+        pointerchar++;
+        strncpy(fileName, pointerchar, lenFileName);
+        pointerchar = '\0';
     };
 }
 
 void getPath(char *fullPath, char *path, int lenPath)
 {
-    char *ponteirochar = strrchr(fullPath, '/');
-    if (*ponteirochar != '\0' && ponteirochar != NULL)
+    char *pointerchar = strrchr(fullPath, '/');
+    if (*pointerchar != '\0' && pointerchar != NULL)
     {
         strncpy(path, fullPath, lenPath);
-        ponteirochar = '\0';
+        pointerchar = '\0';
     };
 }
 
 void normalizePath(char *path, char *normPath, int lenNormPath)
 {
-    char *ponteirochar = strrchr(path, '/');
-    if (*ponteirochar != '\0' && ponteirochar != NULL)
+    char *pointerchar = strrchr(path, '/');
+    if (*pointerchar != '\0' && pointerchar != NULL)
     {
-        ponteirochar = '\0';
+        pointerchar = '\0';
     };
     strncpy(normPath, path, lenNormPath);
 }
 
 void splitPath(char *fullPath, char *path, int lenPath, char *nomeArq, int lenNomeArq, char *extArq, int lenExtArq)
 {
-    char *ponteirochar = strrchr(fullPath, '.');
-    extArq = strncpy(extArq, ponteirochar, lenExtArq);
+    char *pointerchar = strrchr(fullPath, '.');
+    extArq = strncpy(extArq, pointerchar, lenExtArq);
     if (extArq == NULL)
     {
         extArq = "";
@@ -61,15 +61,15 @@ void joinFilePath(char *path, char *fileName, char *fullPath, int lenFullPath)
 
 void joinAll(char *path, char *fileName, char *ext, char *fullPath, int lenFullPath)
 {
-    char *ponteirochar = strrchr(fileName, '.');
-    if (ponteirochar == NULL)
+    char *pointerchar = strrchr(fileName, '.');
+    if (pointerchar == NULL)
     {
         joinFilePath(path, fileName, fullPath, lenFullPath);
         strcat(fullPath, ext);
     }
     else
     {
-        *ponteirochar = '\0';
+        *pointerchar = '\0';
         joinFilePath(path, fileName, fullPath, lenFullPath);
         strcat(fullPath, ext);
     }

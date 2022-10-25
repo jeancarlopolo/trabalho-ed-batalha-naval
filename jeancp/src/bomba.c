@@ -35,13 +35,12 @@ double bomba_rad(Lista *l, double x, double y, double r, double na, FILE *svg, F
                 if (barco_get_protecao(barco) <= 0)
                 {
                     desativado = true;
-                    fprintf(textow, "\nBomba desativou: círculo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \nraio: %lf \narea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
+                    fprintf(textow, "\nBomba desativou: círculo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \nraio: %lf \nárea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
                 }
                 else
                 {
-                    fprintf(textow, "\nBomba atingiu: círculo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \nraio: %lf \narea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
+                    fprintf(textow, "\nBomba atingiu: círculo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \nraio: %lf \nárea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", circulo_get_i(barco_get_info(barco)), circulo_get_corb(barco_get_info(barco)), circulo_get_corp(barco_get_info(barco)), circulo_get_r(barco_get_info(barco)), circulo_get_area(barco_get_info(barco)), circulo_get_x(barco_get_info(barco)), circulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
                 }
-                // ponto vermelho na âncora do barco atingido
                 fprintf(svg, "<circle cx=\"%lf\" cy=\"%lf\" r=\"2\" fill=\"red\" stroke=\"red\" stroke-width=\"1\"/>\n", x1, y1);
             }
             break;
@@ -52,7 +51,6 @@ double bomba_rad(Lista *l, double x, double y, double r, double na, FILE *svg, F
             h = retangulo_get_h(barco_get_info(barco));
             if (x + r >= x1 && x - r <= x1 + w && y + r >= y1 && y - r <= y1 + h)
             {
-                //hahahahaha
                 if (sqrt(pow(x - x1, 2) + pow(y - y1, 2)) < r && sqrt(pow(x - x1 - w, 2) + pow(y - y1, 2)) < r && sqrt(pow(x - x1, 2) + pow(y - y1 - h, 2)) < r && sqrt(pow(x - x1 - w, 2) + pow(y - y1 - h, 2)) < r)
                 {
                     np = barco_get_protecao(barco);
@@ -61,13 +59,12 @@ double bomba_rad(Lista *l, double x, double y, double r, double na, FILE *svg, F
                     if (barco_get_protecao(barco) <= 0)
                     {
                         desativado = true;
-                        fprintf(textow, "\nBomba desativou: retângulo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \naltura: %lf \nlargura: %lf \narea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
+                        fprintf(textow, "\nBomba desativou: retângulo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \naltura: %lf \nlargura: %lf \nárea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
                     }
                     else
                     {
-                        fprintf(textow, "\nBomba atingiu: retângulo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \naltura: %lf \nlargura: %lf \narea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
+                        fprintf(textow, "\nBomba atingiu: retângulo \nid: %d \ncor da borda: %s \ncor de preenchimento: %s \naltura: %lf \nlargura: %lf \nárea: %lf \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", retangulo_get_i(barco_get_info(barco)), retangulo_get_corb(barco_get_info(barco)), retangulo_get_corp(barco_get_info(barco)), retangulo_get_h(barco_get_info(barco)), retangulo_get_w(barco_get_info(barco)), retangulo_get_area(barco_get_info(barco)), retangulo_get_x(barco_get_info(barco)), retangulo_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
                     }
-                    // ponto vermelho na âncora do barco atingido
                     fprintf(svg, "<circle cx=\"%lf\" cy=\"%lf\" r=\"2\" fill=\"red\" stroke=\"red\" stroke-width=\"1\"/>\n", x1, y1);
                 }
             }
@@ -88,7 +85,6 @@ double bomba_rad(Lista *l, double x, double y, double r, double na, FILE *svg, F
                 {
                     fprintf(textow, "\nBomba atingiu: texto \nid: %d \ncor de borda: %s \ncor de preenchimento: %s \nX: %lf \nY: %lf \nHP: %d \nProteção: %lf\n", texto_get_i(barco_get_info(barco)), texto_get_corb(barco_get_info(barco)), texto_get_corp(barco_get_info(barco)), texto_get_x(barco_get_info(barco)), texto_get_y(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
                 }
-                // ponto vermelho na âncora do barco atingido
                 fprintf(svg, "<circle cx=\"%lf\" cy=\"%lf\" r=\"2\" fill=\"red\" stroke=\"red\" stroke-width=\"1\"/>\n", x1, y1);
             }
             break;
@@ -111,7 +107,6 @@ double bomba_rad(Lista *l, double x, double y, double r, double na, FILE *svg, F
                 {
                     fprintf(textow, "\nBomba atingiu: linha \nid: %d \ncor: %s\nX1: %lf \nY1: %lf \nX2: %lf \nY2: %lf \nHP: %d \nProteção: %lf\n", linha_get_i(barco_get_info(barco)), linha_get_cor(barco_get_info(barco)), linha_get_x1(barco_get_info(barco)), linha_get_y1(barco_get_info(barco)), linha_get_x2(barco_get_info(barco)), linha_get_y2(barco_get_info(barco)), barco_get_hp(barco), barco_get_protecao(barco));
                 }
-                // ponto vermelho na âncora do barco atingido
                 fprintf(svg, "<circle cx=\"%lf\" cy=\"%lf\" r=\"2\" fill=\"red\" stroke=\"red\" stroke-width=\"1\"/>\n", x1, y1);
             }
             break;
@@ -125,14 +120,12 @@ double bomba_rad(Lista *l, double x, double y, double r, double na, FILE *svg, F
             aux = elemento;
             elemento = getNext(l, elemento);
             remover(l, aux);
-            // reportar destruição
         }
         else
         {
             elemento = getNext(l, elemento);
         }
     }
-    // círculo da bomba pontilhado
     fprintf(svg, "<circle cx=\"%lf\" cy=\"%lf\" r=\"%lf\" fill=\"none\" stroke=\"red\" stroke-dasharray=\"5,5\" stroke-width=\"1\"/>\n", x, y, r);
     return pontos;
 }
