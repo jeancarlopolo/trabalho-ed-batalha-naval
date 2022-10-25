@@ -7,6 +7,8 @@
 
 ## O que falta fazer 
 
+nada!
+
 - [x] Estruturas dos polígonos
   - [x] Retângulo
   - [x] Círculo
