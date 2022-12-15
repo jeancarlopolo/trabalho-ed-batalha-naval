@@ -134,6 +134,7 @@ bool passou_mina(Barco b, double xend, double yend, Lista *listaminas, Lista *li
                     }
                 }
             }
+            elemento = getNext(listaminas, elemento);
         }
         break;
 
@@ -200,6 +201,8 @@ bool passou_mina(Barco b, double xend, double yend, Lista *listaminas, Lista *li
                     }
                 }
             }
+            elemento = getNext(listaminas, elemento);
+
         }
         break;
 
@@ -264,6 +267,7 @@ bool passou_mina(Barco b, double xend, double yend, Lista *listaminas, Lista *li
                     }
                 }
             }
+            elemento = getNext(listaminas, elemento);
         }
         break;
 
@@ -330,6 +334,7 @@ bool passou_mina(Barco b, double xend, double yend, Lista *listaminas, Lista *li
                     }
                 }
             }
+            elemento = getNext(listaminas, elemento);
         }
         break;
 
