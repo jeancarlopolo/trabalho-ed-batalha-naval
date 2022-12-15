@@ -7,6 +7,8 @@ int main(int argc, char *argv[])
     char *arqGeo = (char *)malloc(sizeof(char) * 200);
     char *dir = (char *)malloc(sizeof(char) * 200);
     char *path = (char *)malloc(sizeof(char) * 200);
+    char *resultado = (char *)malloc(sizeof(char) * 200);
+    char *aux = (char *)malloc(sizeof(char) * 200);
     for (int i = 1; i < argc; i++)
     {
         if (strcmp(argv[i], "-e") == 0)
@@ -29,7 +31,11 @@ int main(int argc, char *argv[])
     Lista listabarcos = createLista(-1);
     Lista listaminas = createLista(-1);
     geo_read(path, arqGeo, listabarcos, listaminas);
-    FILE *svg = svg_write(dir, arqGeo);
+    getFileName(arqGeo, aux, strlen(arqGeo));
+    strcat(resultado, aux);
+    getFileName(arqQry, aux, strlen(arqQry));
+    strcat(resultado, aux);
+    FILE *svg = svg_write(dir, resultado);
     if (arqQry != NULL)
     {
         qry_read(path, arqQry, listabarcos, svg, listaminas);
@@ -42,5 +48,7 @@ int main(int argc, char *argv[])
     free(arqGeo);
     free(dir);
     free(path);
+    free(resultado);
+    free(aux);
     return 0;
 }
