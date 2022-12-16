@@ -31,9 +31,12 @@ int main(int argc, char *argv[])
     Lista listabarcos = createLista(-1);
     Lista listaminas = createLista(-1);
     geo_read(path, arqGeo, listabarcos, listaminas);
-    getFileName(arqGeo, aux, strlen(arqGeo));
-    strcat(resultado, aux);
-    getFileName(arqQry, aux, strlen(arqQry));
+    strcpy(resultado, arqGeo);
+    strcpy(aux, arqQry);
+    char *pointerchar = strrchr(resultado, '.');
+    *pointerchar = '\0';
+    pointerchar = strrchr(aux, '.');
+    *pointerchar = '\0';
     strcat(resultado, aux);
     FILE *svg = svg_write(dir, resultado);
     if (arqQry != NULL)
